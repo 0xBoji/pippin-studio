@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 6.296,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_061238_f83d6730/backgrounds/scene_0_background.png",
+        "narration_text": "Amidst the hustle and bustle of the city, a majestic unicorn appeared, its presence enchanting the urban landscape.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.803,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_061238_f83d6730/backgrounds/scene_1_background.png",
+        "narration_text": "Later that evening, under the starry night, the unicorn strolled through a serene park, its aura blending with the gentle ambiance of the city at night.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

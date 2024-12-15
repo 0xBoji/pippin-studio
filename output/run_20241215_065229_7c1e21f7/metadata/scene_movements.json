@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 7.471,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_065229_7c1e21f7/backgrounds/scene_0_background.png",
+        "narration_text": "A mystical unicorn wandered through the snowy forest, its horn glowing faintly as it revelled in the enchanting Christmas Eve.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.176,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_065229_7c1e21f7/backgrounds/scene_1_background.png",
+        "narration_text": "The unicorn found solace in a quaint barn, where the warmth of the fire and glowing lights spoke of a joyful Christmas awaiting everyone.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

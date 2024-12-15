@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 8.856,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_073053_a5402194/backgrounds/scene_0_background.png",
+        "narration_text": "In the tranquil dawn, a majestic unicorn walks gracefully through the meadow, leaving a trail of shimmering magic with each step.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 9.613,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_073053_a5402194/backgrounds/scene_1_background.png",
+        "narration_text": "As the day slowly wanes, the unicorn treads softly into the heart of the forest, where the golden light dances, welcoming its mythical presence.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

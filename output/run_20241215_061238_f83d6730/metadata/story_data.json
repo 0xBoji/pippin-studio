@@ -1,0 +1,58 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A majestic unicorn with a shimmering white coat, a spiraling golden horn, and a flowing iridescent mane and tail. The unicorn has bright, intelligent eyes.",
+      "required_animations": [
+        "walk",
+        "look around",
+        "gallop"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A bustling modern city square illuminated by the warm glow of dusk, where skyscrapers with reflective glass facades tower above. People move about, and a gentle breeze rustles through the trees lining the street, creating a blend of urban life and nature. The scene is depicted in a storybook illustration style with soft, magical colors typical of classic children's books.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "Amidst the hustle and bustle of the city, a majestic unicorn appeared, its presence enchanting the urban landscape.",
+      "test_criteria": {
+        "visual_elements": [
+          "skyscrapers",
+          "city square",
+          "trees",
+          "people"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "enchanting and bustling",
+        "lighting": "warm glow of dusk"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "An urban park within the city, bathed in soft moonlight from a clear night sky. The park is adorned with lampposts casting gentle pools of light, and benches line the cobblestone paths winding through lush green spaces. Stars twinkle above, adding to the magical atmosphere captured in a classic storybook illustration style with whimsical charm.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "Later that evening, under the starry night, the unicorn strolled through a serene park, its aura blending with the gentle ambiance of the city at night.",
+      "test_criteria": {
+        "visual_elements": [
+          "urban park",
+          "lampposts",
+          "cobblestone paths",
+          "stars"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "serene and magical",
+        "lighting": "soft moonlight"
+      }
+    }
+  ]
+}

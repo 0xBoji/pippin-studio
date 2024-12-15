@@ -20,3 +20,6 @@ openai
 requests
 svgwrite
 tenacity
+elevenlabs
+pydub
+cairosvg

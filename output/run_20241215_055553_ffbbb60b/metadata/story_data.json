@@ -1,0 +1,57 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A majestic unicorn with a spiraling horn, shimmering white coat, and a flowing mane with vibrant rainbow colors. The tail is long and similarly colorful, and it has big, enchanting eyes.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene meadow bathed in soft afternoon light, with gentle rolling hills and a clear blue sky. A quaint wooden path meanders through the meadow, surrounded by colorful wildflowers swaying in a gentle breeze, creating an enchanting atmosphere. The illustration is done in storybook style with soft, whimsical colors reminiscent of classic children's books.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "In a peaceful meadow under a clear blue sky, a Unicorn walks gracefully along the meandering path, surrounded by swaying wildflowers.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "rolling hills",
+          "clear sky",
+          "wildflowers",
+          "wooden path"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "peaceful and enchanting",
+        "lighting": "soft afternoon light"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "An idyllic garden at twilight, with shadows lengthening under the last rays of dusk. Enchanted trees with twinkling lights arch overhead, casting a soft glow over the scene. The atmosphere is serene and magical, designed in a storybook illustration style with subtle, calming hues.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "As the day transitions to night, the Unicorn continues its journey through an enchanted garden, where twinkling lights illuminate a path of mystery.",
+      "test_criteria": {
+        "visual_elements": [
+          "enchanted garden",
+          "twinkling lights",
+          "trees",
+          "dusk"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "serene and magical",
+        "lighting": "twilight with twinkling lights"
+      }
+    }
+  ]
+}

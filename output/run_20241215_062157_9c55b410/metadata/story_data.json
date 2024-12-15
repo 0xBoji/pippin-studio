@@ -1,0 +1,58 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A mystical creature with a majestic horn on its forehead. It has a shimmering coat in shades of white and silver, a flowing mane and tail that change colors like a rainbow, and large, gentle eyes.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tranquil meadow during late afternoon, illuminated by the warm glow of a golden sunset. Rolling hills are adorned with lush green grass and sprinkled with colorful wildflowers, creating a serene and enchanting setting. The sky is painted with hues of pink and orange, enhancing the mystical aura of the scene. Rendered in a storybook illustration style with soft, whimsical colors, capturing a dreamy and peaceful atmosphere.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "In the heart of an enchanted meadow, a Unicorn gracefully walked, basking in the gentle warmth of the setting sun.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "golden sunset",
+          "rolling hills",
+          "wildflowers",
+          "pink and orange sky"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "serene and enchanting",
+        "lighting": "golden sunset"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A mystical forest edge at dusk, where the Unicorn continues its walk. Towering trees with emerald leaves form a canopy, their trunks dappled with the last traces of daylight. Soft, magical lights dance in the air, creating an atmosphere full of wonder and mystery. This is illustrated in a classic children's book style with gentle, dreamlike colors.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "The Unicorn moved towards the edge of the forest, where shadows lengthened, and the world seemed to hold its breath in awe.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest edge",
+          "towering trees",
+          "emerald leaves",
+          "soft magical lights",
+          "dappled daylight"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "wonder and mystery",
+        "lighting": "dusk"
+      }
+    }
+  ]
+}

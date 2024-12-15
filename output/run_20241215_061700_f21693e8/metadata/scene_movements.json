@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 8.202,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_061700_f21693e8/backgrounds/scene_0_background.png",
+        "narration_text": "In the heart of the dawn-kissed meadow, a majestic unicorn takes gentle, graceful steps, its horn glinting in the early light.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.438,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_061700_f21693e8/backgrounds/scene_1_background.png",
+        "narration_text": "The unicorn continues its journey, meandering along a sunlit path through an ancient forest alive with the melodies of nature.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

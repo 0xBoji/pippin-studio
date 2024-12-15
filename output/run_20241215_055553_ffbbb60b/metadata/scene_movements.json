@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 5.0,
+        "background_path": "scene_0_background.png",
+        "narration_text": "In a peaceful meadow under a clear blue sky, a Unicorn walks gracefully along the meandering path, surrounded by swaying wildflowers.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 5.0,
+        "background_path": "scene_1_background.png",
+        "narration_text": "As the day transitions to night, the Unicorn continues its journey through an enchanted garden, where twinkling lights illuminate a path of mystery.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 6.296,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_063747_1ac04d5a/backgrounds/scene_0_background.png",
+        "narration_text": "The unicorn walks gracefully across the meadow, its hooves barely making a sound on the dewy grass.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.124,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_063747_1ac04d5a/backgrounds/scene_1_background.png",
+        "narration_text": "The unicorn continues its journey, meandering through the forest, its presence bringing an air of magic to the serene environment.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

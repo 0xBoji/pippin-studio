@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 5.982,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_062703_41980cc4/backgrounds/scene_0_background.png",
+        "narration_text": "In the gentle light of early morning, an elegant unicorn begins its walk through the peaceful meadow.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 9.979,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_062703_41980cc4/backgrounds/scene_1_background.png",
+        "narration_text": "The unicorn continues its tranquil journey, its hooves softly treading a path through the timeless forest, where the magic of the woods seems to whisper around.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 6.583,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_063142_fb4d9601/backgrounds/scene_0_background.png",
+        "narration_text": "Amidst the peaceful meadow, a lone Unicorn strolled gracefully, taking in the harmonious surroundings.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 10.632,
+        "background_path": "/home/runner/PippinStudio/output/run_20241215_063142_fb4d9601/backgrounds/scene_1_background.png",
+        "narration_text": "The Unicorn continued its gentle walk, the setting sun casting a magical glow around, transforming the meadow into a scene of beauty and peace.",
+        "movements": [
+            {
+                "character_name": "Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]

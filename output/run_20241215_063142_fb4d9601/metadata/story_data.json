@@ -1,0 +1,56 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A mythical creature with a sleek white body, a long spiraled horn on its forehead, flowing mane and tail in rainbow colors. Has sparkling eyes and glittering hooves.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In a tranquil meadow filled with vibrant wildflowers, soft afternoon sunlight drapes across a gentle rolling landscape. The air is still, with a touch of magic shimmering as if the plants themselves hum faint melodies. Rendered in a storybook illustration style, the scene incorporates soft, whimsical colors typical of classic children's tales.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "Amidst the peaceful meadow, a lone Unicorn strolled gracefully, taking in the harmonious surroundings.",
+      "test_criteria": {
+        "visual_elements": [
+          "vibrant wildflowers",
+          "meadow",
+          "rolling landscape",
+          "afternoon sunlight"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "tranquil and magical",
+        "lighting": "soft afternoon sunlight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "As evening approaches, the same meadow is now bathed in the golden glow of a sunset, with long shadows stretching across the field. The sky paints a gradient of oranges and purples, adding an ethereal quality to the scenery, enhancing its enchanting allure. Illustrated in the soft hues and flowing style of classic children's storybooks.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "The Unicorn continued its gentle walk, the setting sun casting a magical glow around, transforming the meadow into a scene of beauty and peace.",
+      "test_criteria": {
+        "visual_elements": [
+          "golden sunset",
+          "meadow",
+          "long shadows",
+          "colorful sky"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "peaceful and enchanting",
+        "lighting": "golden sunset glow"
+      }
+    }
+  ]
+}

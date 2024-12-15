@@ -1,0 +1,15 @@
+{
+  "run_id": "run_20241215_062703_41980cc4",
+  "created_at": "2024-12-15T06:27:03.572809",
+  "assets": {
+    "characters": [
+      "unicorn.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "unicorn_walk.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

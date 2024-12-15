@@ -1,0 +1,54 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A magical creature with a shimmering white coat, a spiraled silver horn on its forehead, a flowing rainbow-colored mane and tail, and glittering hooves.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the early morning light, the enchanting meadow comes alive with the gentle rustle of leaves. The dew-kissed grass glimmers subtly as the first rays of sunshine cast a warm glow over the landscape. The scene is reminiscent of a storybook illustration style with soft, whimsical colors in the style of classic children's books.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "The unicorn walks gracefully across the meadow, its hooves barely making a sound on the dewy grass.",
+      "test_criteria": {
+        "visual_elements": [
+          "dewy grass",
+          "sunshine",
+          "meadow"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "tranquil and magical",
+        "lighting": "early morning light with warm glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "The mystical forest path is enveloped in the rich embrace of the golden afternoon sun. Tall, whispering trees create playful patterns of light and shadow on the ground. This enchanting setting is depicted in a storybook illustration style, using soft, whimsical colors evocative of classic children's literature.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "The unicorn continues its journey, meandering through the forest, its presence bringing an air of magic to the serene environment.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest path",
+          "trees",
+          "light and shadow patterns"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "serene and magical",
+        "lighting": "golden afternoon sun"
+      }
+    }
+  ]
+}

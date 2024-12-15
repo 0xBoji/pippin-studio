@@ -1,0 +1,55 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A magical creature with a slender horse-like body, a spiraling horn extending from its forehead, shimmering white fur, and a flowing mane that glistens with an iridescent rainbow sheen.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the early morning light, a mystical meadow is illuminated with a gentle golden glow, casting soft shadows across delicate wildflowers. The surroundings include lush greenery dotted with sparkling dew, creating a magical aura that wraps the scene in tranquility. This storybook illustration style captures the scene with soft, whimsical colors typical of classic children's books.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "In the tranquil hours of morning, a Unicorn gracefully wandered through a meadow, leaving a trail of shimmering dew in its wake.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "wildflowers",
+          "morning light",
+          "dew"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "tranquil and mystical",
+        "lighting": "gentle morning light with golden glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "During midday, the meadow becomes vibrant under the brilliant sun, with lush grass and wildflowers radiating with color. The sunlight dances off every surface, adding a lively energy to the scene. This is rendered in a classic storybook illustration style with vivid, cheerful colors.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "As the day progressed, the Unicorn continued its walk, basking in the warmth of the midday sun, amidst a lively tapestry of nature's beauty.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "vibrant wildflowers",
+          "midday sun"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "lively and joyful",
+        "lighting": "brilliant midday sun"
+      }
+    }
+  ]
+}

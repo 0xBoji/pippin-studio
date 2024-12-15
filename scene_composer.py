@@ -23,36 +23,63 @@ class SceneComposer:
         self.video_processor = VideoProcessor(self.asset_manager)
 
     async def compose_scenes(self, story_data: Dict, assets: Dict, scene_timelines: List) -> List[Dict]:
+        """Compose all scenes and return a list of scene_data dicts, each with updated duration and characters."""
         composed_scenes = []
         for i, scene in enumerate(story_data["scenes"]):
             timeline = scene_timelines[i] if i < len(scene_timelines) else None
             svg_string = await self._compose_scene(scene, assets, timeline)
 
-            output_dir = self.asset_manager.get_path("scenes", "svg")
-            output_dir.mkdir(parents=True, exist_ok=True)
-            svg_path = output_dir / f"scene_{scene['scene_id']}.svg"
+            # Save SVG
+            svg_path = self.asset_manager.get_path("scenes/svg", f"scene_{scene['scene_id']}.svg")
+            with open(svg_path, 'w') as f:
+                f.write(svg_string)
+            logger.info(f"Saved composed SVG for scene {scene['scene_id']} to: {svg_path}")
+
+            # Convert original characters to dict format
+            original_chars = scene.get("characters", [])
+            character_dicts = []
+            for char_name in original_chars:
+                if not isinstance(char_name, str):
+                    logger.warning(f"Character entry {char_name} is not a string. Skipping.")
+                    continue
+                # If we have a base SVG for this character
+                if char_name in assets["characters"]:
+                    # Use the character's SVG path as animation_path. No animations means static.
+                    animation_path = assets["characters"][char_name]
+                    # For position, if no movement info is available, default to center
+                    character_dicts.append({
+                        "name": char_name,
+                        "animation_path": animation_path,
+                        "position": (512, 512),
+                        "scale": 1.0
+                    })
+                else:
+                    logger.warning(f"No SVG found for character {char_name} in assets. Skipping this character.")
+
+            # Use the timeline's duration to ensure correct scene length
+            # If timeline is None, fallback to a default, but normally it shouldn't be.
+            scene_duration = timeline.duration if timeline else scene.get("duration", 5.0)
 
             scene_data = {
                 "scene_id": scene["scene_id"],
                 "svg": svg_string,
                 "svg_path": str(svg_path),
-                "duration": scene.get("duration", 5.0),
+                "duration": scene_duration,  # Use timeline.duration here
                 "background_path": scene.get("background_path", ""),
-                "characters": []  # if needed
+                "audio_path": scene.get("audio_path", ""),
+                "audio_duration": scene.get("audio_duration", scene_duration),
+                "characters": character_dicts
             }
 
             composed_scenes.append(scene_data)
-            logger.info(f"Completed scene {scene['scene_id']}")
-
-            with open(svg_path, 'w') as f:
-                f.write(svg_string)
-            logger.info(f"Saved composed SVG for scene {scene['scene_id']} to: {svg_path}")
+            logger.info(f"Completed scene {scene['scene_id']} with duration {scene_duration}s")
 
         return composed_scenes
 
     async def create_scene_video(self, scene_data: Dict) -> Path:
-        # Create a video for a single scene
-        video_path = await self.video_processor.create_scene_video(scene_data)
+        """Create a video for a single scene."""
+        output_path = self.asset_manager.get_path("scenes/video", f"scene_{scene_data['scene_id']}.mp4")
+        video_path = await self.video_processor.create_scene_video(scene_data, output_path=output_path)
         return video_path
 
     def _create_particle_effect(self, duration: float, delay: float = 0) -> svgwrite.container.Group:
@@ -113,32 +140,14 @@ class SceneComposer:
                             continue
                         svg_files[char_name] = svg_path
 
-                if any(svg_files):
+                if svg_files:
                     svg_string, duration = self.combine_svgs(svg_files, timeline)
-
-                    base_output = Path("output")
-                    base_output.mkdir(exist_ok=True)
-                    scenes_dir = base_output / "scenes"
-                    scenes_dir.mkdir(exist_ok=True)
-                    svg_dir = scenes_dir / "svg"
-                    svg_dir.mkdir(exist_ok=True)
-
-                    svg_path = svg_dir / f"scene_{scene['scene_id']}.svg"
-                    with open(svg_path, 'w') as f:
-                        f.write(svg_string)
-                    logger.info(f"Saved composed SVG for scene {scene['scene_id']} to: {svg_path}")
-
-                    easy_access_path = Path("generated_scene.svg")
-                    with open(easy_access_path, 'w') as f:
-                        f.write(svg_string)
-                    logger.info(f"Created easily accessible copy at: {easy_access_path}")
-
                     return svg_string
                 else:
-                    logger.error("No character SVG files found, returning empty SVG.")
+                    logger.error("No character SVG files found for this scene with movements, returning empty SVG.")
                     return '<?xml version="1.0" encoding="UTF-8"?><svg></svg>'
             else:
-                # No movements scenario
+                # No movements, just static
                 dwg = svgwrite.Drawing(size=("1024px", "1024px"), viewBox="0 0 1024 1024")
                 movements_file = self.asset_manager.get_path("metadata", "scene_movements.json")
                 logger.info(f"Loading scene movements from: {movements_file}")
@@ -167,7 +176,7 @@ class SceneComposer:
                 except Exception as e:
                     logger.error(f"Failed to create SVG filters: {e}")
 
-                bg_url = assets["backgrounds"][scene["scene_id"]]["url"]
+                bg_url = scene.get("background_path", "")
                 background_group = dwg.g(id="background_layer")
                 background = self._create_background_element(bg_url)
                 fade_in = svgwrite.animate.Animate(
@@ -183,6 +192,7 @@ class SceneComposer:
 
                 character_group = dwg.g(id="character_layer")
 
+                # If we have scene_movements but no timeline-based animation, place characters statically
                 if scene_movements:
                     sorted_movements = sorted(scene_movements["movements"], key=lambda m: m["start_position"][1])
                     for movement in sorted_movements:
@@ -194,57 +204,16 @@ class SceneComposer:
                                 continue
 
                             base_svg_code = base_svg_path.read_text()
-                            duration = movement["end_time"] - movement["start_time"]
-                            ease_in_out = "cubic-bezier(0.4, 0, 0.2, 1)"
-
-                            # Sanitize character name for IDs
-                            safe_char_name = char_name.replace(' ', '_')
-
-                            # The base character ID in the character SVG must match safe_char_name
-                            # Make sure that the character SVG generated has `id="{safe_char_name}_base_character"` 
-                            # We rely on that naming. If not, fix generate_character_svg.
-
-                            element = self.animator.create_animated_element(
-                                base_svg=base_svg_code,
-                                animation_data={
-                                    "transform": {
-                                        "type": "translate",
-                                        "duration": duration,
-                                        "values": (
-                                            f"{movement['start_position'][0]},{movement['start_position'][1]};"
-                                            f"{movement['end_position'][0]},{movement['end_position'][1]}"
-                                        ),
-                                        "begin": f"{movement['start_time']}s",
-                                        "calcMode": "spline",
-                                        "keySplines": ease_in_out
-                                    },
-                                    "opacity": {
-                                        "values": "0;1",
-                                        "duration": 0.3,
-                                        "begin": f"{movement['start_time']}s",
-                                        "fill": "freeze"
-                                    }
-                                },
-                                position={
-                                    "x": movement["start_position"][0],
-                                    "y": movement["start_position"][1]
-                                },
-                                scale=movement["start_scale"],
-                                start_time=movement["start_time"]
-                            )
-
-                            animation_name = movement.get("animation_name")
-                            if animation_name and char_name in assets.get("animations", {}):
-                                anim_data = assets["animations"][char_name][animation_name]
-                                self.animator.add_animation_to_element(element, anim_data)
-
                             shadow = self._create_shadow_element(movement["start_position"], movement["start_scale"])
-                            instance_group_id = f"{safe_char_name}_instance_1"
-                            char_instance_group = dwg.g(id=instance_group_id, transform=f"translate({movement['start_position'][0]},{movement['start_position'][1]}) scale(1)")
+                            char_instance_group = dwg.g(
+                                transform=f"translate({movement['start_position'][0]},{movement['start_position'][1]}) scale(1)"
+                            )
+                            # Just add the base SVG as static content
+                            # We could embed inline, but let's just do a href since we know the path
+                            char_instance_group.add(dwg.image(href=base_svg_path.as_uri(), insert=(0,0), size=("250px","250px")))
                             char_instance_group.add(shadow)
-                            char_instance_group.add(element)
                             character_group.add(char_instance_group)
-                            logger.debug(f"Added character {char_name} to scene {scene['scene_id']}")
+                            logger.debug(f"Added character {char_name} statically to scene {scene['scene_id']}")
 
                 effects_group = dwg.g(id="effects_layer")
                 if scene.get("ambient_effects"):
@@ -254,20 +223,7 @@ class SceneComposer:
                 dwg.add(character_group)
                 dwg.add(effects_group)
 
-                output_dir = self.asset_manager.get_path("scenes", "svg")
-                output_dir.mkdir(parents=True, exist_ok=True)
-                output_path = output_dir / f"scene_{scene['scene_id']}.svg"
                 svg_string = dwg.tostring()
-
-                with open(output_path, 'w') as f:
-                    f.write(svg_string)
-                logger.info(f"Saved composed SVG for scene {scene['scene_id']} to: {output_path}")
-
-                easy_access_path = Path("generated_scene.svg")
-                with open(easy_access_path, 'w') as f:
-                    f.write(svg_string)
-                logger.info(f"Created easily accessible copy at: {easy_access_path}")
-
                 return svg_string
 
         except Exception as e:
@@ -289,7 +245,6 @@ class SceneComposer:
             defs = etree.SubElement(combined_svg, "defs")
 
             logger.info("Processing character SVGs and collecting definitions...")
-            # Append defs from each character
             for char_name, svg_path in svg_files.items():
                 tree = etree.parse(str(svg_path))
                 char_root = tree.getroot()
@@ -305,16 +260,7 @@ class SceneComposer:
                 char_name = movement.character_name
                 if char_name not in svg_files:
                     raise KeyError(char_name)
-
-                svg_path = svg_files[char_name]
-                # We don't necessarily need to parse again here since we only add <use>
-                # But let's parse to ensure naming if needed
-                tree = etree.parse(str(svg_path))
-                # If needed, we can confirm the base_character id here
-
-                # Sanitize character name
                 safe_char_name = char_name.replace(' ', '_')
-
                 instance_group_id = f"{safe_char_name}_instance_1"
                 char_group = etree.SubElement(combined_svg, "g", id=instance_group_id)
                 transform = f"translate({movement.start_position[0]},{movement.start_position[1]}) scale(1)"
@@ -324,7 +270,6 @@ class SceneComposer:
                 base_char_id = f"{safe_char_name}_base_character"
 
                 use_elem = etree.SubElement(char_visual_group, "use")
-                # Make sure that the character SVG has <g id="{safe_char_name}_base_character"> in its defs
                 use_elem.set("{http://www.w3.org/1999/xlink}href", f"#{base_char_id}")
 
                 if movement.animation_name:
@@ -349,17 +294,8 @@ class SceneComposer:
 
                     max_duration = max(max_duration, movement.end_time)
 
-            logger.info(f"Combined SVG created with {len(timeline.movements)} movements")
-            logger.info(f"Total animation duration: {max_duration}s")
-
             svg_string = etree.tostring(combined_svg, pretty_print=True,
                                         xml_declaration=True, encoding="UTF-8")
-
-            easy_access_path = Path("combined_scene.svg")
-            with open(easy_access_path, "wb") as f:
-                f.write(svg_string)
-            logger.info(f"Created easily accessible copy at: {easy_access_path}")
-
             return svg_string.decode('utf-8'), max_duration
 
         except Exception as e:
