@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>Story Generator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        input, textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding:10px;
+            font-size:16px;
+            cursor:pointer;
+        }
+        #progress {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Your Story</h1>
+    <form id="storyForm">
+        <input type="text" name="title" placeholder="Story Title" required>
+        <textarea name="description" placeholder="Story Description" required></textarea>
+        <button type="submit">Generate Story</button>
+    </form>
+    <div id="progress"></div>
+    <div id="downloadLink"></div>
+
+    <script>
+    const form = document.getElementById('storyForm');
+    const progressDiv = document.getElementById('progress');
+    const downloadDiv = document.getElementById('downloadLink');
+    let pollingInterval = null;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        fetch('/generate', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'started') {
+                // Start polling /status every 2 seconds
+                progressDiv.textContent = "Pipeline started...";
+                pollingInterval = setInterval(() => {
+                    fetch('/status')
+                      .then(res => res.json())
+                      .then(statusData => {
+                         progressDiv.textContent = "Current step: " + statusData.step;
+                         if (statusData.step === "Complete") {
+                            clearInterval(pollingInterval);
+                            // Show download link
+                            // Assuming final video at /download endpoint
+                            downloadDiv.innerHTML = '<a href="/download">Download Your Video</a>';
+                         }
+                      })
+                      .catch(err => console.error(err));
+                }, 2000);
+            }
+        })
+        .catch(err => console.error(err));
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A mystical unicorn with a slender, graceful body. It has a shimmering white coat with a mane and tail in pastel rainbow colors. A long, spiraling horn protrudes from its forehead, glowing faintly. Its eyes are large and filled with wonder.",
+      "required_animations": []
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vibrant candy land scene under the bright midday sun, with giant lollipops and gumdrop hills. The landscape is dotted with candy canes and chocolate rivers, creating a fantastical and delightful atmosphere. Rendered in a storybook illustration style with soft, whimsical colors reminiscent of classic children's books.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "In the heart of Candy Land, there roamed a magnificent Unicorn, prancing among the sugary delights and colorful confections.",
+      "test_criteria": {
+        "visual_elements": [
+          "giant lollipops",
+          "gumdrop hills",
+          "candy canes",
+          "chocolate rivers"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "fantastical and delightful",
+        "lighting": "bright midday sun"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "An enchanted candy forest bathed in the soft glow of the setting sun, with towering gumdrop trees and licorice pathways. Twinkling sugar crystals adorn the scene, casting a magical glow. The atmosphere is playful and serene, depicted in a classic storybook illustration style with gentle, dreamy hues.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "As the sun began to set, the Unicorn continued its journey through the enchanted candy forest, where every step brought forth a new sweet surprise.",
+      "test_criteria": {
+        "visual_elements": [
+          "gumdrop trees",
+          "licorice pathways",
+          "twinkling sugar crystals"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "playful and serene",
+        "lighting": "soft glow of the setting sun"
+      }
+    }
+  ]
+}
