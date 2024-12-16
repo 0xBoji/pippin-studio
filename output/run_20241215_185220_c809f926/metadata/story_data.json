@@ -1,0 +1,57 @@
+{
+  "characters": [
+    {
+      "name": "Unicorn",
+      "type": "character",
+      "description": "A mystical unicorn with a slender, graceful body. It has a shimmering white coat, a long spiraled horn of silvery color, and a flowing mane and tail with a rainbow gradient. Its eyes are large and blue, and its hooves are made of golden sheen.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the tranquil heart of an enchanted forest, a gentle twilight casts a serene glow. Majestic trees with cascading vines frame the scene, while ethereal blue mist swirls gently around. The atmosphere buzzes with quiet magic, crafted in a storybook illustration style with soft pastel shades and intricate details.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "As the sun dips below the horizon, a unicorn softly treads along the moss-covered path through the mystical forest.",
+      "test_criteria": {
+        "visual_elements": [
+          "enchanted forest",
+          "twilight glow",
+          "majestic trees",
+          "cascading vines",
+          "blue mist"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "serene and magical",
+        "lighting": "gentle twilight glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A mysterious meadow opens up, bathed in the soft glow of moonlight, dotted with luminescent flowers. The night sky above sparkles with countless stars, casting a silvery light over everything. This dreamlike scene is illustrated with gentle brushstrokes and a whimsical color palette.",
+      "characters": [
+        "Unicorn"
+      ],
+      "narration_text": "The unicorn emerges from the forest into a meadow, its hooves barely brushing the earth as it moves gracefully under the night sky.",
+      "test_criteria": {
+        "visual_elements": [
+          "moonlit meadow",
+          "luminescent flowers",
+          "starry night sky",
+          "silvery light"
+        ],
+        "character_presence": [
+          "Unicorn"
+        ],
+        "mood": "dreamlike and enchanting",
+        "lighting": "soft moonlight"
+      }
+    }
+  ]
+}

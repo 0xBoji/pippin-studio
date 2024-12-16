@@ -73,43 +73,6 @@ class AIManager:
                 logger.error(f"Error generating DALL-E image: {e}")
                 raise
 
-    async def generate_tts(
-        self,
-        text: str,
-        output_path: Path,
-        voice: str = "alloy"
-    ) -> Path:
-        """Generate text-to-speech audio"""
-        async with self.semaphore:
-            try:
-                response = self.openai_client.audio.speech.create(
-                    model="tts-1",
-                    voice=voice,
-                    input=text
-                )
-
-                response.stream_to_file(str(output_path))
-                return output_path
-
-            except Exception as e:
-                logger.error(f"Error generating TTS: {e}")
-                raise
-
-    async def batch_process(
-        self,
-        items: List[Dict],
-        process_func: Callable[[Dict], Any],
-        max_concurrent: int = 5
-    ) -> List[Any]:
-        """Process multiple AI requests in parallel with rate limiting"""
-        semaphore = asyncio.Semaphore(max_concurrent)
-
-        async def process_with_semaphore(item):
-            async with semaphore:
-                return await process_func(item)
-
-        tasks = [process_with_semaphore(item) for item in items]
-        return await asyncio.gather(*tasks)
 
     async def generate_character_description(self, character_name: str) -> Dict:
         """Generate detailed character description for SVG creation"""

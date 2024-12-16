@@ -183,26 +183,6 @@ class SVGAnimator:
 
         return group
 
-    def add_animation_to_element(
-        self,
-        element: svgwrite.container.Group,
-        animation_data: Dict[str, Any]
-    ) -> None:
-        """Add animation to an existing element"""
-        if "transform" in animation_data:
-            transform_anim = self._create_transform_animation(
-                animation_data["transform"],
-                animation_data.get("start_time", 0)
-            )
-            element.add(transform_anim)
-
-        if "color" in animation_data:
-            color_anim = self._create_color_animation(
-                animation_data["color"],
-                animation_data.get("start_time", 0)
-            )
-            element.add(color_anim)
-
     def _create_transform_animation(
         self,
         transform_data: Dict[str, Any],

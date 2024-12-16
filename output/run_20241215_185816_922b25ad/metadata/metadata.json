@@ -1,0 +1,17 @@
+{
+  "run_id": "run_20241215_185816_922b25ad",
+  "created_at": "2024-12-15T18:58:16.859989",
+  "assets": {
+    "characters": [
+      "pippin_the_unicorn.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "pippin_the_unicorn_walk.svg",
+      "pippin_the_unicorn_explore.svg",
+      "pippin_the_unicorn_discover.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

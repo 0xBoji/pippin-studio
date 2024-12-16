@@ -1,0 +1,98 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 7.837,
+        "background_path": "/home/runner/pippin-studio/output/run_20241215_190358_579c46c9/backgrounds/scene_0_background.png",
+        "narration_text": "In the early hours of the morning, Pippin the Unicorn set out on a journey across the lands, eager to discover new adventures.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.176,
+        "background_path": "/home/runner/pippin-studio/output/run_20241215_190358_579c46c9/backgrounds/scene_1_background.png",
+        "narration_text": "As afternoon sun warmed the forest, Pippin trotted through the woodland, enchanted by the shimmering leaves and whispering trees.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 7.967,
+        "background_path": "/home/runner/pippin-studio/output/run_20241215_190358_579c46c9/backgrounds/scene_2_background.png",
+        "narration_text": "Towards evening, Pippin scaled the rocky heights, feeling the pulse of the earth beneath his hooves, under the fiery skies of dusk.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 3,
+        "duration": 8.176,
+        "background_path": "/home/runner/pippin-studio/output/run_20241215_190358_579c46c9/backgrounds/scene_3_background.png",
+        "narration_text": "Under the blanket of stars, Pippin glided through the desert, feeling the cool night breeze and the timeless whispers of the sands.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    }
+]
