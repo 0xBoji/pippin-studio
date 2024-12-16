@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Dog_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="120" rx="40" ry="60" fill="brown" />
+      <!-- White patch on body -->
+      <ellipse cx="110" cy="140" rx="20" ry="30" fill="white" />
+      <!-- Head -->
+      <ellipse cx="100" cy="70" rx="30" ry="30" fill="brown" />
+      <!-- Ears -->
+      <ellipse cx="70" cy="70" rx="10" ry="20" fill="brown" />
+      <ellipse cx="130" cy="70" rx="10" ry="20" fill="brown" />
+      <!-- Eyes -->
+      <ellipse cx="90" cy="65" rx="5" ry="7" fill="white" />
+      <ellipse cx="110" cy="65" rx="5" ry="7" fill="white" />
+      <!-- Pupils -->
+      <ellipse cx="90" cy="65" rx="2" ry="3" fill="black" />
+      <ellipse cx="110" cy="65" rx="2" ry="3" fill="black" />
+      <!-- Tail -->
+      <rect x="135" y="130" width="15" height="5" fill="brown" />
+      <!-- Tongue -->
+      <ellipse cx="100" cy="90" rx="5" ry="3" fill="pink" />
+    </g>
+  </defs>
+  <use xlink:href="#Dog_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 10; 0 0" dur="1s" repeatCount="indefinite" />
+  </use>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "run_id": "run_20241216_033126_4e06b64e",
+  "created_at": "2024-12-16T03:31:26.496490",
+  "assets": {
+    "characters": [
+      "cat.svg",
+      "dog.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "cat_walk.svg",
+      "cat_sit.svg",
+      "dog_trot.svg",
+      "dog_wag_tail.svg",
+      "dog_sit.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

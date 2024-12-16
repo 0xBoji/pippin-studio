@@ -1,0 +1,58 @@
+{
+  "characters": [
+    {
+      "name": "Forest Owl",
+      "type": "character",
+      "description": "A wise owl with large, round eyes and brown feathers. It has a distinctive heart-shaped face and a pair of tufted ears. The owl's feathers have a pattern of darker brown and white streaks.",
+      "required_animations": [
+        "fly",
+        "perch",
+        "turn head"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tranquil forest setting under the soft glow of moonlight, with tall pine trees casting long shadows on the forest floor. The air is crisp, filled with the gentle rustling of leaves and the occasional hoot of an owl. The scene is illustrated in a classic storybook style, featuring gentle, silvery hues that lend an air of mystery and enchantment.",
+      "characters": [
+        "Forest Owl"
+      ],
+      "narration_text": "In a serene forest bathed in the light of a full moon, there lived a wise forest owl who watched over the woodland creatures.",
+      "test_criteria": {
+        "visual_elements": [
+          "pine trees",
+          "moonlight",
+          "shadows",
+          "forest floor"
+        ],
+        "character_presence": [
+          "Forest Owl"
+        ],
+        "mood": "mysterious and serene",
+        "lighting": "soft moonlight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "An ethereal forest at dusk, where the sky is painted in hues of deep blue and violet, and the first stars twinkle above. The forest is alive with the sound of crickets and the whisper of the wind, creating a peaceful yet magical atmosphere. This storybook illustration uses rich, calming colors and a sense of quiet wonder.",
+      "characters": [
+        "Forest Owl"
+      ],
+      "narration_text": "As the sun set and the stars began to twinkle, the forest owl took flight, gliding silently among the trees.",
+      "test_criteria": {
+        "visual_elements": [
+          "dusk sky",
+          "stars",
+          "trees",
+          "crickets"
+        ],
+        "character_presence": [
+          "Forest Owl"
+        ],
+        "mood": "peaceful and magical",
+        "lighting": "twilight with starlight"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Party_Dog_base_character">
+      <!-- Dog Body -->
+      <ellipse cx="100" cy="150" rx="50" ry="30" fill="saddlebrown" />
+      <!-- Head -->
+      <circle cx="100" cy="100" r="25" fill="saddlebrown" />
+      <!-- Ears -->
+      <ellipse cx="80" cy="100" rx="10" ry="20" fill="saddlebrown" />
+      <ellipse cx="120" cy="100" rx="10" ry="20" fill="saddlebrown" />
+      <!-- Eyes -->
+      <circle cx="90" cy="95" r="4" fill="white" />
+      <circle cx="110" cy="95" r="4" fill="white" />
+      <circle cx="90" cy="95" r="2" fill="black" />
+      <circle cx="110" cy="95" r="2" fill="black" />
+      <!-- Mouth -->
+      <path d="M90,110 Q100,120 110,110" fill="none" stroke="black" stroke-width="2" />
+      <!-- Tail -->
+      <path d="M150,140 Q180,130 150,120" stroke="saddlebrown" stroke-width="4" fill="none" />
+      <!-- Party Hat -->
+      <polygon points="100,75 90,55 110,55" fill="red" />
+      <circle cx="100" cy="55" r="3" fill="blue" />
+      <circle cx="100" cy="65" r="3" fill="yellow" />
+      <circle cx="95" cy="50" r="3" fill="green" />
+    </g>
+  </defs>
+  <use xlink:href="#Party_Dog_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite" />
+  </use>
+</svg>

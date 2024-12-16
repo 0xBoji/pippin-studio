@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Dog_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="130" rx="50" ry="30" fill="brown" />
+      <!-- Head -->
+      <ellipse cx="100" cy="70" rx="30" ry="25" fill="brown" />
+      <!-- Ears -->
+      <ellipse cx="75" cy="60" rx="10" ry="20" fill="brown" transform="rotate(-20 75 60)" />
+      <ellipse cx="125" cy="60" rx="10" ry="20" fill="brown" transform="rotate(20 125 60)" />
+      <!-- Eyes -->
+      <circle cx="90" cy="65" r="5" fill="white" />
+      <circle cx="110" cy="65" r="5" fill="white" />
+      <!-- Pupils -->
+      <circle cx="90" cy="65" r="2" fill="black" />
+      <circle cx="110" cy="65" r="2" fill="black" />
+      <!-- Nose -->
+      <ellipse cx="100" cy="80" rx="5" ry="3" fill="black" />
+      <!-- Tail -->
+      <path id="tail" d="M150,130 Q160,120 150,110" stroke="brown" stroke-width="5" fill="none">
+        <animateTransform attributeName="transform" type="rotate" values="0 150 130; 20 150 130; 0 150 130; -20 150 130; 0 150 130" dur="0.8s" repeatCount="indefinite" />
+      </path>
+    </g>
+  </defs>
+  <use xlink:href="#Dog_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite" />
+  </use>
+</svg>

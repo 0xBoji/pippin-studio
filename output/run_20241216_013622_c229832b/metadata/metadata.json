@@ -1,0 +1,17 @@
+{
+  "run_id": "run_20241216_013622_c229832b",
+  "created_at": "2024-12-16T01:36:22.086256",
+  "assets": {
+    "characters": [
+      "forest_owl.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "forest_owl_fly.svg",
+      "forest_owl_perch.svg",
+      "forest_owl_turn_head.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

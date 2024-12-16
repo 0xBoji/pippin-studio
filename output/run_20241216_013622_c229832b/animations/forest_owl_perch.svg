@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200">
+    <defs>
+        <g id="Forest_Owl_base_character">
+            <ellipse cx="100" cy="100" rx="40" ry="50" fill="#8B4513" />
+            <ellipse cx="78" cy="85" rx="15" ry="20" fill="white" />
+            <ellipse cx="122" cy="85" rx="15" ry="20" fill="white" />
+            <circle cx="78" cy="85" r="8" fill="#000000" />
+            <circle cx="122" cy="85" r="8" fill="#000000" />
+            <path d="M60,75 Q100,40 140,75" fill="none" stroke="#8B4513" stroke-width="5" />
+            <polygon points="70,40 90,20 110,40" fill="#8B4513" />
+            <polygon points="130,40 110,20 90,40" fill="#8B4513" />
+            <rect x="90" y="110" width="20" height="10" fill="#A0522D" />
+            <line x1="60" y1="110" x2="140" y2="110" stroke="#8B4513" stroke-width="2" stroke-linecap="round" />
+        </g>
+    </defs>
+    <use xlink:href="#Forest_Owl_base_character">
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="1s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0;1" dur="2s" repeatCount="1" fill="freeze" begin="indefinite" id="perchAnimation" />
+    </use>
+</svg>

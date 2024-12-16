@@ -1,0 +1,61 @@
+{
+  "characters": [
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A playful dog with floppy ears, a wagging tail, and a brown coat with white patches. It has large, friendly eyes and a pink tongue sticking out.",
+      "required_animations": [
+        "walk",
+        "wag tail",
+        "bark",
+        "party dance"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the soft glow of a golden sunset, a small village square is bustling with activity. Colorful balloons and streamers hang from quaint lamp posts, and the cobblestone ground is dotted with lively party decorations. The atmosphere is joyful and festive, captured in a storybook illustration style with bright, whimsical colors typical of classic children's books.",
+      "characters": [
+        "Dog"
+      ],
+      "narration_text": "Dog was excited to attend the village party.",
+      "test_criteria": {
+        "visual_elements": [
+          "balloons",
+          "streamers",
+          "cobblestone square",
+          "sunset lighting",
+          "party decorations"
+        ],
+        "character_presence": [
+          "Dog"
+        ],
+        "mood": "joyful and festive",
+        "lighting": "golden sunset"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "The party is in full swing under the star-filled night sky, with twinkling fairy lights strung between trees. A long wooden table is filled with various treats and a large cake, while music notes fill the air, creating a warm and inviting atmosphere. Rendered in a whimsical storybook style, the colors are soft and enchanting.",
+      "characters": [
+        "Dog"
+      ],
+      "narration_text": "Dog joined the festivities, wagging his tail happily as he sniffed around the treats table.",
+      "test_criteria": {
+        "visual_elements": [
+          "twinkling fairy lights",
+          "treats table",
+          "large cake",
+          "music notes",
+          "starry sky"
+        ],
+        "character_presence": [
+          "Dog"
+        ],
+        "mood": "warm and inviting",
+        "lighting": "star-filled night sky"
+      }
+    }
+  ]
+}

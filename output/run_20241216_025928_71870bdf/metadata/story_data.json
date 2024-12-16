@@ -1,0 +1,57 @@
+{
+  "characters": [
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A playful dog with a brown and white coat, floppy ears, and a wagging tail. Has big, friendly eyes and a black nose.",
+      "required_animations": [
+        "walk",
+        "wag_tail"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the soft light of a late afternoon, a quaint village square is adorned with colorful banners and balloons. People have gathered for a joyous celebration, their laughter filling the air. The scene is rendered in a storybook illustration style, with gentle, pastel colors capturing the festive atmosphere.",
+      "characters": [
+        "Dog"
+      ],
+      "narration_text": "Dog is excited to attend the party happening in the town square, where the villagers have gathered for a cheerful festival.",
+      "test_criteria": {
+        "visual_elements": [
+          "village square",
+          "colorful banners",
+          "balloons",
+          "gathered people"
+        ],
+        "character_presence": [
+          "Dog"
+        ],
+        "mood": "joyous and festive",
+        "lighting": "soft late afternoon light"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "As the evening approaches, strings of fairy lights illuminate the village square, casting a warm glow over the cobblestones. The air is filled with the aroma of delicious foods, while music plays in the background, enhancing the magical atmosphere. Storybook illustration style captures the scene with vibrant, whimsical colors.",
+      "characters": [
+        "Dog"
+      ],
+      "narration_text": "As the sun sets, Dog marvels at the fairy lights and enjoys a delightful evening at the party, savoring the sounds and smells of the celebration.",
+      "test_criteria": {
+        "visual_elements": [
+          "fairy lights",
+          "village square",
+          "cobblestones",
+          "party decorations"
+        ],
+        "character_presence": [
+          "Dog"
+        ],
+        "mood": "delightful and magical",
+        "lighting": "warm glow of fairy lights"
+      }
+    }
+  ]
+}

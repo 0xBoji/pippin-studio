@@ -50,7 +50,6 @@ async def download_image(url: str, output_path: str) -> bool:
 
 class AssetGenerator:
     def __init__(self, asset_manager: AssetManager):
-        # Use the provided asset_manager directly, do not create new runs
         self.model = "gpt-4o"
         self.asset_manager = asset_manager
         try:
@@ -59,6 +58,30 @@ class AssetGenerator:
         except Exception as e:
             logger.error(f"Failed to initialize OpenAI client: {e}")
             raise
+
+        # Example SVGs from a config-like dictionary
+        # If the character name matches "unicorn" or "Unicorn", we use this SVG instead of generating dynamically.
+        self.svg_config = {
+            "unicorn": """<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250" height="250" viewBox="0 0 250 250"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <g id="Unicorn_base_character">
+            <!-- Base shape with a light bounce animation -->
+            <g>
+                <animateTransform attributeName="transform" attributeType="XML" type="translate"
+                                  values="0 0; 0 15; 0 0" dur="1s" repeatCount="indefinite"/>
+                <path d="M80,150 Q60,120 80,90 Q100,60 140,70 Q180,80 160,120 Q150,160 100,160 Z"
+                      fill="#fff" stroke="#000" stroke-width="2"/>
+                <circle cx="120" cy="110" r="5" fill="#000"/>
+                <polygon points="160,55 155,35 165,35" fill="#ffd700" stroke="#000" stroke-width="1"/>
+            </g>
+        </g>
+    </defs>
+    <use xlink:href="#Unicorn_base_character"/>
+</svg>"""
+        }
 
     async def generate_all_assets(self, story_data: Dict) -> Dict:
         results = []
@@ -168,7 +191,7 @@ class AssetGenerator:
 
         char_name = character['name']
         char_type = character['type']
-        char_desc = character['description'].lower()
+        char_desc = character['description']
         if not char_name or not isinstance(char_name, str):
             raise ValueError(f"Invalid character name: {char_name}")
         if char_type not in ['character', 'object']:
@@ -176,74 +199,76 @@ class AssetGenerator:
         if not char_desc:
             raise ValueError(f"Empty character description for {char_name}")
 
-        logger.info(f"Generating base SVG for character: {char_name}")
-        if char_type == "character":
-            # Generic character SVG
-            svg_code = """<?xml version="1.0" encoding="UTF-8"?>
-<svg width="250" height="250" viewBox="0 0 250 250" 
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    ... (same unicorn SVG as before) ...
-</svg>"""
-            # Truncated for brevity; use the same unicorn SVG code from before
-            svg_code = svg_code.replace("... (same unicorn SVG as before) ...", """
-    <defs>
-        <g id="Unicorn_base_character">
-            <!-- Steady Legs Group -->
-            <g>
-                <path d="M100,160 L100,190" stroke="#000" stroke-width="2"/>
-                <path d="M120,160 L120,190" stroke="#000" stroke-width="2"/>
-                <path d="M140,160 L140,190" stroke="#000" stroke-width="2"/>
-                <path d="M160,120 Q165,140 160,160" stroke="#000" stroke-width="2"/>
-                <ellipse cx="100" cy="190" rx="5" ry="2" fill="#000"/>
-                <ellipse cx="120" cy="190" rx="5" ry="2" fill="#000"/>
-                <ellipse cx="140" cy="190" rx="5" ry="2" fill="#000"/>
-                <ellipse cx="160" cy="160" rx="5" ry="2" fill="#000"/>
-            </g>
-            <g>
-                <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0; 0 15; 0 0" dur="0.8s" repeatCount="indefinite"/>
-                <path d="M80,150 Q60,120 80,90 Q100,60 140,70 Q180,80 160,120 Q150,160 100,160 Z" fill="#fff" stroke="#000" stroke-width="2"/>
-                <path d="M80,150 Q70,155 75,160 Q70,165 80,170" stroke="#ff69b4" stroke-width="2" fill="none"/>
-                <path d="M75,160 Q80,165 75,170" stroke="#ff69b4" stroke-width="2" fill="none"/>
-                <path d="M90,120 Q95,110 100,120" stroke="#000" stroke-width="1" fill="none"/>
-                <path d="M110,130 Q115,120 120,130" stroke="#000" stroke-width="1" fill="none"/>
-            </g>
-            <g>
-                <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0; 0 12; 0 0" dur="0.8s" begin="0.08s" repeatCount="indefinite"/>
-                <path d="M140,70 Q150,60 160,55 Q170,50 175,60 Q180,70 170,80 Q160,85 150,80 Q140,75 140,70 Z" fill="#fff" stroke="#000" stroke-width="2"/>
-                <polygon points="160,55 155,35 165,35" fill="#ffd700" stroke="#000" stroke-width="1"/>
-                <path d="M165,45 Q166,40 160,43" fill="#fff" stroke="#000" stroke-width="1"/>
-                <path d="M170,45 Q171,40 165,43" fill="#fff" stroke="#000" stroke-width="1"/>
-                <circle cx="162" cy="60" r="3" fill="#000"/>
-                <circle cx="158" cy="60" r="1.5" fill="#fff"/>
-                <path d="M155,55 Q150,60 155,65 Q150,70 155,75 Q150,80 155,85" stroke="#ff69b4" stroke-width="2" fill="none"/>
-                <path d="M160,55 Q155,60 160,65 Q155,70 160,75 Q155,80 160,85" stroke="#ff69b4" stroke-width="2" fill="none"/>
-            </g>
-        </g>
-    </defs>
-    <use xlink:href="#Unicorn_base_character"/>
-            """)
-
+        # Check if character name matches "unicorn"
+        if "unicorn" in char_name.lower():
+            svg_code = self.svg_config["unicorn"]
+            return {
+                "svg_code": svg_code,
+                "character_name": char_name
+            }
         else:
-            svg_code = """<?xml version="1.0" encoding="UTF-8"?>
-<svg width="250" height="250" viewBox="0 0 250 250"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <g id="{name}_base_character">
-            <rect x="0" y="0" width="200" height="200" fill="#fff" stroke="#000" stroke-width="8"/>
-        </g>
-    </defs>
-    <use xlink:href="#{name}_base_character"/>
-</svg>""".format(name=char_name.replace(" ","_"))
+            # Dynamically generate SVG using OpenAI
+            schema = {
+                "type": "object",
+                "properties": {
+                    "svg_code": {"type": "string"},
+                    "character_name": {"type": "string"}
+                },
+                "required": ["svg_code", "character_name"]
+            }
 
-        if not svg_code.startswith('<?xml') or '</svg>' not in svg_code:
-            raise ValueError(f"Invalid SVG structure for {char_name}")
+            # Detailed system prompt instructions:
+            # We want a single SVG with a base character:
+            # * The SVG must include a light bounce animation (similar to a vertical translate oscillation).
+            # * The SVG should be fully self-contained, no external references.
+            # * It should use clear shapes (paths, circles, polygons) and simple colors.
+            # * The SVG must start with <?xml version="1.0" encoding="UTF-8"?> and contain a single <svg> root.
+            # * The character should visually reflect the given description (colors, form, etc.).
+            # * The animation should use animateTransform or similar elements to create a subtle bounce.
+            # * Avoid complex gradients; stick to solid fills and strokes for easier parsing.
+            # * The character_name in output should match the one provided.
+            # * The SVG should have a viewBox and fixed width and height.
+            # * The SVG code must be valid XML.
+            # * The bounce animation: use translate with a small vertical movement (e.g. values="0 0; 0 10; 0 0") over about 1s, repeat indefinitely.
 
-        return {
-            "svg_code": svg_code,
-            "character_name": char_name
-        }
+            system_instructions = """
+You are an SVG character generation expert. Given a character's name and description, produce a base SVG string that:
+
+- Starts with <?xml version="1.0" encoding="UTF-8"?>.
+- Has a single <svg> root with a viewBox and width/height attributes.
+- Depicts a character described by the given text (physical appearance, colors).
+- Include a subtle 'light bounce' animation (vertical translate) that loops indefinitely.
+- Use simple, solid colors and basic shapes (paths, ellipses, rectangles) to represent the character.
+- No external images or references.
+- Include <defs> and a <g> element with an id like {character_name}_base_character.
+- After the <defs>, use <use xlink:href="#{character_name}_base_character"/> to display.
+- The animation should use <animateTransform> with 'translate' and at least two intermediate values (e.g., values="0 0; 0 10; 0 0") and dur="1s" repeatCount="indefinite".
+- Make sure the SVG is valid and can be parsed easily. Keep it under a few hundred lines.
+- The output must be a JSON object with "svg_code" and "character_name".
+"""
+
+            user_prompt = f"""
+Return a JSON object matching this schema:
+{json.dumps(schema, indent=2)}
+
+Character name: {char_name}
+Character type: {char_type}
+Description: {char_desc}
+
+Generate a base animated SVG following the system instructions.
+"""
+
+            response = completion(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_instructions},
+                    {"role": "user", "content": user_prompt}
+                ],
+                response_format={"type": "json_object"}
+            )
+
+            result = json.loads(response.choices[0].message.content)
+            return result
 
     async def generate_animation(self, character: Dict, animation_name: str, base_svg: str) -> Dict:
         schema = {
@@ -256,24 +281,48 @@ class AssetGenerator:
             "required": ["animation_svg", "character_name", "animation_name"]
         }
 
-        prompt = f"""
-        Create an animated SVG for {character['name']} performing {animation_name} by modifying the base SVG.
-        Only add animation elements, preserve structure.
-        Base SVG:
-        {base_svg}
-        """
+        # Detailed instructions for creating animation:
+        # We have a base character SVG. We need to add an animation that shows the character performing the given animation_name action.
+        # The result should:
+        # * Maintain the same SVG structure and add new animate elements inside the relevant groups or paths.
+        # * The animation must be something visible: could be another translate, rotate, scale, or color change.
+        # * The code must remain valid SVG, starting with <?xml ... ?> and a single root <svg>.
+        # * The output should be a JSON with animation_svg, character_name, and animation_name.
+        # * Ensure that animations do not break the previous structure; just add or modify <animate> or <animateTransform>.
+        # * The animate elements should be clear and use dur, values, etc. The attributeName must be something that actually exists in the SVG.
+        # * Keep complexity low, only add simple animations that we can parse (e.g., a rotation of a limb, or a color fade).
+        # * The system instructions should ensure that we can always parse the output correctly.
+
+        system_instructions = """
+You are an SVG animation expert. Given a base character SVG and an animation_name, add or modify the SVG to include an additional animation representing that action. Follow these rules:
+
+- Do not remove existing elements or animations, only add or augment them.
+- Use standard SVG animation elements (<animate>, <animateTransform>, <animateMotion>) with simple, linear values.
+- Ensure the resulting SVG is still valid and starts with <?xml version="1.0" encoding="UTF-8"?> and one <svg> root.
+- The new animation should be easily parsed: numeric values, hex colors, or transforms.
+- Respect the schema: return JSON with "animation_svg", "character_name", "animation_name".
+- Keep the style consistent and do not add external resources.
+- If the animation_name suggests a particular action, reflect it with a suitable transform or attribute animation.
+"""
+
+        user_prompt = f"""
+Return a JSON object matching this schema:
+{json.dumps(schema, indent=2)}
+
+Character name: {character['name']}
+Animation name: {animation_name}
+
+Base SVG:
+{base_svg}
+
+Add an animation for '{animation_name}' action following system instructions.
+"""
 
         response = completion(
             model=self.model,
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are an SVG animation expert that returns JSON with animation_svg."
-                },
-                {
-                    "role": "user",
-                    "content": f"Return a JSON object matching this schema:\n{json.dumps(schema, indent=2)}\n{prompt}"
-                }
+                {"role": "system", "content": system_instructions},
+                {"role": "user", "content": user_prompt}
             ],
             response_format={"type": "json_object"}
         )

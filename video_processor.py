@@ -1,11 +1,12 @@
 import logging
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from io import BytesIO
 from PIL import Image
 import subprocess
 import numpy as np
 import cairosvg
+import math
 
 from asset_manager import AssetManager
 from svg_processor import SVGProcessor
@@ -25,7 +26,6 @@ class VideoProcessor:
 
         logger.info(f"Creating video for scene {scene_id} with duration {duration}s")
 
-        # If output_path not provided, use scenes/video
         if output_path is None:
             output_path = self.asset_manager.get_path("scenes/video", f"scene_{scene_id}.mp4")
 
@@ -37,18 +37,14 @@ class VideoProcessor:
         if not background_path.exists():
             raise FileNotFoundError(f"Background image not found: {background_path}")
 
-        logger.info(f"Using background image: {background_path}")
         with Image.open(background_path) as img:
-            logger.info(f"Background image loaded: {background_path} size={img.size} mode={img.mode} format={img.format}")
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+            bg_array = np.array(img)
+        logger.info(f"Loaded background image {background_path}")
 
         fps = 30
-        logger.info(f"Creating video for scene {scene_id} at {fps} FPS")
-
-        with Image.open(background_path) as bg_img:
-            if bg_img.mode != 'RGB':
-                bg_img = bg_img.convert('RGB')
-            bg_array = np.array(bg_img)
-            logger.info(f"Converted background to array with shape: {bg_array.shape}")
+        total_frames = int(duration * fps)
 
         scene_frames = []
         if scene_svg_path:
@@ -57,39 +53,39 @@ class VideoProcessor:
             scene_svg_frames = await svg_processor.generate_frames(duration=duration, fps=fps)
             scene_frames = scene_svg_frames
 
-        character_frames = []
-        if characters:
-            logger.info(f"Processing {len(characters)} character animations...")
-            for char in characters:
-                animation_path = Path(char["animation_path"])
-                if not animation_path.exists():
-                    raise FileNotFoundError(f"Character animation file not found: {animation_path}")
+        # Pre-process character frames (their static or animated SVGs) now
+        # We'll just load them fully and position them at runtime per frame
+        character_data_list = []
+        for char in characters:
+            animation_path = Path(char["animation_path"])
+            if not animation_path.exists():
+                raise FileNotFoundError(f"Character animation file not found: {animation_path}")
 
-                logger.info(f"Processing character animation: {animation_path}")
-                svg_processor = SVGProcessor(animation_path)
-                char_duration = svg_processor.get_animation_duration()
-                frames = await svg_processor.generate_frames(duration=char_duration, fps=fps)
-
-                character_frames.append({
-                    'frames': frames,
-                    'position': char['position'],
-                    'scale': char.get('scale', 1.0),
-                    'name': char.get('name', 'unnamed_character')
-                })
-                logger.info(f"Generated {len(frames)} frames for character: {char.get('name', 'unnamed')}")
+            logger.info(f"Processing character animation: {animation_path}")
+            svg_processor = SVGProcessor(animation_path)
+            char_duration = max(duration, svg_processor.get_animation_duration())  
+            # Use at least the scene duration to avoid short animations ending too soon.
+            char_frames = await svg_processor.generate_frames(duration=char_duration, fps=fps)
+            character_data_list.append({
+                'frames': char_frames,
+                'movements': char.get('movements', []),
+                'name': char.get('name', 'unnamed_character')
+            })
+            logger.info(f"Generated {len(char_frames)} frames for character: {char.get('name', 'unnamed')}")
 
         encoder = VideoEncoder(str(output_path), fps)
         logger.info("VideoEncoder initialized successfully")
 
         final_frames = []
-        total_frames = int(duration * fps)
         for frame_idx in range(total_frames):
+            current_time = frame_idx / fps
             frame = bg_array.copy()
             if frame_idx % 10 == 0:
                 logger.info(f"Processing frame {frame_idx+1}/{total_frames}")
 
+            # Draw scene frame if any
             if scene_frames:
-                scene_frame = scene_frames[frame_idx % len(scene_frames)]
+                scene_frame = scene_frames[min(frame_idx, len(scene_frames)-1)]
                 scene_img = Image.open(BytesIO(scene_frame)).convert('RGBA')
                 scene_array = np.array(scene_img)
 
@@ -104,34 +100,42 @@ class VideoProcessor:
                 blended = (src_rgb*alpha + dst_rgb*(1-alpha)).astype(np.uint8)
                 frame[0:y2,0:x2] = blended
 
-            for char_data in character_frames:
+            # Place characters based on movements
+            for char_data in character_data_list:
                 frames = char_data['frames']
                 if not frames:
                     continue
                 char_frame_idx = frame_idx % len(frames)
                 char_frame = frames[char_frame_idx]
 
-                char_img = Image.open(BytesIO(char_frame))
-                if char_img.mode != 'RGBA':
-                    char_img = char_img.convert('RGBA')
-                char_array = np.array(char_img)
+                # Determine character position and scale at current_time
+                cx, cy, scale = self._compute_character_position_scale(char_data['movements'], current_time)
 
-                x, y = char_data['position']
-                h, w = frame.shape[:2]
+                char_img = Image.open(BytesIO(char_frame)).convert('RGBA')
+                # If we wanted to scale the character image, we could do so, but for simplicity,
+                # let's assume character frames are appropriately sized or consider scale visually only.
+                # TODO: Optional image resizing based on scale:
+                if scale != 1.0:
+                    new_w = int(char_img.width * scale)
+                    new_h = int(char_img.height * scale)
+                    char_img = char_img.resize((new_w, new_h), Image.LANCZOS)
+
+                char_array = np.array(char_img)
                 ch, cw = char_array.shape[:2]
 
-                x = int(x - cw/2)
-                y = int(y - ch/2)
+                x = int(cx - cw/2)
+                y = int(cy - ch/2)
 
                 x1, y1 = max(0, x), max(0, y)
-                x2, y2 = min(w, x+cw), min(h, y+ch)
+                x2, y2 = min(frame.shape[1], x+cw), min(frame.shape[0], y+ch)
 
                 src_x1 = max(0, -x)
                 src_y1 = max(0, -y)
                 src_x2 = src_x1 + (x2 - x1)
                 src_y2 = src_y1 + (y2 - y1)
 
-                if (x2> x1 and y2>y1 and src_x2>src_x1 and src_y2>src_y1 and src_y2<=ch and src_x2<=cw):
+                if (x2 > x1 and y2 > y1 and src_x2 > src_x1 and src_y2 > src_y1 and 
+                    src_y2 <= ch and src_x2 <= cw):
                     alpha = char_array[src_y1:src_y2, src_x1:src_x2, 3:4]/255.0
                     src_rgb = char_array[src_y1:src_y2, src_x1:src_x2,:3]
                     dst_rgb = frame[y1:y2, x1:x2]
@@ -153,3 +157,44 @@ class VideoProcessor:
 
         logger.info(f"Successfully created video: {output_path}")
         return video_path
+
+    def _compute_character_position_scale(self, movements: List[Dict], current_time: float) -> Tuple[float,float,float]:
+        if not movements:
+            # fallback to center
+            return (512, 512, 1.0)
+
+        current_segment = movements[-1]
+        for m in movements:
+            if m["start_time"] <= current_time <= m["end_time"]:
+                current_segment = m
+                break
+
+        # Validate positions
+        start_pos = current_segment.get("start_position")
+        end_pos = current_segment.get("end_position")
+
+        if (not start_pos or len(start_pos) != 2 or not end_pos or len(end_pos) != 2):
+            # If positions are invalid, log a warning and fallback to center
+            logger.warning("Invalid position data in movements. Falling back to center.")
+            return (512, 512, 1.0)
+
+        start_t = current_segment["start_time"]
+        end_t = current_segment["end_time"]
+        if end_t == start_t:
+            t = 1.0
+        else:
+            t = (current_time - start_t) / (end_t - start_t)
+            t = max(0.0, min(t, 1.0))
+
+        sx, sy = start_pos
+        ex, ey = end_pos
+        x = sx + (ex - sx)*t
+        y = sy + (ey - sy)*t
+
+        s_start = current_segment.get("start_scale", 1.0)
+        s_end = current_segment.get("end_scale", 1.0)
+        scale = s_start + (s_end - s_start)*t
+
+        return (x, y, scale)
+
+
