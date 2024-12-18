@@ -1,0 +1,50 @@
+{
+  "characters": [
+    {
+      "name": "Cat",
+      "type": "character",
+      "description": "A small feline with sleek fur, pointed ears, and a long tail. Possesses sharp, attentive eyes and delicate whiskers.",
+      "required_animations": [
+        "walk",
+        "sit",
+        "gesture"
+      ]
+    },
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A medium-sized canine with a sturdy build, floppy ears, and a wagging tail. Has enthusiastic eyes and a snout with a wet nose.",
+      "required_animations": [
+        "wag tail",
+        "run",
+        "bark"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In a warm, sunlit meadow during a golden afternoon, the landscape is dotted with colorful wildflowers that sway gently in the breeze. Tall grass rustles softly, and a solitary oak tree provides a peaceful resting spot at the meadow's edge. Illustrated in a classic storybook style, the colors are soft and whimsical, inviting a sense of harmony.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "Cat and Dog met in a sun-drenched meadow, where the world felt alive with vibrant colors and gentle breezes.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "wildflowers",
+          "oak tree",
+          "tall grass",
+          "sunlight"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "harmonious and peaceful",
+        "lighting": "golden afternoon sunlight"
+      }
+    }
+  ]
+}

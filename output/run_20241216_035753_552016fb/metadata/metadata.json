@@ -1,0 +1,19 @@
+{
+  "run_id": "run_20241216_035753_552016fb",
+  "created_at": "2024-12-16T03:57:53.312820",
+  "assets": {
+    "characters": [
+      "bunny.svg",
+      "turtle.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "bunny_run.svg",
+      "bunny_jump.svg",
+      "turtle_walk.svg",
+      "turtle_slow_stare.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

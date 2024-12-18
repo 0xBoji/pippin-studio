@@ -1,0 +1,92 @@
+{
+  "characters": [
+    {
+      "name": "Owl",
+      "type": "character",
+      "description": "A wise-looking owl with large, round eyes, brown and white speckled feathers, and a slightly curved beak.",
+      "required_animations": [
+        "fly",
+        "nod",
+        "blink"
+      ]
+    },
+    {
+      "name": "Mouse",
+      "type": "character",
+      "description": "A small, gray mouse with large ears, a long pink tail, and tiny whiskers. It has bright, curious eyes.",
+      "required_animations": [
+        "scurry",
+        "squeak",
+        "peek"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene woodland at dusk, with a warm glow as the setting sun casts long shadows across the forest floor. Giant oaks stand proudly, their leaves gently rustling in the evening breeze. The atmosphere is peaceful, almost magical, capturing the quiet beauty of the woods at sunset, painted in a storybook illustration style with soft, warm colors reminiscent of classic children's tales.",
+      "characters": [
+        "Owl"
+      ],
+      "narration_text": "In the heart of the forest, as the sun began to set, lived a wise old Owl known to all creatures for his kindness and intelligence.",
+      "test_criteria": {
+        "visual_elements": [
+          "giant oaks",
+          "forest floor",
+          "setting sun",
+          "long shadows"
+        ],
+        "character_presence": [
+          "Owl"
+        ],
+        "mood": "peaceful and magical",
+        "lighting": "warm glow of the setting sun"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A twilight forest clearing bathed in the silvery glow of a full moon, with wildflowers that twinkle under the moonlight. The gentle rustle of leaves fills the air, creating an enchanting atmosphere. The scene thrives in a storybook illustration style with soft, muted colors that evoke a sense of wonder.",
+      "characters": [
+        "Owl",
+        "Mouse"
+      ],
+      "narration_text": "One evening, as Owl glided through the moonlit clearing, he spotted a little Mouse scurrying among the wildflowers, looking lost yet intrigued by the forest's beauty.",
+      "test_criteria": {
+        "visual_elements": [
+          "full moon",
+          "wildflowers",
+          "forest clearing",
+          "silvery glow"
+        ],
+        "character_presence": [
+          "Owl",
+          "Mouse"
+        ],
+        "mood": "enchanting and tranquil",
+        "lighting": "silvery moonlight"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "A cozy nook in the forest, illuminated by flickering fireflies against the backdrop of a starry sky. The soft hum of nature at night creates a harmonious sanctuary. The scene is depicted in a storybook illustration style, with gentle, whimsical hues capturing the friendship blossoming between Owl and Mouse.",
+      "characters": [
+        "Owl",
+        "Mouse"
+      ],
+      "narration_text": "Drawn by a strange sense of curiosity and warmth, Owl flew down to meet the Mouse. They chatted under the twinkling stars, discovering a bond that would lead to an extraordinary friendship.",
+      "test_criteria": {
+        "visual_elements": [
+          "fireflies",
+          "starry sky",
+          "forest nook"
+        ],
+        "character_presence": [
+          "Owl",
+          "Mouse"
+        ],
+        "mood": "warm and harmonious",
+        "lighting": "flickering fireflies and starlight"
+      }
+    }
+  ]
+}

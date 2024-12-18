@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="400" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Lou_base_character">
+      <circle cx="100" cy="60" r="40" fill="#f5c291"/>
+      <rect x="60" y="100" width="80" height="130" fill="#2e86c1"/>
+      <rect x="70" y="230" width="20" height="80" fill="#f5c291"/>
+      <rect x="110" y="230" width="20" height="80" fill="#f5c291"/>
+      <g>
+        <rect x="70" y="100" width="20" height="35" fill="#f5c291"/>
+        <rect x="110" y="100" width="20" height="35" fill="#f5c291"/>
+      </g>
+    </g>
+  </defs>
+  <use xlink:href="#Lou_base_character">
+    <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite"/>
+  </use>
+</svg>

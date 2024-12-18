@@ -1,0 +1,66 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 4.362,
+        "background_path": "/home/runner/pippin-studio/output/run_20241216_070604_b15491ed/backgrounds/scene_0_background.png",
+        "narration_text": "A dog walks along the quiet path, the grass brushing against its fur.",
+        "movements": [
+            {
+                "character_name": "Unnamed Dog",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    819
+                ],
+                "end_position": [
+                    462,
+                    819
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Unnamed Dog",
+                "start_time": 1.0,
+                "end_time": 2.0,
+                "start_position": [
+                    462,
+                    819
+                ],
+                "end_position": [
+                    512,
+                    819
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 5.146,
+        "background_path": "/home/runner/pippin-studio/output/run_20241216_070604_b15491ed/backgrounds/scene_1_background.png",
+        "narration_text": "Continuing its journey, the dog walks quietly, as the sky fades into evening hues.",
+        "movements": [
+            {
+                "character_name": "Unnamed Dog",
+                "start_time": 0.0,
+                "end_time": 2.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    562,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "walk"
+            }
+        ]
+    }
+]

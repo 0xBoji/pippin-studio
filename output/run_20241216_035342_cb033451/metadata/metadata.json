@@ -1,0 +1,19 @@
+{
+  "run_id": "run_20241216_035342_cb033451",
+  "created_at": "2024-12-16T03:53:42.469397",
+  "assets": {
+    "characters": [
+      "bunny.svg",
+      "turtle.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "bunny_run.svg",
+      "bunny_race.svg",
+      "turtle_walk.svg",
+      "turtle_race.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

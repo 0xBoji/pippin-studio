@@ -1,0 +1,95 @@
+{
+  "characters": [
+    {
+      "name": "Cat",
+      "type": "character",
+      "description": "A sleek, agile feline with short fur, perhaps in a tabby pattern. Has bright green eyes and whiskers, with a long tail.",
+      "required_animations": [
+        "walk",
+        "jump",
+        "sneak"
+      ]
+    },
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A sturdy canine with floppy ears and a bushy tail, likely of a medium to large breed. Has golden brown fur and a friendly expression.",
+      "required_animations": [
+        "run",
+        "bark",
+        "wag tail"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A quaint village square at dawn, bathed in the gentle glow of early morning light. Old cobblestone paths are bordered by charming, ivy-covered cottages, and the air is filled with the chirping of early birds. The scene captures a sense of anticipation and wonder, rendered in a storybook illustration style with whimsical colors.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "In the quiet village at dawn, Cat and Dog decided to embark on a grand adventure to save the princess.",
+      "test_criteria": {
+        "visual_elements": [
+          "village square",
+          "cobblestone paths",
+          "ivy-covered cottages",
+          "morning light"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "anticipation and wonder",
+        "lighting": "gentle early morning glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A lush forest path in the vibrant afternoon, dappled with sunlight filtering through the dense canopy of leaves. Tall trees with expansive branches line the path, and the forest floor is scattered with fern and moss. This adventurous and enchanting setting is illustrated in a classic children's book style with soft, vivid colors.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "Their journey led them through a mystical forest, where the trees whispered secrets of old adventures.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest path",
+          "sunlight through leaves",
+          "tall trees",
+          "fern and moss"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "adventurous and enchanting",
+        "lighting": "dappled afternoon sunlight"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "A majestic castle shrouded in twilight hues, with towering spires and crenellated walls illuminated by the soft glow of the setting sun. The castle is surrounded by lush gardens and a serene moat reflecting the pastel sky. The mood is magical and courageous, depicted in a whimsical, storybook style.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "As the sun began to set, Cat and Dog reached the princess's castle, ready to embark on their daring rescue.",
+      "test_criteria": {
+        "visual_elements": [
+          "castle",
+          "twilight hues",
+          "tall spires",
+          "gardens"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "magical and courageous",
+        "lighting": "soft glow of the setting sun"
+      }
+    }
+  ]
+}

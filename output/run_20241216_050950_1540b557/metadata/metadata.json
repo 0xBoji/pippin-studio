@@ -1,0 +1,19 @@
+{
+  "run_id": "run_20241216_050950_1540b557",
+  "created_at": "2024-12-16T05:09:50.219732",
+  "assets": {
+    "characters": [
+      "octopus.svg",
+      "penguin.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "octopus_swim.svg",
+      "octopus_wave.svg",
+      "penguin_waddle.svg",
+      "penguin_flap.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

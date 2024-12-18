@@ -1,0 +1,56 @@
+{
+  "characters": [
+    {
+      "name": "Walking Dog",
+      "type": "character",
+      "description": "A medium-sized dog with short fur. It has a tail that curves slightly at the end and friendly eyes. The dog has a brown coat with a few white patches on its chest and paws.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the soft glow of early morning, a charming cobblestone path winds through a lush green park lined with grand, towering oak trees. Dew glistens on the blades of grass, and delicate mist hugs the ground, creating an enchanting, peaceful ambiance. Illustrated in a storybook style with gentle, whimsical colors.",
+      "characters": [
+        "Walking Dog"
+      ],
+      "narration_text": "A faithful dog trots happily down the cobblestone path of a serene park, enjoying the fresh morning air.",
+      "test_criteria": {
+        "visual_elements": [
+          "cobblestone path",
+          "oak trees",
+          "morning dew",
+          "gentle mist"
+        ],
+        "character_presence": [
+          "Walking Dog"
+        ],
+        "mood": "peaceful and enchanting",
+        "lighting": "soft morning glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "Under the golden hues of an afternoon sun, a quaint park bench sits beside a sparkling stream, bordered by vibrant wildflowers. Birds chirp and flutter between the branches of nearby willows, their reflections dancing on the water's surface, casting a joyful atmosphere. This scene captures the essence of a storybook illustration style filled with lively, soft colors.",
+      "characters": [
+        "Walking Dog"
+      ],
+      "narration_text": "The dog pauses near a bubbling brook, soaking in the warmth of the sun while listening to the symphony of nature around him.",
+      "test_criteria": {
+        "visual_elements": [
+          "park bench",
+          "stream",
+          "wildflowers",
+          "willow trees"
+        ],
+        "character_presence": [
+          "Walking Dog"
+        ],
+        "mood": "joyful and lively",
+        "lighting": "bright afternoon sun"
+      }
+    }
+  ]
+}

@@ -1,39 +1,189 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <title>Story Generator</title>
+    <meta charset="UTF-8"/>
+    <title>Story Generation Studio</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: sans-serif;
+            margin:0; padding:0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background:#f8f8f8;
+            color:#444;
+            display:grid;
+            grid-template-columns: 300px 1fr;
+            height:100vh;
+            font-size:14px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
+
+        header {
+            grid-column:1 / span 2;
+            background:#eee;
+            padding:8px;
         }
-        input, textarea {
-            margin-bottom: 20px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding:10px;
+
+        header h1 {
+            margin:0; 
             font-size:16px;
+            font-weight:normal;
+            color:#333;
+        }
+
+        .left-pane {
+            border-right:1px solid #eee;
+            padding:10px;
+            overflow:auto;
+        }
+
+        .right-pane {
+            padding:10px;
+            overflow:auto;
+        }
+
+        form {
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:4px;
+            padding:10px;
+            margin-bottom:10px;
+        }
+
+        input, textarea, button {
+            width:100%;
+            margin-bottom:5px;
+            padding:6px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            font-size:13px;
+        }
+
+        button {
+            background:#666;
+            color:#fff;
+            border:none;
+        }
+
+        button:hover {
+            background:#555;
             cursor:pointer;
         }
+
         #progress {
-            margin-top: 20px;
-            font-weight: bold;
+            font-size:13px;
+            margin-bottom:10px;
+        }
+
+        #downloadLink a {
+            display:inline-block;
+            background:#666;
+            color:#fff;
+            padding:4px 8px;
+            border-radius:4px;
+            text-decoration:none;
+            font-size:13px;
+        }
+
+        #historyList {
+            list-style:none;
+            padding:0; margin:0;
+            font-size:13px;
+        }
+
+        #historyList li {
+            margin-bottom:5px;
+        }
+
+        #historyList li a {
+            text-decoration:none;
+            color:#666;
+        }
+
+        #historyList li a:hover {
+            text-decoration:underline;
+        }
+
+        details.section {
+            margin-bottom:20px;
+            border:1px solid #ddd;
+            border-radius:4px;
+            background:#fff;
+            padding:5px;
+        }
+
+        details.section summary {
+            outline:none;
+            cursor:pointer;
+            font-size:14px;
+            font-weight:normal;
+            color:#333;
+            padding:5px 0;
+        }
+
+        details.section[open] {
+            background:#f9f9f9;
+        }
+
+        .card-container {
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+
+        .card {
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:4px;
+            padding:8px;
+            width:375px;
+            box-sizing:border-box;
+        }
+
+        .card h3 {
+            font-size:13px;
+            margin:0 0 5px 0;
+            font-weight:normal;
+            color:#222;
+        }
+
+        .desc {
+            font-size:12px;
+            color:#555;
+            margin-bottom:5px;
+        }
+
+        .media-container {
+            margin-top:5px;
+        }
+
+        .movements-table {
+            width:100%;
+            border-collapse:collapse;
+            font-size:12px;
+        }
+
+        .movements-table th, .movements-table td {
+            border:1px solid #ddd;
+            padding:4px;
+            word-break:break-word;
+        }
+
+        .movements-table th {
+            background:#f0f0f0;
+            font-weight:normal;
+        }
+
+        .hidden {display:none;}
+        .loading {animation:pulse 1s infinite;}
+
+        @keyframes pulse {
+            0% {opacity:1;}
+            50% {opacity:0.5;}
+            100% {opacity:1;}
         }
     </style>
 </head>
 <body>
-    <h1>Generate Your Story</h1>
+<header><h1>Story Generation Studio</h1></header>
+<div class="left-pane">
     <form id="storyForm">
         <input type="text" name="title" placeholder="Story Title" required>
         <textarea name="description" placeholder="Story Description" required></textarea>
@@ -41,44 +191,265 @@
     </form>
     <div id="progress"></div>
     <div id="downloadLink"></div>
+    <h2 style="font-size:14px; font-weight:normal; margin-top:20px; margin-bottom:10px; border-bottom:1px solid #eee;">History</h2>
+    <ul id="historyList"></ul>
+</div>
+<div class="right-pane" id="runDetails"></div>
+<script>
+let pollingInterval = null;
+let runDataInterval = null;
+let currentRunId = null;
+let previousData = null;
 
-    <script>
-    const form = document.getElementById('storyForm');
-    const progressDiv = document.getElementById('progress');
-    const downloadDiv = document.getElementById('downloadLink');
-    let pollingInterval = null;
+const form = document.getElementById('storyForm');
+const progressDiv = document.getElementById('progress');
+const downloadDiv = document.getElementById('downloadLink');
+const historyList = document.getElementById('historyList');
+const runDetailsDiv = document.getElementById('runDetails');
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const fd = new FormData(form);
+    progressDiv.textContent="Starting pipeline...";
+    progressDiv.classList.add('loading');
+    runDetailsDiv.innerHTML='';
 
-        fetch('/generate', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'started') {
-                // Start polling /status every 2 seconds
-                progressDiv.textContent = "Pipeline started...";
-                pollingInterval = setInterval(() => {
-                    fetch('/status')
-                      .then(res => res.json())
-                      .then(statusData => {
-                         progressDiv.textContent = "Current step: " + statusData.step;
-                         if (statusData.step === "Complete") {
-                            clearInterval(pollingInterval);
-                            // Show download link
-                            // Assuming final video at /download endpoint
-                            downloadDiv.innerHTML = '<a href="/download">Download Your Video</a>';
-                         }
-                      })
-                      .catch(err => console.error(err));
-                }, 2000);
-            }
-        })
-        .catch(err => console.error(err));
+    fetch('/generate',{
+        method:'POST',
+        body:fd
+    }).then(r=>r.json())
+    .then(d=>{
+        if(d.status==='started'){
+            // Start polling status
+            pollingInterval = setInterval(()=>{
+                fetch('/status')
+                .then(r=>r.json())
+                .then(statusData=>{
+                    progressDiv.textContent = "Current step: " + statusData.step;
+                    if(statusData.step==="Complete"){
+                        progressDiv.classList.remove('loading');
+                        clearInterval(pollingInterval);
+                        downloadDiv.innerHTML='<a href="/download">Download Final Video</a>';
+                        // Once complete, we can stop run_data polling as well, or keep a final update:
+                        if(runDataInterval) {
+                            clearInterval(runDataInterval);
+                            runDataInterval=null;
+                            loadRunData(currentRunId);
+                        }
+                    }
+                })
+            },2000);
+
+            // Poll run_data for incremental updates
+            runDataInterval = setInterval(()=>{
+                fetch('/history')
+                .then(r=>r.json())
+                .then(hist=>{
+                    if(hist.length>0){
+                        const latestRun = hist[0].run_id;
+                        if(!currentRunId) currentRunId = latestRun;
+                        loadRunData(currentRunId);
+                    }
+                })
+            },4000);
+
+            loadHistory();
+        }
     });
-    </script>
+});
+
+function loadHistory(){
+    fetch('/history')
+    .then(r=>r.json())
+    .then(data=>{
+        historyList.innerHTML='';
+        data.forEach(item=>{
+            const li=document.createElement('li');
+            const a=document.createElement('a');
+            a.textContent=item.run_id+(item.final_video_exists?" (✔)":"");
+            a.href="#";
+            a.addEventListener('click',e=>{
+                e.preventDefault();
+                currentRunId = item.run_id;
+                loadRunData(currentRunId);
+            });
+            li.appendChild(a);
+            historyList.appendChild(li);
+        });
+    });
+}
+
+function loadRunData(run_id){
+    fetch('/run_data/'+run_id)
+    .then(r=>r.json())
+    .then(data=>{
+        displayRunData(data);
+        previousData = data;
+    })
+    .catch(err=>console.error(err));
+}
+
+function displayRunData(data){
+    if(!data.run_id) return; // no data yet
+    runDetailsDiv.innerHTML='';
+
+    // Story + Scenes
+    if(data.story_data && data.story_data.characters && data.story_data.scenes){
+        const storySec = document.createElement('details');
+        storySec.classList.add('section');
+        storySec.setAttribute('open','');
+        storySec.innerHTML='<summary>Story</summary>';
+
+        // Characters
+        const charsSec = document.createElement('details');
+        charsSec.classList.add('section');
+        charsSec.setAttribute('open','');
+        charsSec.innerHTML='<summary>Characters</summary>';
+        const charContainer = document.createElement('div');
+        charContainer.className='card-container';
+        data.story_data.characters.forEach(c=>{
+            const card = document.createElement('div');
+            card.className='card';
+            card.innerHTML=`<h3>${c.name} (${c.type})</h3>
+            <div class="desc">${c.description}</div>
+            <div>Animations: ${c.required_animations.join(', ')}</div>`;
+            let svgPath = data.characters.find(path=>path.toLowerCase().includes(c.name.toLowerCase()));
+            if(svgPath){
+                card.innerHTML+=`<div class="media-container">
+                <object type="image/svg+xml" data="/file?path=${encodeURIComponent(svgPath)}" width="100" height="100"></object>
+                </div>`;
+            }
+            charContainer.appendChild(card);
+        });
+        charsSec.appendChild(charContainer);
+        storySec.appendChild(charsSec);
+
+        // Scenes
+        const scenesSec = document.createElement('details');
+        scenesSec.classList.add('section');
+        scenesSec.setAttribute('open','');
+        scenesSec.innerHTML='<summary>Scenes</summary>';
+        const sceneContainer = document.createElement('div');
+        sceneContainer.className='card-container';
+        data.story_data.scenes.forEach(s=>{
+            const card = document.createElement('div');
+            card.className='card';
+            card.innerHTML=`<h3>Scene ${s.scene_id}</h3>
+            <div class="desc">${s.background_description}</div>
+            <div>Chars: ${s.characters.join(', ')}</div>
+            <div style="font-size:12px;">${s.narration_text}</div>`;
+
+            // Show background image
+            if(s.background_path){
+                card.innerHTML+=`<div class="media-container">
+                <img src="/file?path=${encodeURIComponent(s.background_path)}" width="100" height="100" style="object-fit:cover;"/>
+                </div>`;
+            }
+
+            // If we have scene media
+            let sceneMedia = data.scenes.find(x=>x.scene_id==s.scene_id);
+            if(sceneMedia){
+                if(sceneMedia.svg){
+                    card.innerHTML+=`<div class="media-container">
+                    <object type="image/svg+xml" data="/file?path=${encodeURIComponent(sceneMedia.svg)}" width="100" height="100"></object>
+                    </div>`;
+                }
+                if(sceneMedia.audio){
+                    card.innerHTML+=`<div class="media-container">
+                    <audio controls><source src="/file?path=${encodeURIComponent(sceneMedia.audio)}" type="audio/mpeg"></audio>
+                    </div>`;
+                }
+                if(sceneMedia.video){
+                    card.innerHTML+=`<div class="media-container">
+                    <video width="150" controls><source src="/file?path=${encodeURIComponent(sceneMedia.video)}" type="video/mp4"></video>
+                    </div>`;
+                }
+            }
+
+            sceneContainer.appendChild(card);
+        });
+        scenesSec.appendChild(sceneContainer);
+        storySec.appendChild(scenesSec);
+
+        runDetailsDiv.appendChild(storySec);
+    }
+
+    // Scene Movements
+    if(data.scene_movements && data.scene_movements.length>0){
+        const moveSec = document.createElement('details');
+        moveSec.classList.add('section');
+        moveSec.setAttribute('open','');
+        moveSec.innerHTML='<summary>Scene Movements</summary>';
+        const moveContainer = document.createElement('div');
+        moveContainer.className='card-container';
+        data.scene_movements.forEach(m=>{
+            const card = document.createElement('div');
+            card.className='card';
+            card.innerHTML=`<h3>Scene ${m.scene_id}</h3>
+            <div style="font-size:12px;">Duration: ${m.duration}s<br>${m.narration_text}</div>`;
+            if(m.movements && m.movements.length>0){
+                const table = document.createElement('table');
+                table.className='movements-table';
+                table.innerHTML=`<tr><th>Char</th><th>Anim</th><th>StartPos</th><th>EndPos</th><th>Start</th><th>End</th></tr>`;
+                m.movements.forEach(mov=>{
+                    const tr=document.createElement('tr');
+                    tr.innerHTML=`
+                    <td>${mov.character_name}</td>
+                    <td>${mov.animation_name||''}</td>
+                    <td>${mov.start_position.join(',')}</td>
+                    <td>${mov.end_position.join(',')}</td>
+                    <td>${mov.start_time}</td>
+                    <td>${mov.end_time}</td>`;
+                    table.appendChild(tr);
+                });
+                card.appendChild(table);
+            }
+            moveContainer.appendChild(card);
+        });
+        moveSec.appendChild(moveContainer);
+        runDetailsDiv.appendChild(moveSec);
+    }
+
+    // Animations
+    if(data.animations && Object.keys(data.animations).length>0){
+        const animSec = document.createElement('details');
+        animSec.classList.add('section');
+        animSec.setAttribute('open','');
+        animSec.innerHTML='<summary>Animations</summary>';
+        const animContainer = document.createElement('div');
+        animContainer.className='card-container';
+        for(let name in data.animations){
+            const card = document.createElement('div');
+            card.className='card';
+            card.innerHTML=`<h3>${name}</h3>
+            <div class="media-container">
+              <object type="image/svg+xml" data="/file?path=${encodeURIComponent(data.animations[name])}" width="100" height="100"></object>
+            </div>`;
+            animContainer.appendChild(card);
+        }
+        animSec.appendChild(animContainer);
+        runDetailsDiv.appendChild(animSec);
+    }
+
+    // Final Video
+    if(data.final_video){
+        const finalSec = document.createElement('details');
+        finalSec.classList.add('section');
+        finalSec.setAttribute('open','');
+        finalSec.innerHTML='<summary>Final Video</summary>';
+        const finalContainer = document.createElement('div');
+        finalContainer.className='card-container';
+        const card = document.createElement('div');
+        card.className='card';
+        card.innerHTML=`
+        <video width="200" controls><source src="/file?path=${encodeURIComponent(data.final_video)}" type="video/mp4"></video>`;
+        finalContainer.appendChild(card);
+        finalSec.appendChild(finalContainer);
+        runDetailsDiv.appendChild(finalSec);
+    }
+}
+
+loadHistory();
+</script>
 </body>
 </html>

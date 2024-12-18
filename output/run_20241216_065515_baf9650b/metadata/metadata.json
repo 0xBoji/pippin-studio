@@ -1,0 +1,15 @@
+{
+  "run_id": "run_20241216_065515_baf9650b",
+  "created_at": "2024-12-16T06:55:15.708835",
+  "assets": {
+    "characters": [
+      "walking_dog.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "walking_dog_walk.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

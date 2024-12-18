@@ -1,0 +1,176 @@
+{
+  "characters": [
+    {
+      "name": "Old Baker",
+      "type": "character",
+      "description": "An elderly man with kind eyes and steady hands. He wears a simple apron dusted with flour, and his hair is a gentle gray.",
+      "required_animations": [
+        "knead dough"
+      ]
+    },
+    {
+      "name": "Baker's Daughter",
+      "type": "character",
+      "description": "A small, brave girl with twinkling eyes and a warm smile. She wears a simple dress with a sprinkle of stardust in her hair.",
+      "required_animations": [
+        "gather stardust",
+        "sprinkle stardust",
+        "sing",
+        "climb ladder"
+      ]
+    },
+    {
+      "name": "Moon",
+      "type": "object",
+      "description": "A crescent-shaped moon with a soft, silvery glow. It has a friendly, serene face depicted.",
+      "required_animations": [
+        "rest",
+        "open eyes",
+        "glow"
+      ]
+    },
+    {
+      "name": "Windmill",
+      "type": "object",
+      "description": "A tall, quiet windmill with long, elegant blades that catch the moonlight. Its structure is wooden and rustic, nestled at the edge of a village.",
+      "required_animations": [
+        "spin"
+      ]
+    },
+    {
+      "name": "Ladder of Pale Clouds",
+      "type": "object",
+      "description": "A ladder made of ethereal, pearl-like clouds that shimmer softly. It extends vertically into the night sky.",
+      "required_animations": [
+        "extend"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tall, quiet windmill stands at the edge of a peaceful village, bathed in soft moonlit glow. The scene is tranquil with silver starlight illuminating the night sky and the gentle movement of the wind in the background. Rendered in a classic storybook illustration style with soft, whimsical colors in the style of classic children's books.",
+      "characters": [
+        "Old Baker"
+      ],
+      "narration_text": "Once upon a soft, moonlit evening, there stood a tall, quiet windmill at the edge of a peaceful village. Inside, an old baker worked under silver starlight. He shaped dough with kind, steady hands, mixing warm flour and shimmering moonbeams together until his bread began to glow with a gentle radiance.",
+      "test_criteria": {
+        "visual_elements": [
+          "windmill",
+          "silver starlight",
+          "moonlit evening",
+          "peaceful village"
+        ],
+        "character_presence": [
+          "Old Baker"
+        ],
+        "mood": "tranquil and serene",
+        "lighting": "soft moonlit glow with silver starlight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "Inside the windmill, a cozy and warm scene unfolds under the gentle moonlight. Stardust sparkles are visible near the window where the baker's daughter stands, humming softly as her voice weaves through the night. This is depicted in a storybook illustration style with gentle, soft colors conveying serenity and warmth.",
+      "characters": [
+        "Baker's Daughter"
+      ],
+      "narration_text": "Each night, his daughter\u2014small and brave\u2014would help. She gathered stardust from the window ledge, sprinkling tiny sparkles into the dough as she hummed lullabies. Her voice drifted out into the village, weaving through bedroom windows to comfort sleeping children, guiding them into gentle dreams.",
+      "test_criteria": {
+        "visual_elements": [
+          "stardust",
+          "windmill interior",
+          "gentle moonlight"
+        ],
+        "character_presence": [
+          "Baker's Daughter"
+        ],
+        "mood": "serene and comforting",
+        "lighting": "gentle moonlight with sparkling stardust"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "A mystical scene with a ladder of pale clouds stretching up into the starry night sky. Each cloud step shimmers like pearls, surrounded by playful stardust dancing in the moonlit air. Rendered in a classic storybook illustration style with whimsical and enchanting colors.",
+      "characters": [
+        "Baker's Daughter"
+      ],
+      "narration_text": "But one night, the Moon\u2014usually so bright and eager to lend its glow\u2014decided to rest early. The dough refused to glow, and the lullabies felt dim. To save the sweetness of bedtime, the daughter set forth on a journey. She climbed a ladder of pale clouds that shimmered like pearls in the night sky, each step feeling soft and springy beneath her feet.",
+      "test_criteria": {
+        "visual_elements": [
+          "ladder of pale clouds",
+          "shimmering pearls",
+          "starry night sky"
+        ],
+        "character_presence": [
+          "Baker's Daughter"
+        ],
+        "mood": "mystical and enchanting",
+        "lighting": "soft moonlit glow with shimmering stardust"
+      }
+    },
+    {
+      "scene_id": 3,
+      "background_description": "The sleeping Moon in a gentle crescent form, surrounded by a dark, star-filled sky. The Baker's Daughter appears small beneath it, singing softly. This serene and magical scene is illustrated in a storybook style with rich, soothing colors.",
+      "characters": [
+        "Baker's Daughter",
+        "Moon"
+      ],
+      "narration_text": "Up, up she went, past curious birds who fluffed their feathers politely. Past drifting wisps of stardust that danced playfully about her. She reached the sleeping Moon, curled into a gentle crescent. Whispering softly, she sang a lullaby so warm and kind it made the Moon sigh happily and open its eyes.",
+      "test_criteria": {
+        "visual_elements": [
+          "sleeping crescent moon",
+          "star-filled sky"
+        ],
+        "character_presence": [
+          "Baker's Daughter",
+          "Moon"
+        ],
+        "mood": "serene and magical",
+        "lighting": "dark sky illuminated by the crescent moon"
+      }
+    },
+    {
+      "scene_id": 4,
+      "background_description": "A view from above of the village with the windmill now bathed in bright moonlight. The bread glows with stardust on the windowsill, and the atmosphere is filled with a sense of warmth and magic. Illustrated in storybook style with soft, luminous colors.",
+      "characters": [
+        "Old Baker",
+        "Baker's Daughter"
+      ],
+      "narration_text": "Awake now, the Moon glowed brighter than ever, sending shimmering beams down to the windmill below. The bread began to rise, shining with stardust and moonlight, ready to fill tiny bellies and bring soft smiles to sleepy faces. In their beds, children felt the gentle hush of magic, as if a loving hand tucked them in once more.",
+      "test_criteria": {
+        "visual_elements": [
+          "windmill",
+          "glowing bread",
+          "moonlit beams"
+        ],
+        "character_presence": [
+          "Old Baker",
+          "Baker's Daughter"
+        ],
+        "mood": "warm and magical",
+        "lighting": "bright moonlight illuminating the scene"
+      }
+    },
+    {
+      "scene_id": 5,
+      "background_description": "A quiet night scene in the village with the moon high above, the air filled with the gentle, comforting lullabies. The stars twinkle softly, conveying a sense of safety and love, drawn in a classic storybook illustration style with soft, tender colors.",
+      "characters": [
+        "Baker's Daughter",
+        "Moon"
+      ],
+      "narration_text": "From that night on, the old baker\u2019s daughter continued to sing under a watchful Moon, and her lullabies drifted through the quiet streets, sprinkling warm comfort into every dream. As children slept, they felt safe and loved, knowing that high above, a caring voice and a friendly Moon watched over them.",
+      "test_criteria": {
+        "visual_elements": [
+          "village at night",
+          "twinkling stars"
+        ],
+        "character_presence": [
+          "Baker's Daughter",
+          "Moon"
+        ],
+        "mood": "comforting and loving",
+        "lighting": "gentle moonlight with twinkling stars"
+      }
+    }
+  ]
+}

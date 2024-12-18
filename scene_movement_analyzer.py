@@ -59,35 +59,17 @@ class SceneMovementAnalyzer:
 
     def analyze_scene(self, scene_data: Dict, character_info: List[Dict], scene_duration: float) -> SceneTimeline:
         """
-        Now we use an LLM call to generate the movements deterministically based on:
-        - Characters and their required animations
-        - Scene description
-        - Scene duration
-        - Logic:
-          1) Position characters based on environment keywords.
-          2) Initial fade-in with small start scale (e.g., 0.01 to 1.0) over 1s to avoid zero-size issues.
-          3) Add animations only if triggered by scene description keywords.
-          4) If movement animations occur (like 'fly'), move character from start_pos to end_pos, then back.
-          5) Respect scene_duration as the final duration.
-          6) Return a JSON object with the structure:
-             {
-               "scene_id": int,
-               "duration": float,
-               "background_path": str,
-               "narration_text": str,
-               "movements": [
-                 {
-                   "character_name": str,
-                   "start_time": float,
-                   "end_time": float,
-                   "start_position": [float, float],
-                   "end_position": [float, float],
-                   "start_scale": float,
-                   "end_scale": float,
-                   "animation_name": str or null
-                 }, ...
-               ]
-             }
+        This method uses an LLM to generate movements for the characters in the scene.
+        We have updated the prompt to:
+        - Take into account the default SVG size of 1024x1024.
+        - Add variety in character scaling and placement.
+        - Use at least some movement in at least every other scene (if story context allows).
+        - Leverage animations if they are specified as required by the characters in the story analysis.
+        - Consider narrative and background description triggers.
+        - Keep characters away from extreme edges and generally towards the center.
+        - Allow overlapping if narratively appropriate (e.g., hugging), but avoid complete blocking.
+        - If one character, consider zooming in or making them large. If multiple characters, scale them down so all fit comfortably.
+        - Introduce horizontal/vertical movement, zoom, or positioning variety between scenes.
         """
 
         scene_id = scene_data["scene_id"]
@@ -96,30 +78,16 @@ class SceneMovementAnalyzer:
         background_path = scene_data["background_path"]
         duration = max(scene_duration, 1.0)
 
-        # Calculate character starting positions
-        char_positions = self._calculate_character_positions(scene_data, [c["name"] for c in character_info])
+        # Gather character names and their required animations
+        characters = character_info
+        character_names = [c["name"] for c in characters]
+        # Extract required_animations from character_info for direct reference
+        char_animations_map = {c["name"]: c.get("required_animations", []) for c in characters}
 
-        # Determine possible animations and their triggers
-        animation_triggers = {
-            "hop": ["jump", "hop", "bounce"],
-            "dance": ["dance", "celebration", "happy"],
-            "wave": ["greet", "wave", "hello"],
-            "fly": ["fly", "soar", "glide"]
-        }
-        animation_durations = {
-            "hop": 1.0,
-            "dance": 2.0,
-            "wave": 1.5,
-            "fly": 2.5,
-            "sparkle": 1.0,
-            "glow": 1.5
-        }
+        # Calculate basic character starting positions
+        char_positions = self._calculate_character_positions(scene_data, character_names)
 
-        # Small utility function to produce a fallback scale if needed
-        # We'll tell the LLM what logic to follow, so no direct code needed here.
-        # Just rely on the instructions.
-
-        # Schema for the final output
+        # Prepare schema
         schema = {
             "type": "object",
             "properties": {
@@ -158,45 +126,85 @@ class SceneMovementAnalyzer:
             "required": ["scene_id", "duration", "background_path", "narration_text", "movements"]
         }
 
-        # System instructions for the LLM
-        system_instructions = f"""
-You are a scene movement generation expert. Your job is to produce a JSON object describing the scene timeline with character movements.
+        # Additional instructions for animations and movement logic
+        animation_triggers = {
+            "hop": ["jump", "hop", "bounce"],
+            "dance": ["dance", "celebration", "happy"],
+            "wave": ["greet", "wave", "hello"],
+            "fly": ["fly", "soar", "glide"]
+        }
+        animation_durations = {
+            "hop": 1.0,
+            "dance": 2.0,
+            "wave": 1.5,
+            "fly": 2.5,
+            "sparkle": 1.0,
+            "glow": 1.5
+        }
 
-Rules:
-- Input:
+        # Updated system instructions:
+        system_instructions = f"""
+You are a scene movement generation expert. Produce a JSON object describing the scene timeline with character movements and scales, considering the following:
+
+- Canvas is 1024x1024. Keep characters within roughly the inner area, not touching edges. For example, keep positions within about 100 to 924 in both x and y to avoid going off-screen.
+- We have {len(character_names)} character(s): {character_names}
+- Characters come from story_data analysis and each may have required_animations. These must be considered. The characters and their required_animations are:
+  {json.dumps(char_animations_map, indent=2)}
+- The scene:
   - scene_id: {scene_id}
-  - duration: {duration}
+  - duration: {duration} (seconds)
   - background_path: {background_path}
   - narration_text: {narration}
   - background_description: {background_desc}
-  - characters: {json.dumps(character_info)}
-  - character_positions: {json.dumps({name: list(pos) for name, pos in char_positions.items()})}
+  - pre-calculated positions (suggested starting points): {json.dumps({name: list(pos) for name, pos in char_positions.items()})}
 
-- For each character:
-  1) Check character's required_animations and the background_description. If background_description contains trigger words for an animation, schedule that animation after the fade-in. Use the durations:
-    {json.dumps(animation_durations, indent=2)}
+Rules and logic:
+1. Scaling and Positioning:
+   - If there is only one character, consider zooming in (larger scale, e.g. 1.0 up to 2.0) or placing them prominently in the center. For multiple characters, use smaller scales (0.5 to 1.0) so they all fit comfortably without blocking each other.
+   - Introduce variety between scenes. Sometimes zoom in on a character (larger scale near center), other times show them smaller and possibly moving across the scene.
+   - Keep characters mostly towards the center. Avoid placing them too close to the edges. Overlapping is allowed if it makes sense (e.g., hugging), but do not let one character completely block another from view.
+   - Ensure start and end positions keep characters visible within the 1024x1024 canvas.
 
-  For animations that move characters:
-    - "hop": end_position is start_position but y decreased by 100.
-    - "dance": end_position is start_position plus 50 in x direction.
-    - "wave": end_position same as start_position (just animateName set).
-    - "fly": end_position is start_position plus (100 in x, -100 in y).
+2. Movement:
+   - Try to have at least one character show noticeable movement every other scene (for example, if scene_id is even, definitely include some movement if possible, unless the story strongly contradicts it).
+   - Movement can be horizontal, vertical, diagonal, or a zoom (change in scale).
+   - If the story description or character required_animations suggests action, implement that movement.
+   - All movements should occur within the scene duration. Start simple: e.g., fade-in scale from near 0.01 to desired scale over the first second, then apply movements or animations.
+   - It's okay if some characters remain relatively still, but try to provide visual interest.
 
-  After performing a movement animation that changes position, return the character to their original position with another movement of 1 second, maintaining scale=1.0.
+3. Animations:
+   - Use required_animations from character_info if present. If a character has a required animation, try to incorporate it unless it's nonsensical.
+   - Check if background_description or narration_text suggests trigger words for an animation from the list:
+     {json.dumps(animation_triggers, indent=2)}
+   - If a required_animation is listed for a character, you should include it even if the scene doesn't explicitly trigger it by background words. For example, if a character requires "hop", include a hop sequence.
+   - Animation movement patterns:
+     - hop: character moves up (y-100) and then returns back down
+     - dance: character shifts slightly in x (e.g. +50), then returns
+     - wave: character stays in place but has 'wave' animation_name
+     - fly: character moves diagonally (x+100,y-100), then back
+   - If multiple required_animations exist, you can chain them or pick one. If time allows, include more than one.
+   - Each animation should last the specified duration from the animation_durations map, then return the character to original position if it involves position change.
 
-- Never use scale=0.0. Use at least 0.01 if scaling up or down from near zero.
-- Only include animations if triggers are present in background_description.
-- If no triggers for an animation are found, do not include that animation.
-- Times are cumulative.
-- The final scene duration is given. Movements can end before the scene_duration.
-- Produce a JSON object exactly matching the schema. 
-- The "movements" array can have multiple entries per character. Keep them simple and linear.
+4. Scaling details:
+   - Never use scale=0.0. Use at least 0.01 for fade-in.
+   - Consider subtle scale changes for interest. For example, start_scale=0.01 and end_scale=1.0 in the first second to "fade in." If zooming in for a close-up, you can go up to 2.0 scale for a single character scenario.
 
-You must output a JSON object matching this schema:
+5. Timing:
+   - Start with a fade-in from near-zero scale at start_time=0 to normal scale by 1 second.
+   - After fade-in, schedule animations (if any). If a character has "fly" animation required, for example, do a fly movement mid-scene.
+   - Total scene duration is fixed. Ensure all movements and animations complete by scene end, or at least do not exceed it.
+
+6. JSON output must match the schema provided. If you have multiple movements per character, just list them in the "movements" array in chronological order.
+
+7. If no triggers for a certain animation are found, but the character requires it, perform it anyway. If no animations are required or triggered, you can still do subtle movements for variety (like small shifts in position, or a slight scale change).
+
+Follow these instructions carefully and output only the JSON as per the schema below.
+
+Schema:
 {json.dumps(schema, indent=2)}
 """
 
-        # User prompt content
+        # User prompt
         user_prompt = "Generate the scene timeline now."
 
         # Run LLM completion
@@ -211,8 +219,7 @@ You must output a JSON object matching this schema:
 
         result = json.loads(response.choices[0].message.content)
 
-        # Parse the result into our SceneTimeline object
-        # Validate we got all fields
+        # Validate fields
         if ("scene_id" not in result or
             "duration" not in result or
             "background_path" not in result or
@@ -282,8 +289,6 @@ You must output a JSON object matching this schema:
         return positions
 
     def _get_animation_duration(self, animation: str) -> float:
-        # Not used anymore, but we keep it if we ever need logic here.
-        # The logic is now handled by LLM instructions.
         durations = {
             "hop": 1.0,
             "dance": 2.0,
@@ -295,8 +300,6 @@ You must output a JSON object matching this schema:
         return durations.get(animation, 1.5)
 
     def _should_use_animation(self, animation: str, scene_data: Dict) -> bool:
-        # Also not directly needed since LLM does logic,
-        # but we keep it for reference if we want to double-check.
         description = scene_data["background_description"].lower()
         triggers = {
             "hop": ["jump", "hop", "bounce"],
@@ -307,7 +310,6 @@ You must output a JSON object matching this schema:
         return any(t in description for t in triggers.get(animation, []))
 
     def _calculate_movement_end(self, start_pos: Tuple[int, int], animation: str) -> Tuple[int, int]:
-        # Also handled by LLM instructions now.
         x, y = start_pos
         patterns = {
             "hop": (x, y - 100),

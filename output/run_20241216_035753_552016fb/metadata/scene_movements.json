@@ -1,0 +1,56 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 6.583,
+        "background_path": "/home/runner/pippin-studio/output/run_20241216_035753_552016fb/backgrounds/scene_0_background.png",
+        "narration_text": "In a sun-drenched meadow, Bunny and Turtle prepared for their much-anticipated race across the grassy path.",
+        "movements": []
+    },
+    {
+        "scene_id": 1,
+        "duration": 8.856,
+        "background_path": "/home/runner/pippin-studio/output/run_20241216_035753_552016fb/backgrounds/scene_1_background.png",
+        "narration_text": "As they raced through the woods, Bunny darted ahead with a burst of speed, while Turtle steadily plodded along, unfazed by Bunny's head start.",
+        "movements": [
+            {
+                "character_name": "Bunny",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    616
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "hop"
+            },
+            {
+                "character_name": "Bunny",
+                "start_time": 1.0,
+                "end_time": 2.0,
+                "start_position": [
+                    341,
+                    616
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 13.688,
+        "background_path": "/home/runner/pippin-studio/output/run_20241216_035753_552016fb/backgrounds/scene_2_background.png",
+        "narration_text": "Approaching the finish line, Bunny grew weary and slowed to a stop, deciding to rest. Meanwhile, Turtle continued with patient determination, crossing the line as the sun set on their race.",
+        "movements": []
+    }
+]

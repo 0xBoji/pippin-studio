@@ -1,0 +1,226 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 4.075,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_083308_31e4ab88/backgrounds/scene_0_background.png",
+        "narration_text": "Once upon a time, there was a cat who felt very lonely in her cozy home.",
+        "movements": [
+            {
+                "character_name": "Cat",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.0,
+                "animation_name": null
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 1.0,
+                "end_time": 3.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    400,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.0,
+                "animation_name": null
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 1.5,
+                "end_time": 2.5,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "approach"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 2.5,
+                "end_time": 3.5,
+                "start_position": [
+                    600,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "wag tail"
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 6.687,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_083308_31e4ab88/backgrounds/scene_1_background.png",
+        "narration_text": "Seeking companionship, the cat ventured to the park, where she met a friendly dog. They quickly became friends.",
+        "movements": [
+            {
+                "character_name": "Cat",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.8,
+                "animation_name": null
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 1.0,
+                "end_time": 3.5,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    500,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.7,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 3.5,
+                "end_time": 4.5,
+                "start_position": [
+                    500,
+                    716
+                ],
+                "end_position": [
+                    500,
+                    716
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "look around"
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 4.5,
+                "end_time": 6.0,
+                "start_position": [
+                    500,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "interact"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.8,
+                "animation_name": null
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 1.0,
+                "end_time": 2.5,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "approach"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 2.5,
+                "end_time": 4.0,
+                "start_position": [
+                    600,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "wag tail"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 4.0,
+                "end_time": 5.5,
+                "start_position": [
+                    600,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "interact"
+            }
+        ]
+    }
+]

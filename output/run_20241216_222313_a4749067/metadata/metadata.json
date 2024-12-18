@@ -1,0 +1,15 @@
+{
+  "run_id": "run_20241216_222313_a4749067",
+  "created_at": "2024-12-16T22:23:13.122341",
+  "assets": {
+    "characters": [
+      "will_smith.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "will_smith_eat.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

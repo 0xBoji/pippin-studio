@@ -1,0 +1,3 @@
+file '/home/runner/pippin-studio/output/run_20241216_072506_da8b6b67/scenes/video_with_sound/scene_0.mp4'
+file '/home/runner/pippin-studio/output/run_20241216_072506_da8b6b67/scenes/video_with_sound/scene_1.mp4'
+file '/home/runner/pippin-studio/output/run_20241216_072506_da8b6b67/scenes/video_with_sound/scene_2.mp4'

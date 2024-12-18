@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <g id="Unnamed_Dog_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="110" rx="50" ry="30" fill="saddlebrown" />
+      <!-- Patch -->
+      <ellipse cx="85" cy="110" rx="15" ry="8" fill="wheat" />
+      <ellipse cx="115" cy="120" rx="20" ry="12" fill="wheat" />
+      <!-- Head -->
+      <ellipse cx="100" cy="70" rx="30" ry="20" fill="saddlebrown" />
+      <!-- Ears -->
+      <path d="M85,60 Q70,40 85,40" fill="saddlebrown" />
+      <path d="M115,60 Q130,40 115,40" fill="saddlebrown" />
+      <!-- Tail -->
+      <path d="M150,110 Q180,90 150,80" fill="saddlebrown" />
+      <!-- Eyes -->
+      <circle cx="90" cy="70" r="3" fill="black" />
+      <circle cx="110" cy="70" r="3" fill="black" />
+      <!-- Nose -->
+      <ellipse cx="100" cy="80" rx="5" ry="3" fill="black" />
+      <!-- Mouth -->
+      <path d="M95,85 Q100,90 105,85" fill="none" stroke="black" stroke-width="1" />
+    </g>
+  </defs>
+  <use xlink:href="#Unnamed_Dog_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0 0; 5 0; 10 0; 5 0; 0 0" dur="2s" repeatCount="indefinite" additive="sum" />
+  </use>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Dog_base_character">
+      <!-- Body of the Dog -->
+      <ellipse cx="100" cy="120" rx="60" ry="40" fill="goldenrod"/>
+      <!-- Head of the Dog -->
+      <ellipse cx="100" cy="70" rx="40" ry="30" fill="goldenrod"/>
+      <!-- Ears of the Dog -->
+      <ellipse cx="70" cy="70" rx="10" ry="20" fill="goldenrod"/>
+      <ellipse cx="130" cy="70" rx="10" ry="20" fill="goldenrod"/>
+      <!-- Tail of the Dog -->
+      <path id="dog-tail" d="M140,120 C160,110 160,130 140,140" fill="none" stroke="goldenrod" stroke-width="5"/>
+      <!-- Eyes of the Dog -->
+      <ellipse cx="90" cy="65" rx="5" ry="5" fill="black"/>
+      <ellipse cx="110" cy="65" rx="5" ry="5" fill="black"/>
+      <!-- Mouth of the Dog -->
+      <path d="M90,85 Q100,95 110,85" fill="none" stroke="black" stroke-width="2"/>
+    </g>
+  </defs>
+  <use xlink:href="#Dog_base_character"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="1s" repeatCount="indefinite"/>
+  <g>
+    <use xlink:href="#dog-tail">
+      <animateTransform attributeName="transform" type="rotate" values="0 140 120; 15 140 120; 0 140 120" dur="0.5s" repeatCount="indefinite"/>
+    </use>
+  </g>
+</svg>

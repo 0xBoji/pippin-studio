@@ -1,0 +1,89 @@
+{
+  "characters": [
+    {
+      "name": "Octopus",
+      "type": "character",
+      "description": "A multi-tentacled sea creature with a soft, rounded body. The skin is smooth and bluish-purple with subtle patterns. It has large, curious eyes set slightly forward on its body.",
+      "required_animations": [
+        "swim",
+        "wave"
+      ]
+    },
+    {
+      "name": "Penguin",
+      "type": "character",
+      "description": "A flightless bird with a sleek, black and white body. The white belly stands out against the black back and flippers. It has a small, pointed beak and waddles on its short legs.",
+      "required_animations": [
+        "waddle",
+        "flap"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "An enchanting underwater coral garden during the late afternoon, with sunlight streaming through the rippling water, casting shimmering patterns on the ocean floor. The garden is filled with vibrant coral reefs of various shapes and colors, and schools of fish dart playfully around. This magical marine scene is illustrated in a storybook style with soft, whimsical colors.",
+      "characters": [
+        "Octopus"
+      ],
+      "narration_text": "In the depths of the ocean, a curious octopus explored a coral garden, intrigued by the vibrant marine life bustling around him.",
+      "test_criteria": {
+        "visual_elements": [
+          "coral garden",
+          "colorful reefs",
+          "schools of fish",
+          "sunlight patterns"
+        ],
+        "character_presence": [
+          "Octopus"
+        ],
+        "mood": "curious and lively",
+        "lighting": "late afternoon sunlight streaming through water"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A serene icy shoreline at dusk, with the sky filled with soft hues of purple and orange as the sun sets. Ice floes gently drift on the calm sea, and a gentle breeze ripples the water's surface. This tranquil Arctic scene is painted in a classic storybook illustration style with gentle, soothing colors.",
+      "characters": [
+        "Penguin"
+      ],
+      "narration_text": "On the icy shores, a lone penguin watched the sunset, feeling the cool evening breeze across his feathers, unaware of the approaching octopus.",
+      "test_criteria": {
+        "visual_elements": [
+          "icy shoreline",
+          "ice floes",
+          "sunset sky",
+          "calm sea"
+        ],
+        "character_presence": [
+          "Penguin"
+        ],
+        "mood": "serene and tranquil",
+        "lighting": "dusk with purple and orange hues"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "A mystical meeting place where the ocean meets the ice, just as the sun dips below the horizon. The water is a rich tapestry of colors, reflecting the twilight sky. The atmosphere is one of wonder as gentle waves lap against the ice, and tiny glowing creatures illuminate the depths. The scene is crafted in a whimsical storybook style with soft, magical colors.",
+      "characters": [
+        "Octopus",
+        "Penguin"
+      ],
+      "narration_text": "As the sun set, the octopus emerged from the sea to greet the penguin. Their eyes met, and an unexpected friendship began to blossom amidst the twilight hues.",
+      "test_criteria": {
+        "visual_elements": [
+          "meeting between ocean and ice",
+          "twilight sky",
+          "glowing sea creatures",
+          "gentle waves"
+        ],
+        "character_presence": [
+          "Octopus",
+          "Penguin"
+        ],
+        "mood": "wonder and friendliness",
+        "lighting": "twilight with rich colors and soft glow"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "characters": [
+    {
+      "name": "Unnamed Dog",
+      "type": "character",
+      "description": "A medium-sized dog with short fur. Has a wagging tail, perky ears, and a friendly demeanor. Its fur is a mix of brown and white patches.",
+      "required_animations": [
+        "walk"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene country path under the golden glow of a late afternoon sun, with gentle shadows cast by the lush meadow grass. The tranquil atmosphere is enhanced by the soft rustling of leaves and distant chirping of birds. This scene is illustrated in a storybook style with warm, soft colors evoking a peaceful, idyllic setting.",
+      "characters": [
+        "Unnamed Dog"
+      ],
+      "narration_text": "A dog walks along the quiet path, the grass brushing against its fur.",
+      "test_criteria": {
+        "visual_elements": [
+          "country path",
+          "golden afternoon sunlight",
+          "meadow grass",
+          "shadows"
+        ],
+        "character_presence": [
+          "Unnamed Dog"
+        ],
+        "mood": "peaceful and serene",
+        "lighting": "golden afternoon sunlight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A tranquil countryside setting bathed in the soft light of an approaching dusk, where the sky is painted with hues of pink and orange. The path meanders through a peaceful landscape, with trees casting long shadows. The scene holds a storybook feel, with rich colors and gentle contours that create a sense of calm and reflection.",
+      "characters": [
+        "Unnamed Dog"
+      ],
+      "narration_text": "Continuing its journey, the dog walks quietly, as the sky fades into evening hues.",
+      "test_criteria": {
+        "visual_elements": [
+          "countryside",
+          "dusk sky",
+          "long shadows",
+          "meandering path"
+        ],
+        "character_presence": [
+          "Unnamed Dog"
+        ],
+        "mood": "calm and reflective",
+        "lighting": "soft dusk light"
+      }
+    }
+  ]
+}

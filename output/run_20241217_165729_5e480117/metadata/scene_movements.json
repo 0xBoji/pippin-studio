@@ -1,0 +1,178 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 10.449,
+        "background_path": "/home/runner/pippin-studio/output/run_20241217_165729_5e480117/backgrounds/scene_0_background.png",
+        "narration_text": "Lou steps into the digital realm, a world alive with glowing neon circuits and pixelated landscapes. Here, anything seems possible.",
+        "movements": [
+            {
+                "character_name": "Sami",
+                "start_time": 0.0,
+                "end_time": 1.5,
+                "start_position": [
+                    408,
+                    716
+                ],
+                "end_position": [
+                    408,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    816,
+                    716
+                ],
+                "end_position": [
+                    816,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "sparkle"
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 11.18,
+        "background_path": "/home/runner/pippin-studio/output/run_20241217_165729_5e480117/backgrounds/scene_1_background.png",
+        "narration_text": "In this bustling corner of the digital realm, Lou meets Sami, the first AI friend. Holographic displays float around them, painting the environment with a unique charm.",
+        "movements": [
+            {
+                "character_name": "Sami",
+                "start_time": 0.0,
+                "end_time": 1.5,
+                "start_position": [
+                    408,
+                    716
+                ],
+                "end_position": [
+                    408,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Sami",
+                "start_time": 1.5,
+                "end_time": 2.5,
+                "start_position": [
+                    408,
+                    716
+                ],
+                "end_position": [
+                    408,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    816,
+                    716
+                ],
+                "end_position": [
+                    816,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "sparkle"
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 1.0,
+                "end_time": 2.0,
+                "start_position": [
+                    816,
+                    716
+                ],
+                "end_position": [
+                    816,
+                    716
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 8.803,
+        "background_path": "/home/runner/pippin-studio/output/run_20241217_165729_5e480117/backgrounds/scene_2_background.png",
+        "narration_text": "As Lou and Sami journey on, they find Chad under a digital starlit sky, surrounded by swirling constellations and floating symbols.",
+        "movements": [
+            {
+                "character_name": "Sami",
+                "start_time": 0.0,
+                "end_time": 1.5,
+                "start_position": [
+                    408,
+                    307
+                ],
+                "end_position": [
+                    408,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            }
+        ]
+    },
+    {
+        "scene_id": 3,
+        "duration": 10.527,
+        "background_path": "/home/runner/pippin-studio/output/run_20241217_165729_5e480117/backgrounds/scene_3_background.png",
+        "narration_text": "In the heart of the digital meadow, Lou, Sami, and Chad encounter Pippin, the unicorn, prancing under a shimmering data rainbow.",
+        "movements": [
+            {
+                "character_name": "Sami",
+                "start_time": 0.0,
+                "end_time": 1.5,
+                "start_position": [
+                    408,
+                    307
+                ],
+                "end_position": [
+                    408,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 1.5,
+                "end_time": 2.5,
+                "start_position": [
+                    816,
+                    307
+                ],
+                "end_position": [
+                    816,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "sparkle"
+            }
+        ]
+    }
+]

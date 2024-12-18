@@ -1,0 +1,48 @@
+{
+  "characters": [
+    {
+      "name": "Cat",
+      "type": "character",
+      "description": "A sleek domestic cat with short fur, pointed ears, and sharp eyes. Likely has a long tail and distinct whiskers.",
+      "required_animations": [
+        "walk",
+        "look"
+      ]
+    },
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A friendly dog with a wagging tail, droopy ears, and a wet nose. Has a furry coat and expressive eyes.",
+      "required_animations": [
+        "walk",
+        "wag_tail"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the heart of a small, quaint village at twilight, the scene is enveloped in a warm, golden glow from the setting sun. Cobblestone streets lead to charming cottages with ivy creeping up the walls and small lanterns flickering to life. The village exudes a serene and inviting atmosphere, captured in a storybook illustration style with soft, whimsical colors.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "Once upon a time, in a cozy village, a curious cat met a gentle dog under the warm glow of the twilight.",
+      "test_criteria": {
+        "visual_elements": [
+          "cobblestone streets",
+          "charming cottages",
+          "ivy-covered walls",
+          "lanterns",
+          "twilight glow"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "serene and inviting",
+        "lighting": "warm glow of twilight"
+      }
+    }
+  ]
+}

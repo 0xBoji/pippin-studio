@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 400" width="200" height="400">
+  <defs>
+    <g id="Old_Baker_base_character">
+      <!-- Head -->
+      <ellipse cx="100" cy="70" rx="40" ry="50" fill="#d8b195" stroke="#b38c6d" stroke-width="2"/>
+      <!-- Eyes -->
+      <ellipse cx="85" cy="70" rx="5" ry="10" fill="#ffffff"/>
+      <ellipse cx="115" cy="70" rx="5" ry="10" fill="#ffffff"/>
+      <!-- Pupils -->
+      <circle cx="85" cy="70" r="2" fill="#6b4f4f"/>
+      <circle cx="115" cy="70" r="2" fill="#6b4f4f"/>
+      <!-- Mouth -->
+      <path d="M80,90 Q100,110 120,90" stroke="#6b4f4f" stroke-width="2" fill="none" />
+      <!-- Hair -->
+      <ellipse cx="100" cy="30" rx="45" ry="35" fill="#c0c0c0"/>
+      <!-- Body -->
+      <rect x="60" y="120" width="80" height="150" fill="#e0e0e0" stroke="#b0b0b0" stroke-width="2"/>
+      <rect x="60" y="120" width="80" height="110" fill="#ffffff" opacity="0.5"/>
+      <!-- Apron Straps -->
+      <path d="M60,120 L60,150" stroke="#b0b0b0" stroke-width="2" />
+      <path d="M140,120 L140,150" stroke="#b0b0b0" stroke-width="2" />
+      <!-- Arms -->
+      <ellipse cx="50" cy="160" rx="10" ry="30" fill="#d8b195" stroke="#b38c6d" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate" values="0 50 160; 10 50 160; 0 50 160" dur="0.5s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="150" cy="160" rx="10" ry="30" fill="#d8b195" stroke="#b38c6d" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate" values="0 150 160; -10 150 160; 0 150 160" dur="0.5s" repeatCount="indefinite"/>
+      </ellipse>
+      <!-- Hands -->
+      <circle cx="50" cy="190" r="10" fill="#d8b195" stroke="#b38c6d" stroke-width="2">
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="0.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="150" cy="190" r="10" fill="#d8b195" stroke="#b38c6d" stroke-width="2">
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="0.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </defs>
+  <use xlink:href="#Old_Baker_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite"/>
+  </use>
+</svg>

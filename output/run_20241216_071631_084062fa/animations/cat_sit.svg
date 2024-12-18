@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <g id="Cat_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="130" rx="50" ry="30" fill="lightgrey"/>
+      <!-- Head -->
+      <circle cx="100" cy="80" r="30" fill="lightgrey"/>
+      <!-- Ears -->
+      <polygon points="80,55 70,30 90,40" fill="grey"/>
+      <polygon points="120,55 130,30 110,40" fill="grey"/>
+      <!-- Eyes -->
+      <circle cx="90" cy="75" r="5" fill="black"/>
+      <circle cx="110" cy="75" r="5" fill="black"/>
+      <!-- Whiskers -->
+      <line x1="70" y1="85" x2="40" y2="85" stroke="black" stroke-width="2"/>
+      <line x1="130" y1="85" x2="160" y2="85" stroke="black" stroke-width="2"/>
+      <!-- Tail -->
+      <path d="M150,130 Q180,110 160,100" stroke="lightgrey" stroke-width="5" fill="none"/>
+    </g>
+  </defs>
+  <use xlink:href="#Cat_base_character">
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 10; 0 0; 0 10" dur="1s" repeatCount="indefinite"/>
+  </use>
+  <animateTransform attributeName="transform" attributeType="XML" type="scale" values="1 1; 1 0.8; 1 1" begin="0s" dur="1s" repeatCount="indefinite" keyTimes="0; 0.5; 1"/>
+</svg>

@@ -1,0 +1,94 @@
+{
+  "characters": [
+    {
+      "name": "Bunny",
+      "type": "character",
+      "description": "A small, energetic bunny with soft white fur, long floppy ears, and a small pink nose. Bright, curious eyes and a fluffy tail complete its appearance.",
+      "required_animations": [
+        "run",
+        "jump"
+      ]
+    },
+    {
+      "name": "Turtle",
+      "type": "character",
+      "description": "A steady and calm turtle with a hard, green shell and wrinkled, textured skin. Its eyes are small and wise, and it has sturdy, thick legs.",
+      "required_animations": [
+        "walk",
+        "slow stare"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vibrant meadow illuminated by the golden glow of an early morning sun with tall grass swaying gently in the breeze. A dirt path cuts across the landscape, flanked by colorful wildflowers that seem to whisper secrets of the forest. The scene is illustrated in a storybook style with soft, whimsical colors that evoke a sense of adventure and anticipation.",
+      "characters": [
+        "Bunny",
+        "Turtle"
+      ],
+      "narration_text": "In a sun-drenched meadow, Bunny and Turtle prepared for their much-anticipated race across the grassy path.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "dirt path",
+          "wildflowers",
+          "tall grass",
+          "early morning sun"
+        ],
+        "character_presence": [
+          "Bunny",
+          "Turtle"
+        ],
+        "mood": "adventurous and anticipatory",
+        "lighting": "golden early morning glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "The path winds through a shaded woodland, where dappled sunlight creates a mosaic of light and shadow on the forest floor. Towering trees stand like watchful giants, their leaves rustling gently in the soft breeze. This serene setting is captured in a classic children's book illustration style with soft, enchanting colors.",
+      "characters": [
+        "Bunny",
+        "Turtle"
+      ],
+      "narration_text": "As they raced through the woods, Bunny darted ahead with a burst of speed, while Turtle steadily plodded along, unfazed by Bunny's head start.",
+      "test_criteria": {
+        "visual_elements": [
+          "woodland",
+          "dappled sunlight",
+          "towering trees",
+          "forest floor"
+        ],
+        "character_presence": [
+          "Bunny",
+          "Turtle"
+        ],
+        "mood": "calm and determined",
+        "lighting": "dappled woodland light"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "At the edge of the forest, a tranquil clearing opens up, kissed by the warm hues of a setting sun. The sky is painted with streaks of orange and pink, casting long shadows across the grass. The peaceful atmosphere is brought to life with soft, dreamy colors typical of a classic storybook illustration.",
+      "characters": [
+        "Bunny",
+        "Turtle"
+      ],
+      "narration_text": "Approaching the finish line, Bunny grew weary and slowed to a stop, deciding to rest. Meanwhile, Turtle continued with patient determination, crossing the line as the sun set on their race.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest clearing",
+          "setting sun",
+          "long shadows",
+          "orange and pink sky"
+        ],
+        "character_presence": [
+          "Bunny",
+          "Turtle"
+        ],
+        "mood": "peaceful and triumphant",
+        "lighting": "warm sunset hues"
+      }
+    }
+  ]
+}

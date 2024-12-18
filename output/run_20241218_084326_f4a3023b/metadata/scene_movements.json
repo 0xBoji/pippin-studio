@@ -1,0 +1,106 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 7.236,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_084326_f4a3023b/backgrounds/scene_0_background.png",
+        "narration_text": "Once upon a time, in a cozy village, a curious cat met a gentle dog under the warm glow of the twilight.",
+        "movements": [
+            {
+                "character_name": "Cat",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.8,
+                "animation_name": null
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    441,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Cat",
+                "start_time": 4,
+                "end_time": 5,
+                "start_position": [
+                    441,
+                    716
+                ],
+                "end_position": [
+                    441,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "look"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.8,
+                "animation_name": null
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    582,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Dog",
+                "start_time": 4,
+                "end_time": 5,
+                "start_position": [
+                    582,
+                    716
+                ],
+                "end_position": [
+                    582,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.8,
+                "animation_name": "wag_tail"
+            }
+        ]
+    }
+]

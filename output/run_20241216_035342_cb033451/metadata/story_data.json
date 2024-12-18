@@ -1,0 +1,91 @@
+{
+  "characters": [
+    {
+      "name": "Bunny",
+      "type": "character",
+      "description": "A speedy bunny with long ears and sleek fur. Typically depicted with bright eyes, a twitchy pink nose, and strong hind legs.",
+      "required_animations": [
+        "run",
+        "race"
+      ]
+    },
+    {
+      "name": "Turtle",
+      "type": "character",
+      "description": "A slow-moving turtle with a hard, dome-shaped shell, green skin, and short legs. Often shown with determined eyes and a steady gait.",
+      "required_animations": [
+        "walk",
+        "race"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "In the early morning light, a peaceful woodland path stretches out, flanked by towering trees with leaves gently rustling in the breeze. The path is dappled with spots of sunlight streaming through the foliage, creating an inviting racing trail. Designed in a storybook illustration style with soft and playful colors reminiscent of classic children's tales.",
+      "characters": [
+        "Bunny",
+        "Turtle"
+      ],
+      "narration_text": "The energetic Bunny and the determined Turtle stood at the beginning of a serene woodland path, ready to race each other.",
+      "test_criteria": {
+        "visual_elements": [
+          "woodland path",
+          "towering trees",
+          "spots of sunlight",
+          "racing trail"
+        ],
+        "character_presence": [
+          "Bunny",
+          "Turtle"
+        ],
+        "mood": "exciting and adventurous",
+        "lighting": "early morning light with dappled sunlight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "As the sun climbs higher, casting golden rays, the race continues along a lively meadow adorned with vibrant wildflowers. The air seems to shimmer with excitement as Bunny hops quickly ahead, leaving soft puffs of dust. The scene captures the essence of a storybook with enchanting colors and lively detail.",
+      "characters": [
+        "Bunny",
+        "Turtle"
+      ],
+      "narration_text": "With a burst of speed, the Bunny sprinted ahead, covering the meadow quickly. The Turtle, undeterred, methodically continued its steady pace.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "wildflowers",
+          "golden sunlight",
+          "puffs of dust"
+        ],
+        "character_presence": [
+          "Bunny",
+          "Turtle"
+        ],
+        "mood": "competitive and lively",
+        "lighting": "mid-morning with golden sunlight"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "Towards late afternoon, the meadow's warmth is replaced by a gentle cool as the sun dips towards the horizon. Turtle moves steadily forward, silhouetted against a backdrop of warm, orange skies. This artistic depiction uses classic storybook elements, with a focus on Turtle's determined journey.",
+      "characters": [
+        "Turtle"
+      ],
+      "narration_text": "As the sun began to set, the determined Turtle persevered on its path, reminding all who watched of the power of patience and persistence.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "orange skies",
+          "setting sun",
+          "Turtle's silhouette"
+        ],
+        "character_presence": [
+          "Turtle"
+        ],
+        "mood": "steady and triumphant",
+        "lighting": "late afternoon with warm, orange light"
+      }
+    }
+  ]
+}

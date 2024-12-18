@@ -11,7 +11,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 logger = logging.getLogger(__name__)
 
 class AIManager:
-    def __init__(self, model: str = "gpt-4o-mini"):
+    def __init__(self, model: str = "gpt-4o"):
         """Initialize AI manager with default model"""
         self.model = model
         # Validate OpenAI API key

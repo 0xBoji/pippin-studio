@@ -14,9 +14,8 @@ from asset_generator import AssetGenerator
 from scene_composer import SceneComposer
 from scene_movement_analyzer import SceneMovementAnalyzer
 from video_processor import VideoProcessor
-from narration_generator import NarrationGenerator  # Assuming you have this implemented
+from narration_generator import NarrationGenerator  # Assuming implemented
 
-# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -24,19 +23,113 @@ app = Flask(__name__)
 
 progress = {"step": "Idle"}
 story_text = ""
+current_run_id = None
+
+def get_runs():
+    runs = sorted(Path("output").glob("run_*"))
+    return runs
+
+@app.route('/history', methods=['GET'])
+def history():
+    runs = get_runs()
+    data = []
+    for run_dir in runs:
+        run_id = run_dir.name
+        final_video = run_dir / "final_video" / "final_video.mp4"
+        story_data = run_dir / "metadata" / "story_data.json"
+        item = {
+            "run_id": run_id,
+            "final_video_exists": final_video.exists(),
+            "final_video_path": str(final_video) if final_video.exists() else None,
+            "story_data_exists": story_data.exists()
+        }
+        data.append(item)
+    data.sort(key=lambda x: x["run_id"], reverse=True)
+    return jsonify(data)
+
+@app.route('/run_data/<run_id>', methods=['GET'])
+def run_data(run_id):
+    run_dir = Path("output") / run_id
+    if not run_dir.exists():
+        return jsonify({})
+
+    story_data_path = run_dir / "metadata" / "story_data.json"
+    story_data = {}
+    if story_data_path.exists():
+        with open(story_data_path, 'r') as f:
+            story_data = json.load(f)
+
+    scene_movements_path = run_dir / "metadata" / "scene_movements.json"
+    scene_movements = []
+    if scene_movements_path.exists():
+        with open(scene_movements_path, 'r') as f:
+            scene_movements = json.load(f)
+
+    characters_dir = run_dir / "characters"
+    animations_dir = run_dir / "animations"
+    backgrounds_dir = run_dir / "backgrounds"
+    scenes_dir = run_dir / "scenes"
+    final_video_path = run_dir / "final_video" / "final_video.mp4"
+
+    # Collect characters SVGs
+    characters = []
+    if characters_dir.exists():
+        for svg in characters_dir.glob("*.svg"):
+            characters.append(str(svg))
+
+    # Collect animations
+    animations = {}
+    if animations_dir.exists():
+        for anim_svg in animations_dir.glob("*.svg"):
+            animations[anim_svg.stem] = str(anim_svg)
+
+    # Scenes data
+    scenes_data = []
+    if scenes_dir.exists():
+        video_with_sound_dir = scenes_dir / "video_with_sound"
+        audio_dir = scenes_dir / "audio"
+        svg_dir = scenes_dir / "svg"
+        if video_with_sound_dir.exists():
+            for video_file in video_with_sound_dir.glob("*.mp4"):
+                sid = video_file.stem.replace("scene_","")
+                scene_audio = audio_dir / f"scene_{sid}.mp3"
+                scene_svg = svg_dir / f"scene_{sid}.svg"
+                scenes_data.append({
+                    "scene_id": sid,
+                    "video": str(video_file) if video_file.exists() else None,
+                    "audio": str(scene_audio) if scene_audio.exists() else None,
+                    "svg": str(scene_svg) if scene_svg.exists() else None
+                })
+
+    data = {
+        "run_id": run_id,
+        "story_data": story_data,
+        "scene_movements": scene_movements,
+        "characters": characters,
+        "animations": animations,
+        "scenes": scenes_data,
+        "final_video": str(final_video_path) if final_video_path.exists() else None
+    }
+
+    return jsonify(data)
 
 @app.route('/status', methods=['GET'])
 def status():
     return jsonify(progress)
 
+@app.route('/file')
+def serve_file():
+    path = request.args.get('path')
+    if not path:
+        return "No path provided", 400
+    full_path = Path(path)
+    if not full_path.exists():
+        return "File not found", 404
+    return send_file(str(full_path))
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        title = request.form.get('title', '')
-        description = request.form.get('description', '')
-        return render_template('processing.html', title=title, description=description)
     return render_template('index.html')
-
 
 def start_pipeline(story_text_local):
     loop = asyncio.new_event_loop()
@@ -51,7 +144,6 @@ def start_pipeline(story_text_local):
         loop.close()
     progress["step"] = "Complete"
 
-
 @app.route('/generate', methods=['POST'])
 def generate():
     title = request.form['title']
@@ -65,10 +157,11 @@ def generate():
 
     return jsonify({"status": "started"})
 
-
 async def run_pipeline(story_text_local):
-    # Create fresh instances for this run
     asset_manager = AssetManager()
+    global current_run_id
+    current_run_id = asset_manager.run_id
+
     ai_manager = AIManager()
     story_analyzer = StoryAnalyzer()
     asset_generator = AssetGenerator(asset_manager=asset_manager)
@@ -89,7 +182,6 @@ async def run_pipeline(story_text_local):
     progress["step"] = "Generating assets..."
     assets = await asset_generator.generate_all_assets(story_data)
 
-    # Generate narration audio for each scene
     progress["step"] = "Generating narration..."
     for scene in story_data["scenes"]:
         scene_id = scene["scene_id"]
@@ -98,7 +190,6 @@ async def run_pipeline(story_text_local):
         scene["audio_path"] = str(audio_path)
         scene["audio_duration"] = audio_duration
 
-    # Update backgrounds
     backgrounds_by_scene = {}
     for bg in assets["backgrounds"]:
         if "scene_id" in bg and "file_path" in bg:
@@ -120,7 +211,6 @@ async def run_pipeline(story_text_local):
     progress["step"] = "Composing scenes..."
     scenes = await scene_composer.compose_scenes(story_data, assets, scene_timelines)
 
-    # Generate videos for all scenes
     video_paths = []
     for idx, scene_data in enumerate(scenes):
         progress["step"] = f"Creating final video for scene {scene_data['scene_id']}..."
@@ -128,7 +218,6 @@ async def run_pipeline(story_text_local):
         video_paths.append(video_path)
         logger.info(f"Video for scene {scene_data['scene_id']} created at {video_path}")
 
-    # Combine each video with its audio
     progress["step"] = "Combining video with audio..."
     video_with_sound_paths = []
     for idx, scene_data in enumerate(scenes):
@@ -159,9 +248,7 @@ async def run_pipeline(story_text_local):
                 video_with_sound_paths.append(output_with_sound)
         else:
             logger.warning(f"No audio found for scene {scene_id}, skipping audio merge.")
-            # Could just append the silent video if desired
 
-    # Now stitch all scenes together into one final video
     if video_with_sound_paths:
         progress["step"] = "Stitching all scenes into one final video..."
         final_video_dir = asset_manager.get_path("final_video", "")
@@ -169,11 +256,9 @@ async def run_pipeline(story_text_local):
 
         final_video_path = asset_manager.get_path("final_video", "final_video.mp4")
 
-        # Create a temporary file with list of input videos
         concat_list_path = final_video_dir / "concat_list.txt"
         with open(concat_list_path, 'w') as f:
             for v in video_with_sound_paths:
-                # ffmpeg concat protocol requires paths in a certain format
                 f.write(f"file '{v}'\n")
 
         cmd = [
@@ -196,16 +281,11 @@ async def run_pipeline(story_text_local):
         logger.warning("No video_with_sound files found to stitch into final video.")
 
     progress["step"] = "Complete"
-
     return str(final_video_path) if final_video_path and final_video_path.exists() else None
 
 @app.route('/download')
 def download():
-    # Try to serve the final video if it exists
-    # We'll assume the last generated run is the one to download from
-    # You might store run_id in a session or a database and fetch it
-    # For now, just pick the latest run directory
-    runs = sorted(Path("output").glob("run_*"))
+    runs = get_runs()
     if not runs:
         return "No run found", 404
     last_run = runs[-1]
