@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Owl_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="130" rx="50" ry="60" fill="#8B5A2B" stroke="#5C3A21" stroke-width="2" />
+      <!-- Head -->
+      <circle cx="100" cy="70" r="40" fill="#A0522D" stroke="#5C3A21" stroke-width="2" />
+      <!-- Eyes -->
+      <circle cx="85" cy="65" r="10" fill="#FFFFFF" />
+      <circle cx="115" cy="65" r="10" fill="#FFFFFF" />
+      <circle cx="85" cy="65" r="5" fill="#000000" />
+      <circle cx="115" cy="65" r="5" fill="#000000" />
+      <!-- Beak -->
+      <polygon points="100,80 95,90 105,90" fill="#FFD700" stroke="#B8860B" stroke-width="1">
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="0.5s" repeatCount="indefinite" />
+      </polygon>
+      <!-- Wings -->
+      <path d="M50,130 Q30,100 50,80" fill="#A0522D" stroke="#5C3A21" stroke-width="2" />
+      <path d="M150,130 Q170,100 150,80" fill="#A0522D" stroke="#5C3A21" stroke-width="2" />
+      <!-- Feet -->
+      <line x1="80" y1="190" x2="80" y2="160" stroke="#DAA520" stroke-width="4" />
+      <line x1="120" y1="190" x2="120" y2="160" stroke="#DAA520" stroke-width="4" />
+      <!-- Mottled Feathers -->
+      <circle cx="70" cy="120" r="5" fill="#A0522D" />
+      <circle cx="130" cy="120" r="5" fill="#A0522D" />
+      <circle cx="90" cy="150" r="4" fill="#8B5A2B" />
+      <circle cx="110" cy="150" r="4" fill="#8B5A2B" />
+      <circle cx="100" cy="170" r="3" fill="#A0522D" />
+    </g>
+  </defs>
+  <use xlink:href="#Owl_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite" />
+  </use>
+</svg>

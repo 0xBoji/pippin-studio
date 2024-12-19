@@ -1,0 +1,90 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 8.02,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_052822_ae209c48/backgrounds/scene_0_background.png",
+        "narration_text": "Owl meets Turtle by the lakeside at dusk. Something Owl says makes Turtle cry, their tears glistening in the soft twilight.",
+        "movements": [
+            {
+                "character_name": "Owl",
+                "start_time": 3.75,
+                "end_time": 6.25,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    341.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "fly"
+            },
+            {
+                "character_name": "Owl",
+                "start_time": 5.0,
+                "end_time": 6.0,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    351.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": null
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 4.0,
+                "end_time": 5.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    682.0,
+                    317.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": null
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 6.0,
+                "end_time": 7.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    682.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.58,
+                "animation_name": null
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 7.0,
+                "end_time": 8.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    682.0,
+                    307.0
+                ],
+                "start_scale": 0.58,
+                "end_scale": 0.58,
+                "animation_name": null
+            }
+        ]
+    }
+]

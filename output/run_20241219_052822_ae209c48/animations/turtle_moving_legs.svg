@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Turtle_base_character">
+      <!-- Shell -->
+      <ellipse cx="100" cy="100" rx="60" ry="40" fill="#006400" stroke="#654321" stroke-width="2"/>
+      <!-- Shell patches -->
+      <circle cx="80" cy="90" r="10" fill="#228B22"/>
+      <circle cx="120" cy="110" r="12" fill="#228B22"/>
+      <circle cx="100" cy="130" r="8" fill="#228B22"/>
+      <!-- Head -->
+      <circle cx="160" cy="80" r="10" fill="#006400" stroke="#654321" stroke-width="2"/>
+      <!-- Eyes -->
+      <circle cx="158" cy="78" r="2" fill="#FFFFFF"/>
+      <circle cx="162" cy="78" r="2" fill="#FFFFFF"/>
+      <!-- Legs -->
+      <ellipse cx="70" cy="130" rx="8" ry="4" fill="#006400" stroke="#654321" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate" values="-15 70 130;15 70 130;-15 70 130" dur="0.6s" repeatCount="indefinite" />
+      </ellipse>
+      <ellipse cx="130" cy="130" rx="8" ry="4" fill="#006400" stroke="#654321" stroke-width="2">
+        <animateTransform attributeName="transform" type="rotate" values="15 130 130;-15 130 130;15 130 130" dur="0.6s" repeatCount="indefinite" />
+      </ellipse>
+      <!-- Tail -->
+      <polygon points="40,100 35,95 35,105" fill="#654321"/>
+    </g>
+  </defs>
+  <use xlink:href="#Turtle_base_character">
+    <animateTransform attributeName="transform" attributeType="XML" type="translate"
+        values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite"/>
+  </use>
+</svg>

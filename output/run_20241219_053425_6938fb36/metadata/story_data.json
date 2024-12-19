@@ -1,0 +1,47 @@
+{
+  "characters": [
+    {
+      "name": "Owl",
+      "type": "character",
+      "description": "A large bird with a round head, big eyes, and a stout body, covered in brown and white feathers with a prominent beak and sharp talons.",
+      "required_animations": [
+        "flying",
+        "attacking"
+      ]
+    },
+    {
+      "name": "Turtle",
+      "type": "character",
+      "description": "A small reptile with a domed shell, textured with shades of green and brown, a wrinkled neck extending out from the shell, and small, stubby legs.",
+      "required_animations": [
+        "crying"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene woodland area under the twilight sky, featuring dense trees casting long shadows over a soft bed of fallen leaves. The scene embodies a sense of calm before an unexpected event, with a gentle breeze slightly rustling the leaves. The atmosphere is tinged with an impending sense of action, capturing the transition from peace to sudden movement.",
+      "characters": [
+        "Owl",
+        "Turtle"
+      ],
+      "narration_text": "Owl attacks turtle. Turtle cries.",
+      "test_criteria": {
+        "visual_elements": [
+          "woodland area",
+          "dense trees",
+          "fallen leaves",
+          "twilight sky",
+          "long shadows"
+        ],
+        "character_presence": [
+          "Owl",
+          "Turtle"
+        ],
+        "mood": "tense and unsettling",
+        "lighting": "twilight with long shadows"
+      }
+    }
+  ]
+}

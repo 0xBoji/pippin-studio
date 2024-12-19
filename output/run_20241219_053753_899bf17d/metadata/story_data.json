@@ -1,0 +1,47 @@
+{
+  "characters": [
+    {
+      "name": "Owl",
+      "type": "character",
+      "description": "A large owl with a round head, large forward-facing eyes, sharp beak, and distinctively mottled feathers in shades of brown and gray.",
+      "required_animations": [
+        "attack",
+        "flap wings"
+      ]
+    },
+    {
+      "name": "Turtle",
+      "type": "character",
+      "description": "A turtle with a hard, domed, brown shell, small legs, and a head that can retract into its shell.",
+      "required_animations": [
+        "withdraw head",
+        "shed tears"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A dense and shadowy forest at twilight, with towering spruce trees creating a dark and mysterious atmosphere. The forest floor is covered with dry leaves and scattered branches, and a narrow clearing allows the fading light of dusk to filter through, casting long shadows. The scene uses a somber color palette with deep greens and browns to emphasize the foreboding setting.",
+      "characters": [
+        "Owl",
+        "Turtle"
+      ],
+      "narration_text": "An owl swoops down upon a small turtle in a shadowy forest, causing the turtle to retreat into its shell and cry.",
+      "test_criteria": {
+        "visual_elements": [
+          "spruce trees",
+          "forest floor with dry leaves",
+          "narrow clearing",
+          "twilight setting"
+        ],
+        "character_presence": [
+          "Owl",
+          "Turtle"
+        ],
+        "mood": "tense and somber",
+        "lighting": "dusk with long shadows"
+      }
+    }
+  ]
+}

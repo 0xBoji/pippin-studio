@@ -36,8 +36,6 @@ class SceneComposer:
 
             scene_duration = timeline.duration if timeline else scene.get("duration", 5.0)
 
-            # Build character data using timeline movements
-            # Instead of placing them in SVG, we store their movements here for video_processor to handle.
             character_dicts = []
             if timeline and timeline.movements:
                 # Group movements by character
@@ -56,35 +54,39 @@ class SceneComposer:
                         "animation_name": m.animation_name
                     })
 
-                # For each character in scene, assign the corresponding SVG and movements
+                # Assign characters with base_path and animations
                 for char_name in scene.get("characters", []):
                     if not isinstance(char_name, str):
                         logger.warning(f"Character entry {char_name} is not a string. Skipping.")
                         continue
-                    if char_name in assets["characters"]:
-                        animation_path = assets["characters"][char_name]
 
-                        # If character has movements, use them; otherwise just a static position
-                        char_movements = movements_by_char.get(char_name, [])
-                        character_dicts.append({
-                            "name": char_name,
-                            "animation_path": animation_path,
-                            "movements": char_movements
-                        })
-                    else:
+                    base_svg = assets["characters"].get(char_name)
+                    if not base_svg:
                         logger.warning(f"No SVG found for character {char_name} in assets. Skipping.")
+                        continue
+
+                    char_animations = assets["animations"].get(char_name, {})
+
+                    char_movements = movements_by_char.get(char_name, [])
+                    character_dicts.append({
+                        "name": char_name,
+                        "base_path": base_svg,
+                        "animations": char_animations,
+                        "movements": char_movements
+                    })
             else:
                 # No timeline-based movements, just place characters statically
                 for char_name in scene.get("characters", []):
                     if not isinstance(char_name, str):
                         logger.warning(f"Character entry {char_name} is not a string. Skipping.")
                         continue
-                    if char_name in assets["characters"]:
-                        animation_path = assets["characters"][char_name]
-                        # Default position center if no movements
+                    base_svg = assets["characters"].get(char_name)
+                    if base_svg:
+                        char_animations = assets["animations"].get(char_name, {})
                         character_dicts.append({
                             "name": char_name,
-                            "animation_path": animation_path,
+                            "base_path": base_svg,
+                            "animations": char_animations,
                             "movements": [
                                 {
                                     "start_time": 0.0,

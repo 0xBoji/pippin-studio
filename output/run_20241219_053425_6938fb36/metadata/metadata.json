@@ -1,0 +1,18 @@
+{
+  "run_id": "run_20241219_053425_6938fb36",
+  "created_at": "2024-12-19T05:34:25.095104",
+  "assets": {
+    "characters": [
+      "owl.svg",
+      "turtle.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "owl_flying.svg",
+      "owl_attacking.svg",
+      "turtle_crying.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

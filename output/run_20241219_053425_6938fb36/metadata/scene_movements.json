@@ -1,0 +1,58 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 2.168,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_053425_6938fb36/backgrounds/scene_0_background.png",
+        "narration_text": "Owl attacks turtle. Turtle cries.",
+        "movements": [
+            {
+                "character_name": "Owl",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    500.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "fly"
+            },
+            {
+                "character_name": "Owl",
+                "start_time": 1.0,
+                "end_time": 2.0,
+                "start_position": [
+                    500.0,
+                    307.0
+                ],
+                "end_position": [
+                    520.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.8,
+                "animation_name": "attacking"
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 0.5,
+                "end_time": 2.168,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    682.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "crying"
+            }
+        ]
+    }
+]
