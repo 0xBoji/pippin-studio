@@ -1,0 +1,50 @@
+{
+  "characters": [
+    {
+      "name": "Chubby Panda",
+      "type": "character",
+      "description": "A panda with a round, chubby body, black and white fur\u2014black ears, eye patches, arms, and legs with a white belly and face.",
+      "required_animations": [
+        "bumping noses",
+        "smiling",
+        "scooting closer"
+      ]
+    },
+    {
+      "name": "Curious Squirrel",
+      "type": "character",
+      "description": "A small squirrel with a bushy tail, gray and brown fur, and bright, inquisitive eyes.",
+      "required_animations": [
+        "bumping noses",
+        "smiling",
+        "scooting closer"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tranquil forest setting with a lush bamboo grove stretching high into the sky. The ground is carpeted with fallen leaves and scattered rocks, while distant mountains loom gently in the backdrop under a clear blue sky. Soft light filters through the bamboo stems, casting dappled shadows and creating a peaceful atmosphere.",
+      "characters": [
+        "Chubby Panda",
+        "Curious Squirrel"
+      ],
+      "narration_text": "A chubby panda bumped noses with a curious squirrel. They smiled and scooted closer.",
+      "test_criteria": {
+        "visual_elements": [
+          "bamboo grove",
+          "fallen leaves",
+          "rocks",
+          "distant mountains",
+          "clear blue sky"
+        ],
+        "character_presence": [
+          "Chubby Panda",
+          "Curious Squirrel"
+        ],
+        "mood": "peaceful and playful",
+        "lighting": "soft dappled light through bamboo"
+      }
+    }
+  ]
+}

@@ -19,6 +19,13 @@ class VideoProcessor:
         self.asset_manager = asset_manager
 
     async def create_scene_video(self, scene_data: Dict, output_path: Optional[Path] = None) -> Path:
+        """
+        Render the scene video by:
+        - Rendering the background scene SVG frames.
+        - Rendering each character over it based on movements.
+        - For each character's animation, derive its natural duration
+          from the first movement in scene_movements.json that uses it.
+        """
         scene_id = scene_data["scene_id"]
         duration = scene_data.get("duration", 5.0)
         scene_svg_path = scene_data.get("svg_path", None)
@@ -42,11 +49,31 @@ class VideoProcessor:
         fps = 30
         total_frames = int(duration * fps)
 
+        # Render scene background frames if any
         scene_frames = []
         if scene_svg_path:
             svg_processor = SVGProcessor(Path(scene_svg_path))
             scene_svg_frames = await svg_processor.generate_frames(duration=duration, fps=fps)
             scene_frames = scene_svg_frames
+
+        # We need to determine animation durations from movements
+        # For each character, we have a set of movements with animation_name.
+        # We'll find the first movement that uses a given animation_name and use that duration.
+        # If an animation_name appears multiple times with different durations, 
+        # we stick to the first encountered duration.
+
+        # Gather animation durations from movements
+        animation_durations = {}  # { (char_name, anim_name): duration_in_seconds }
+
+        for char_data in characters:
+            char_name = char_data["name"]
+            for m in char_data["movements"]:
+                anim_name = m["animation_name"]
+                if anim_name is not None:
+                    movement_duration = m["end_time"] - m["start_time"]
+                    # If not set yet, record this animation duration
+                    if (char_name, anim_name) not in animation_durations:
+                        animation_durations[(char_name, anim_name)] = movement_duration
 
         # Pre-generate frames for each character and their animations
         character_frames_map = {}
@@ -55,18 +82,24 @@ class VideoProcessor:
             base_path = char_data["base_path"]
             animations = char_data["animations"]
 
-            # Pre-generate base frames
-            svg_processor = SVGProcessor(Path(base_path))
-            char_duration = duration
-            base_frames = await svg_processor.generate_frames(duration=char_duration, fps=fps)
+            # Base frames: we consider the base character animation equivalent to the entire scene duration
+            # since it might be a subtle idle animation. If you prefer, you can set a default duration for base.
+            # We'll just keep using scene duration here for base_path for now.
+            base_svg_proc = SVGProcessor(Path(base_path))
+            base_frames = await base_svg_proc.generate_frames(duration=duration, fps=fps)
             character_frames_map[char_name] = {None: base_frames}
 
-            # Pre-generate animation frames
+            # Now for each animation, use the calculated duration if available
             for anim_name, anim_svg in animations.items():
-                # Use save_animation to store this animation SVG
+                # Determine animation duration
+                # If not in animation_durations, default to a 1s duration (or scene duration)
+                # Ideally every animation_name should appear in at least one movement, but let's be safe.
+                anim_duration = animation_durations.get((char_name, anim_name), 1.0)
+
                 anim_path = self.asset_manager.save_animation(char_name, f"{anim_name}_temp", anim_svg)
                 anim_processor = SVGProcessor(Path(anim_path))
-                anim_frames = await anim_processor.generate_frames(duration=char_duration, fps=fps)
+                # Generate frames for this specific animation duration
+                anim_frames = await anim_processor.generate_frames(duration=anim_duration, fps=fps)
                 character_frames_map[char_name][anim_name] = anim_frames
 
         encoder = VideoEncoder(str(output_path), fps)
@@ -78,6 +111,7 @@ class VideoProcessor:
             if frame_idx % 10 == 0:
                 logger.info(f"Processing frame {frame_idx+1}/{total_frames}")
 
+            # Blend scene frame if available
             if scene_frames:
                 scene_frame = scene_frames[min(frame_idx, len(scene_frames)-1)]
                 scene_img = Image.open(BytesIO(scene_frame)).convert('RGBA')
@@ -117,8 +151,11 @@ class VideoProcessor:
                     movement_duration = 0.001
                 t = (current_time - current_movement["start_time"]) / movement_duration
                 t = max(0.0, min(t, 1.0))
-                char_frame_idx = int(t * (len(frames)-1))
 
+                # t maps 0->start_time to 1->end_time of that movement
+                # frames for this animation were generated according to the movement's animation duration
+                # so t directly maps to the frames of that animation
+                char_frame_idx = int(t * (len(frames)-1))
                 char_frame = frames[char_frame_idx]
 
                 # Determine character position and scale

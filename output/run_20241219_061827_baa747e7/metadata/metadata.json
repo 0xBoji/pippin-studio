@@ -1,0 +1,27 @@
+{
+  "run_id": "run_20241219_061827_baa747e7",
+  "created_at": "2024-12-19T06:18:27.496899",
+  "assets": {
+    "characters": [
+      "chubby_panda.svg",
+      "curious_squirrel.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "chubby_panda_bumping_noses.svg",
+      "chubby_panda_smiling.svg",
+      "chubby_panda_scooting_closer.svg",
+      "curious_squirrel_bumping_noses.svg",
+      "curious_squirrel_smiling.svg",
+      "curious_squirrel_scooting_closer.svg",
+      "chubby_panda_bumping_noses_temp.svg",
+      "chubby_panda_smiling_temp.svg",
+      "chubby_panda_scooting_closer_temp.svg",
+      "curious_squirrel_bumping_noses_temp.svg",
+      "curious_squirrel_smiling_temp.svg",
+      "curious_squirrel_scooting_closer_temp.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

@@ -1,0 +1,138 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 5.381,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_061827_baa747e7/backgrounds/scene_0_background.png",
+        "narration_text": "A chubby panda bumped noses with a curious squirrel. They smiled and scooted closer.",
+        "movements": [
+            {
+                "character_name": "Chubby Panda",
+                "start_time": 0.0,
+                "end_time": 2.0,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    500.0,
+                    307.0
+                ],
+                "start_scale": 0.4,
+                "end_scale": 0.6,
+                "animation_name": "scooting closer"
+            },
+            {
+                "character_name": "Curious Squirrel",
+                "start_time": 0.0,
+                "end_time": 2.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    533.0,
+                    307.0
+                ],
+                "start_scale": 0.4,
+                "end_scale": 0.6,
+                "animation_name": "scooting closer"
+            },
+            {
+                "character_name": "Chubby Panda",
+                "start_time": 2.0,
+                "end_time": 2.5,
+                "start_position": [
+                    500.0,
+                    307.0
+                ],
+                "end_position": [
+                    500.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "bumping noses"
+            },
+            {
+                "character_name": "Curious Squirrel",
+                "start_time": 2.0,
+                "end_time": 2.5,
+                "start_position": [
+                    533.0,
+                    307.0
+                ],
+                "end_position": [
+                    533.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "bumping noses"
+            },
+            {
+                "character_name": "Chubby Panda",
+                "start_time": 2.5,
+                "end_time": 3.0,
+                "start_position": [
+                    500.0,
+                    307.0
+                ],
+                "end_position": [
+                    500.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "smiling"
+            },
+            {
+                "character_name": "Curious Squirrel",
+                "start_time": 2.5,
+                "end_time": 3.0,
+                "start_position": [
+                    533.0,
+                    307.0
+                ],
+                "end_position": [
+                    533.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "smiling"
+            },
+            {
+                "character_name": "Chubby Panda",
+                "start_time": 3.0,
+                "end_time": 4.5,
+                "start_position": [
+                    500.0,
+                    307.0
+                ],
+                "end_position": [
+                    470.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.7,
+                "animation_name": "scooting closer"
+            },
+            {
+                "character_name": "Curious Squirrel",
+                "start_time": 3.0,
+                "end_time": 4.5,
+                "start_position": [
+                    533.0,
+                    307.0
+                ],
+                "end_position": [
+                    563.0,
+                    307.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.7,
+                "animation_name": "scooting closer"
+            }
+        ]
+    }
+]
