@@ -1,0 +1,554 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 22.23,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_040633_35a9ac56/backgrounds/scene_0_background.png",
+        "narration_text": "In a quaint little town nestled between rolling hills and a sparkling river, there resided a curious cat named Whiskers. Whiskers was not like other cats; he had a penchant for adventure and a knack for getting into places he shouldn\u2019t. His sleek, black fur glistened under the sun as he prowled through the neighborhood, always on the lookout for something new.",
+        "movements": [
+            {
+                "character_name": "Whiskers",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 1,
+                "end_time": 6,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    450,
+                    700
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "prowling"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 6,
+                "end_time": 10,
+                "start_position": [
+                    450,
+                    700
+                ],
+                "end_position": [
+                    450,
+                    700
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "leaping"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 1,
+                "end_time": 7,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    600,
+                    700
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "basking in sun"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 7,
+                "end_time": 10,
+                "start_position": [
+                    600,
+                    700
+                ],
+                "end_position": [
+                    600,
+                    700
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "yawning"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 10,
+                "end_time": 15,
+                "start_position": [
+                    450,
+                    700
+                ],
+                "end_position": [
+                    350,
+                    600
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "dashing"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 10,
+                "end_time": 15,
+                "start_position": [
+                    600,
+                    700
+                ],
+                "end_position": [
+                    550,
+                    650
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "chasing"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 15,
+                "end_time": 22.23,
+                "start_position": [
+                    350,
+                    600
+                ],
+                "end_position": [
+                    450,
+                    550
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "creeping"
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 30.772,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_040633_35a9ac56/backgrounds/scene_1_background.png",
+        "narration_text": "One sunny afternoon, as Whiskers was exploring the far side of the park\u2014a place he rarely ventured\u2014he stumbled upon a sight that made him pause. There, in the middle of the lush, green grass, was a large, shaggy dog lazily basking in the sun. Whiskers had heard tales of dogs from other cats, tales filled with warnings and tales of mischief. Yet, something about this dog's carefree demeanor piqued his interest.",
+        "movements": [
+            {
+                "character_name": "Whiskers",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 5.0,
+                "end_time": 10.0,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    450,
+                    719
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "prowling"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 15.0,
+                "end_time": 20.0,
+                "start_position": [
+                    450,
+                    719
+                ],
+                "end_position": [
+                    450,
+                    719
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "tail flicking"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 8.0,
+                "end_time": 13.0,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    670,
+                    819
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "basking in sun"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 18.0,
+                "end_time": 23.0,
+                "start_position": [
+                    670,
+                    819
+                ],
+                "end_position": [
+                    670,
+                    819
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "yawning"
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 16.744,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_040633_35a9ac56/backgrounds/scene_2_background.png",
+        "narration_text": "Encouraged by Max's friendly demeanor, Whiskers decided to approach him. He circled around Max, keeping a safe distance, and finally settled down beside him. They sat together in companionable silence, the gentle breeze ruffling their fur.",
+        "movements": [
+            {
+                "character_name": "Whiskers",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.15,
+                "animation_name": null
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 1.0,
+                "end_time": 6.0,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    716
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "creeping"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 6.5,
+                "end_time": 7.0,
+                "start_position": [
+                    600,
+                    716
+                ],
+                "end_position": [
+                    600,
+                    616
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "leaping"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 7.5,
+                "end_time": 10.0,
+                "start_position": [
+                    600,
+                    616
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.12,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 8.0,
+                "end_time": 12.0,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.15,
+                "end_scale": 0.15,
+                "animation_name": "basking in sun"
+            }
+        ]
+    },
+    {
+        "scene_id": 3,
+        "duration": 20.924,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_040633_35a9ac56/backgrounds/scene_3_background.png",
+        "narration_text": "Over the next few days, Whiskers found himself returning to the park, eager to learn more about the ways of dogs. Max was always there, ready to share his world with the curious cat. They would chase butterflies, explore hidden corners of the park, and, of course, engage in the thrilling pursuit of sticks.",
+        "movements": [
+            {
+                "character_name": "Whiskers",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    341,
+                    716
+                ],
+                "end_position": [
+                    441,
+                    616
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "leaping"
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 4,
+                "end_time": 6,
+                "start_position": [
+                    441,
+                    616
+                ],
+                "end_position": [
+                    341,
+                    716
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "dashing"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 2,
+                "end_time": 4,
+                "start_position": [
+                    682,
+                    716
+                ],
+                "end_position": [
+                    582,
+                    716
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "chasing"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 5,
+                "end_time": 7,
+                "start_position": [
+                    582,
+                    716
+                ],
+                "end_position": [
+                    682,
+                    716
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "chuckling"
+            }
+        ]
+    },
+    {
+        "scene_id": 4,
+        "duration": 21.159,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_040633_35a9ac56/backgrounds/scene_4_background.png",
+        "narration_text": "As the seasons changed and the leaves turned from green to gold, Whiskers and Max continued their daily meetings, their bond growing stronger with each passing day. The other cats in the neighborhood watched with a mixture of disbelief and admiration as Whiskers, the adventurous cat, became the best of friends with Max, the amiable dog.",
+        "movements": [
+            {
+                "character_name": "Whiskers",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Whiskers",
+                "start_time": 5.0,
+                "end_time": 7.0,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    719
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "leaping"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Max",
+                "start_time": 10.0,
+                "end_time": 13.0,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    732,
+                    819
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "chuckling"
+            },
+            {
+                "character_name": "Max",
+                "start_time": 16.0,
+                "end_time": 19.0,
+                "start_position": [
+                    732,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    869
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "chasing"
+            }
+        ]
+    }
+]

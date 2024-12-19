@@ -185,7 +185,7 @@ class StoryAnalyzer:
 
         For each scene, provide:
         1. scene_id: Sequential number starting from 0
-        2. background_description: A detailed scene description optimized for DALL-E image generation.
+        2. background_description: A detailed scene description optimized for DALL-E image generation. Do not include any mention of characters from the scene in the background image description as we will overlay that back on later.
         3. characters: List of characters present in the scene
         4. narration_text: The story text for this scene
         5. test_criteria: Specific elements to verify in the generated scene

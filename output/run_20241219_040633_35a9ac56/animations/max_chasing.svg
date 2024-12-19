@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Max_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="120" rx="50" ry="30" fill="#A0522D" />
+      <!-- Head -->
+      <circle cx="100" cy="70" r="25" fill="#A0522D" />
+      <!-- Ears -->
+      <path d="M85,60 Q80,50 90,50" fill="#8B4513" />
+      <path d="M115,60 Q120,50 110,50" fill="#8B4513" />
+      <!-- Eyes -->
+      <circle cx="92" cy="70" r="3" fill="#000" />
+      <circle cx="108" cy="70" r="3" fill="#000" />
+      <!-- Nose -->
+      <circle cx="100" cy="75" r="4" fill="#000" />
+      <!-- Mouth -->
+      <path d="M95,80 Q100,85 105,80" stroke="#000" stroke-width="1" fill="none" />
+      <!-- Tail -->
+      <path d="M150,120 Q160,110 150,100" stroke="#8B4513" stroke-width="4" fill="none" />
+      <!-- Shaggy Coat -->
+      <path d="M70,120 Q100,90 130,120" stroke="#D2691E" stroke-width="5" fill="none" />
+      <path d="M70,125 Q100,95 130,125" stroke="#D2691E" stroke-width="5" fill="none" />
+    </g>
+  </defs>
+  <use xlink:href="#Max_base_character">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 5; 0 0" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0 0; 100 0; 0 0" dur="2s" repeatCount="indefinite" />
+  </use>
+</svg>

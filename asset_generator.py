@@ -9,8 +9,19 @@ from PIL import Image
 from asset_manager import AssetManager
 from litellm import completion
 from openai import OpenAI
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
+
+# Define structured output models for parsing
+class CharacterSVG(BaseModel):
+    svg_code: str
+    character_name: str
+
+class AnimationResult(BaseModel):
+    animation_svg: str
+    character_name: str
+    animation_name: str
 
 async def download_image(url: str, output_path: str) -> bool:
     try:
@@ -50,7 +61,8 @@ async def download_image(url: str, output_path: str) -> bool:
 
 class AssetGenerator:
     def __init__(self, asset_manager: AssetManager):
-        self.model = "gpt-4o"
+        # Use o1-mini model instead of gpt-4o
+        self.model = "o1-mini"
         self.asset_manager = asset_manager
         try:
             self.client = OpenAI()
@@ -60,7 +72,6 @@ class AssetGenerator:
             raise
 
         # Example SVGs from a config-like dictionary
-        # If the character name matches "unicorn" or "Unicorn", we use this SVG instead of generating dynamically.
         self.svg_config = {
             "unicorn": """<?xml version="1.0" encoding="UTF-8"?>
 <svg width="250" height="250" viewBox="0 0 250 250"
@@ -207,7 +218,7 @@ class AssetGenerator:
                 "character_name": char_name
             }
         else:
-            # Dynamically generate SVG using OpenAI
+            # Dynamically generate SVG using o1-mini and then parse with gpt-4o-mini
             schema = {
                 "type": "object",
                 "properties": {
@@ -217,34 +228,20 @@ class AssetGenerator:
                 "required": ["svg_code", "character_name"]
             }
 
-            # Detailed system prompt instructions:
-            # We want a single SVG with a base character:
-            # * The SVG must include a light bounce animation (similar to a vertical translate oscillation).
-            # * The SVG should be fully self-contained, no external references.
-            # * It should use clear shapes (paths, circles, polygons) and simple colors.
-            # * The SVG must start with <?xml version="1.0" encoding="UTF-8"?> and contain a single <svg> root.
-            # * The character should visually reflect the given description (colors, form, etc.).
-            # * The animation should use animateTransform or similar elements to create a subtle bounce.
-            # * Avoid complex gradients; stick to solid fills and strokes for easier parsing.
-            # * The character_name in output should match the one provided.
-            # * The SVG should have a viewBox and fixed width and height.
-            # * The SVG code must be valid XML.
-            # * The bounce animation: use translate with a small vertical movement (e.g. values="0 0; 0 10; 0 0") over about 1s, repeat indefinitely.
-
             system_instructions = """
-You are an SVG character generation expert. Given a character's name and description, produce a base SVG string that:
+You are an SVG character generation expert. Given a character's name and description, produce a detailed SVG representing the character that:
 
 - Starts with <?xml version="1.0" encoding="UTF-8"?>.
 - Has a single <svg> root with a viewBox and width/height attributes.
 - Depicts a character described by the given text (physical appearance, colors).
 - Include a subtle 'light bounce' animation (vertical translate) that loops indefinitely.
-- Use simple, solid colors and basic shapes (paths, ellipses, rectangles) to represent the character.
 - No external images or references.
 - Include <defs> and a <g> element with an id like {character_name}_base_character.
+- Always include this in the svg tag:  xmlns:xlink="http://www.w3.org/1999/xlink"
 - After the <defs>, use <use xlink:href="#{character_name}_base_character"/> to display.
 - The animation should use <animateTransform> with 'translate' and at least two intermediate values (e.g., values="0 0; 0 10; 0 0") and dur="1s" repeatCount="indefinite".
 - Make sure the SVG is valid and can be parsed easily. Keep it under a few hundred lines.
-- The output must be a JSON object with "svg_code" and "character_name".
+- The output should be a JSON object with "svg_code" and "character_name".
 """
 
             user_prompt = f"""
@@ -258,17 +255,34 @@ Description: {char_desc}
 Generate a base animated SVG following the system instructions.
 """
 
-            response = completion(
+            # First call with o1-mini to get raw JSON
+            o1_response = completion(
                 model=self.model,
                 messages=[
                     {"role": "system", "content": system_instructions},
                     {"role": "user", "content": user_prompt}
-                ],
-                response_format={"type": "json_object"}
+                ]
             )
 
-            result = json.loads(response.choices[0].message.content)
-            return result
+            o1_response_content = o1_response.choices[0].message.content
+
+            # Second call with gpt-4o-mini to parse the JSON
+            response = self.client.beta.chat.completions.parse(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": f"Given the following data, format it with the given response format: {o1_response_content}"
+                    }
+                ],
+                response_format=CharacterSVG
+            )
+
+            parsed_result = response.choices[0].message.parsed
+            return {
+                "svg_code": parsed_result.svg_code,
+                "character_name": parsed_result.character_name
+            }
 
     async def generate_animation(self, character: Dict, animation_name: str, base_svg: str) -> Dict:
         schema = {
@@ -280,18 +294,6 @@ Generate a base animated SVG following the system instructions.
             },
             "required": ["animation_svg", "character_name", "animation_name"]
         }
-
-        # Detailed instructions for creating animation:
-        # We have a base character SVG. We need to add an animation that shows the character performing the given animation_name action.
-        # The result should:
-        # * Maintain the same SVG structure and add new animate elements inside the relevant groups or paths.
-        # * The animation must be something visible: could be another translate, rotate, scale, or color change.
-        # * The code must remain valid SVG, starting with <?xml ... ?> and a single root <svg>.
-        # * The output should be a JSON with animation_svg, character_name, and animation_name.
-        # * Ensure that animations do not break the previous structure; just add or modify <animate> or <animateTransform>.
-        # * The animate elements should be clear and use dur, values, etc. The attributeName must be something that actually exists in the SVG.
-        # * Keep complexity low, only add simple animations that we can parse (e.g., a rotation of a limb, or a color fade).
-        # * The system instructions should ensure that we can always parse the output correctly.
 
         system_instructions = """
 You are an SVG animation expert. Given a base character SVG and an animation_name, add or modify the SVG to include an additional animation representing that action. Follow these rules:
@@ -318,24 +320,42 @@ Base SVG:
 Add an animation for '{animation_name}' action following system instructions.
 """
 
-        response = completion(
+        # First call with o1-mini to get raw JSON
+        o1_response = completion(
             model=self.model,
             messages=[
                 {"role": "system", "content": system_instructions},
                 {"role": "user", "content": user_prompt}
-            ],
-            response_format={"type": "json_object"}
+            ]
         )
 
-        result = json.loads(response.choices[0].message.content)
-        animation_svg = result["animation_svg"]
-        char_name = result["character_name"]
-        anim_name = result["animation_name"]
+        o1_response_content = o1_response.choices[0].message.content
+
+        # Second call with gpt-4o-mini to parse the JSON
+        response = self.client.beta.chat.completions.parse(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "user",
+                    "content": f"Given the following data, format it with the given response format: {o1_response_content}"
+                }
+            ],
+            response_format=AnimationResult
+        )
+
+        parsed_result = response.choices[0].message.parsed
+        animation_svg = parsed_result.animation_svg
+        char_name = parsed_result.character_name
+        anim_name = parsed_result.animation_name
 
         anim_path = self.asset_manager.save_animation(char_name, anim_name, animation_svg)
         logger.info(f"Animation saved at: {anim_path}")
 
-        return result
+        return {
+            "animation_svg": animation_svg,
+            "character_name": char_name,
+            "animation_name": anim_name
+        }
 
     async def generate_background(self, scene_id: int, description: str) -> Dict:
         result = {
