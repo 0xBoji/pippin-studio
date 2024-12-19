@@ -7,13 +7,22 @@ from litellm import completion
 logger = logging.getLogger(__name__)
 
 class StoryAnalyzer:
-    def __init__(self):
-        # the newest OpenAI model is "gpt-4o" which was released May 13, 2024.
-        # do not change this unless explicitly requested by the user
+    def __init__(self, generation_mode="prompt", scene_count="auto"):
+        # the newest OpenAI model is "gpt-4o"
         self.model = "gpt-4o"
+        self.generation_mode = generation_mode
+        self.scene_count = scene_count
 
     async def analyze(self, story_text: str) -> Dict:
-        """Analyze story and extract characters, objects, and scenes"""
+        """Analyze story and extract characters, objects, and scenes.
+           If generation_mode is 'prompt', the 'story_text' is actually a title + prompt combination 
+           and we should first generate a story from it before extracting characters and scenes.
+           If generation_mode is 'full_text', the story_text is the full story itself.
+        """
+        if self.generation_mode == "prompt":
+            # Generate a multi-scene story text from the given prompt
+            story_text = await self._generate_full_story(story_text)
+
         characters = await self._extract_characters(story_text)
         scenes = await self._extract_scenes(story_text, characters)
         return {
@@ -21,12 +30,38 @@ class StoryAnalyzer:
             "scenes": scenes
         }
 
+    async def _generate_full_story(self, prompt_text: str) -> str:
+        """Generate a full story from a title and prompt (the given prompt_text includes both).
+           Optionally consider the scene_count to guide how many scenes the story should have.
+        """
+        instructions = f"""
+        You are a storyteller. I will provide a title and a prompt. Generate a cohesive, narrative story text.
+
+        Requirements:
+        - The story should be self-contained and complete.
+        - If scene_count is a number (not "auto"), structure the story so it can be naturally divided into that many scenes.
+        - If scene_count is "auto", you can choose the natural number of scenes.
+        - Make sure the story is detailed and suitable for visual scene extraction.
+
+        scene_count: {self.scene_count}
+
+        Respond with the full story text.
+        """
+
+        messages = [
+            {"role": "system", "content": instructions},
+            {"role": "user", "content": f"Title and prompt:\n\n{prompt_text}"}
+        ]
+
+        response = completion(model=self.model, messages=messages, temperature=0.7)
+        story = response.choices[0].message.content.strip()
+        logger.info("Generated story text from prompt.")
+        return story
+
     async def _extract_characters(self, story_text: str) -> List[Dict]:
-        """Extract characters and objects from story text"""
         logger.info("Starting character extraction...")
 
         try:
-            # Enable JSON schema validation
             import litellm
             litellm.enable_json_schema_validation = True
             litellm.set_verbose = True
@@ -49,24 +84,12 @@ class StoryAnalyzer:
                     }
                 ]
             }
-
-            Example:
-            {
-                "characters": [
-                    {
-                        "name": "Hoppy",
-                        "type": "character",
-                        "description": "A cheerful bunny with long ears, white fur, and pink nose. Wears a blue bowtie. Has big expressive eyes.",
-                        "required_animations": ["hop", "dance", "wave"]
-                    }
-                ]
-            }
             """
 
             messages = [
                 {
                     "role": "system",
-                    "content": "You are a story analysis expert that extracts characters and objects from stories, providing detailed structured data for visualization and testing."
+                    "content": "You are a story analysis expert that extracts characters and objects from stories."
                 },
                 {
                     "role": "user",
@@ -74,7 +97,6 @@ class StoryAnalyzer:
                 }
             ]
 
-            logger.info("Sending request to LiteLLM...")
             response = completion(
                 model=self.model,
                 messages=messages,
@@ -82,72 +104,19 @@ class StoryAnalyzer:
             )
 
             content = response.choices[0].message.content
-            logger.info(f"Received response: {content}")
+            logger.info(f"Received character extraction response: {content}")
 
-            try:
-                result = json.loads(content)
-                if not isinstance(result, dict):
-                    logger.error(f"Expected dict, got {type(result)}")
-                    return []
-
-                if "characters" not in result:
-                    logger.error("Response missing 'characters' key")
-                    logger.error(f"Full response: {result}")
-                    return []
-
-                characters = result["characters"]
-                if not isinstance(characters, list):
-                    logger.error(f"Expected characters to be a list, got {type(characters)}")
-                    return []
-
-                # Validate each character
-                valid_characters = []
-                required_fields = ["name", "type", "description", "required_animations"]
-
-                for char in characters:
-                    if not isinstance(char, dict):
-                        logger.error(f"Invalid character format: {char}")
-                        continue
-
-                    # Check required fields
-                    if all(field in char for field in required_fields):
-                        # Validate type
-                        if char["type"] not in ["character", "object"]:
-                            logger.error(f"Invalid type for character {char['name']}: {char['type']}")
-                            continue
-
-                        # Validate animations list
-                        if not isinstance(char["required_animations"], list):
-                            logger.error(f"Invalid animations format for {char['name']}")
-                            continue
-
-                        valid_characters.append(char)
-                    else:
-                        logger.error(f"Missing required fields in character: {char}")
-
-                logger.info(f"Successfully extracted {len(valid_characters)} valid characters")
-                return valid_characters
-
-            except json.JSONDecodeError as e:
-                logger.error(f"Failed to parse response JSON: {e}")
-                logger.error(f"Raw content: {content}")
+            result = json.loads(content)
+            if "characters" not in result or not isinstance(result["characters"], list):
+                logger.error("Invalid character extraction response")
                 return []
-            except Exception as e:
-                logger.error(f"Unexpected error processing characters: {e}")
-                logger.error(f"Raw content: {content}")
-                return []
+            return result["characters"]
 
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse character extraction response: {e}")
-            logger.error(f"Raw response content: {response.choices[0].message.content}")
-            raise
         except Exception as e:
             logger.error(f"Error extracting characters: {e}")
-            logger.error(f"Error details: {str(e)}")
             return []
 
     async def _extract_scenes(self, story_text: str, characters: List[Dict]) -> List[Dict]:
-        """Extract scene information from story text"""
         schema = {
             "type": "object",
             "properties": {
@@ -204,34 +173,34 @@ class StoryAnalyzer:
             }
         }
 
+        # If scene_count is auto, no additional constraint. If a number, instruct the model to create exactly that many scenes.
+        scene_count_instruction = ""
+        if self.scene_count != "auto":
+            scene_count_instruction = f"Create exactly {self.scene_count} scenes."
+
         prompt = f"""
         Analyze this story and break it into scenes, with test criteria for each. The available characters are: {char_list}
 
+        {scene_count_instruction}
+
         For each scene, provide:
         1. scene_id: Sequential number starting from 0
-        2. background_description: A detailed scene description optimized for DALL-E image generation. For each scene:
-           - Time and Lighting: Explicitly state time of day and lighting conditions (e.g., "bathed in soft morning sunlight", "golden sunset rays filtering through trees")
-           - Environment: Describe key physical elements (e.g., "ancient oak trees with gnarled branches", "meadow filled with colorful wildflowers")
-           - Atmosphere: Capture the mood and magical elements (e.g., "mystical forest clearing with floating sparkles", "enchanted woodland with twinkling lights")
-           - Artistic Style: Specify "storybook illustration style with soft, whimsical colors in the style of classic children's books"
-           Make the description vivid but focused, around 2-3 sentences.
+        2. background_description: A detailed scene description optimized for DALL-E image generation.
         3. characters: List of characters present in the scene
         4. narration_text: The story text for this scene
-        5. test_criteria: Specific elements to verify in the generated scene:
-           - visual_elements: List of key visual elements that must be present
-           - character_presence: List of characters that must be visible
-           - mood: Overall mood/atmosphere of the scene
-           - lighting: Specific lighting condition to verify
+        5. test_criteria: Specific elements to verify in the generated scene
 
         Example scene output:
         {json.dumps(scene_example, indent=2)}
 
         Return a JSON object matching this schema:
         {json.dumps(schema, indent=2)}
+
+        Story text:
+        {story_text}
         """
 
         try:
-            # Use completion synchronously as per LiteLLM docs
             response = completion(
                 model=self.model,
                 messages=[
@@ -241,13 +210,7 @@ class StoryAnalyzer:
                     },
                     {
                         "role": "user",
-                        "content": f"""Return a JSON object matching this schema:
-{json.dumps(schema, indent=2)}
-
-{prompt}
-
-Story text:
-{story_text}"""
+                        "content": prompt
                     }
                 ],
                 response_format={"type": "json_object"}
@@ -258,7 +221,7 @@ Story text:
 
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse scene extraction response: {e}")
-            raise
+            return []
         except Exception as e:
             logger.error(f"Error extracting scenes: {e}")
             return []

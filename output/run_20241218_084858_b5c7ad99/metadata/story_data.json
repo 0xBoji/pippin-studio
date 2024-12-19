@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "name": "Pippin",
+      "type": "character",
+      "description": "A unicorn with a shimmering white coat, a spiraling golden horn, and a flowing mane and tail in shades of pastel rainbow colors.",
+      "required_animations": []
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tranquil meadow at dusk, with gentle hills in the distance and a softly flowing stream reflecting the colors of the sunset. The sky is a gradient of purples, pinks, and oranges as the sun sets on the horizon. A majestic unicorn named Pippin stands gracefully in the center of the scene, with a shimmering horn and a silky, flowing mane. The meadow is lush with vibrant grasses and scattered with soft white daisies. The atmosphere feels magical and serene, embodying an otherworldly charm.",
+      "characters": [
+        "Pippin"
+      ],
+      "narration_text": "Hello friend, it's Pippin the unicorn.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "sunset sky",
+          "gently flowing stream",
+          "hills",
+          "white daisies"
+        ],
+        "character_presence": [
+          "Pippin"
+        ],
+        "mood": "magical and serene",
+        "lighting": "dusk with sunset colors"
+      }
+    }
+  ]
+}

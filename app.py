@@ -25,6 +25,9 @@ progress = {"step": "Idle"}
 story_text = ""
 current_run_id = None
 
+generation_mode = "prompt"
+scene_count = "auto"
+
 def get_runs():
     runs = sorted(Path("output").glob("run_*"))
     return runs
@@ -131,11 +134,11 @@ def serve_file():
 def index():
     return render_template('index.html')
 
-def start_pipeline(story_text_local):
+def start_pipeline(story_text_local, generation_mode_local, scene_count_local):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     try:
-        final_path = loop.run_until_complete(run_pipeline(story_text_local))
+        final_path = loop.run_until_complete(run_pipeline(story_text_local, generation_mode_local, scene_count_local))
         if final_path:
             logger.info(f"Pipeline complete. Final video: {final_path}")
         else:
@@ -148,22 +151,31 @@ def start_pipeline(story_text_local):
 def generate():
     title = request.form['title']
     description = request.form['description']
-    global story_text
+    global story_text, generation_mode, scene_count
+    generation_mode = request.form.get('generation_mode', 'prompt')
+    scene_count = request.form.get('scene_count', 'auto')
+
+    # If generation_mode is prompt: we have a prompt (description) from which we generate a story.
+    # If full_text: the description is the full story text already.
+    # We'll let the story_analyzer handle this logic with parameters passed in.
+    # Also pass the scene_count param.
+
+    # We'll treat 'title' and 'description' as given.
     story_text = f"{title}\n\n{description}"
 
     progress["step"] = "Starting..."
-    t = threading.Thread(target=start_pipeline, args=(story_text,))
+    t = threading.Thread(target=start_pipeline, args=(story_text, generation_mode, scene_count))
     t.start()
 
     return jsonify({"status": "started"})
 
-async def run_pipeline(story_text_local):
+async def run_pipeline(story_text_local, generation_mode_local, scene_count_local):
     asset_manager = AssetManager()
     global current_run_id
     current_run_id = asset_manager.run_id
 
     ai_manager = AIManager()
-    story_analyzer = StoryAnalyzer()
+    story_analyzer = StoryAnalyzer(generation_mode=generation_mode_local, scene_count=scene_count_local)
     asset_generator = AssetGenerator(asset_manager=asset_manager)
     movement_analyzer = SceneMovementAnalyzer()
     scene_composer = SceneComposer(asset_manager)

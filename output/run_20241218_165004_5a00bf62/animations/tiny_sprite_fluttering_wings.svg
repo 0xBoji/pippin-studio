@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Tiny_Sprite_base_character">
+      <!-- Body -->
+      <ellipse cx="50" cy="60" rx="5" ry="10" fill="lavender"/>
+      <!-- Head -->
+      <circle cx="50" cy="45" r="5" fill="lightgoldenrodyellow"/>
+      <!-- Wings -->
+      <path id="left-wing" d="M55 50 Q70 20 50 30 Q30 20 45 50" fill="rgba(173, 216, 230, 0.5)">
+        <animateTransform attributeName="transform" type="scale" values="1 1; 1.1 1.1; 1 1" dur="0.5s" repeatCount="indefinite" additive="sum"/>
+      </path>
+      <path id="right-wing" d="M45 50 Q30 80 50 70 Q70 80 55 50" fill="rgba(173, 216, 230, 0.5)">
+        <animateTransform attributeName="transform" type="scale" values="1 1; 1.1 1.1; 1 1" dur="0.5s" repeatCount="indefinite" additive="sum"/>
+      </path>
+      <!-- Dress -->
+      <path d="M50 60 Q45 70 50 80 Q55 70 50 60" fill="plum"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="1s" repeatCount="indefinite"/>
+    </g>
+  </defs>
+  <use xlink:href="#Tiny_Sprite_base_character"/>
+</svg>

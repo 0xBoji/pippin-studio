@@ -1,0 +1,58 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 1.672,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_171255_5e1e4623/backgrounds/scene_0_background.png",
+        "narration_text": "The Cow Flies Over the Moon",
+        "movements": [
+            {
+                "character_name": "Cow",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    341,
+                    307
+                ],
+                "end_position": [
+                    441,
+                    207
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.5,
+                "animation_name": "fly"
+            },
+            {
+                "character_name": "Cow",
+                "start_time": 1,
+                "end_time": 1.672,
+                "start_position": [
+                    441,
+                    207
+                ],
+                "end_position": [
+                    341,
+                    307
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": null
+            },
+            {
+                "character_name": "Moon",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    682,
+                    307
+                ],
+                "end_position": [
+                    682,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.5,
+                "animation_name": null
+            }
+        ]
+    }
+]

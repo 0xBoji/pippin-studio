@@ -47,7 +47,7 @@
             margin-bottom:10px;
         }
 
-        input, textarea, button {
+        input, textarea, button, select {
             width:100%;
             margin-bottom:5px;
             padding:6px;
@@ -186,7 +186,17 @@
 <div class="left-pane">
     <form id="storyForm">
         <input type="text" name="title" placeholder="Story Title" required>
-        <textarea name="description" placeholder="Story Description" required></textarea>
+        <textarea name="description" placeholder="Story Prompt or Full Story Text" required></textarea>
+
+        <label for="generation_mode">Generation Mode:</label>
+        <select name="generation_mode" id="generation_mode">
+            <option value="prompt">Generate story from title & prompt</option>
+            <option value="full_text">Use provided text as full story</option>
+        </select>
+
+        <label for="scene_count">Number of Scenes (or "auto"):</label>
+        <input type="text" name="scene_count" id="scene_count" placeholder="auto">
+
         <button type="submit">Generate Story</button>
     </form>
     <div id="progress"></div>

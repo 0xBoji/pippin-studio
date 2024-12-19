@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Ursula_the_Star_base_character">
+      <!-- Star body -->
+      <polygon points="100,10 120,75 190,75 130,115 150,190 100,150 50,190 70,115 10,75 80,75" fill="yellow" stroke="gold" stroke-width="3"/>
+      <!-- Eyes -->
+      <circle cx="85" cy="80" r="5" fill="black"/>
+      <circle cx="115" cy="80" r="5" fill="black"/>
+      <!-- Smile -->
+      <path d="M90,100 Q100,110 110,100" stroke="black" stroke-width="3" fill="none"/>
+    </g>
+  </defs>
+  <use xlink:href="#Ursula_the_Star_base_character"/>
+  <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0 0; 0 -5; 0 0" dur="1s" repeatCount="indefinite"/>
+  <use xlink:href="#Ursula_the_Star_base_character">
+    <animate attributeName="opacity" values="1;0.5;1" dur="0.5s" repeatCount="indefinite"/>
+  </use>
+</svg>

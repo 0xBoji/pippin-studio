@@ -1,0 +1,17 @@
+{
+  "run_id": "run_20241218_171255_5e1e4623",
+  "created_at": "2024-12-18T17:12:55.682185",
+  "assets": {
+    "characters": [
+      "cow.svg",
+      "moon.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "cow_flying.svg",
+      "cow_leaping_over.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

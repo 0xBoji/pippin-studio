@@ -1,0 +1,20 @@
+{
+  "run_id": "run_20241218_165004_5a00bf62",
+  "created_at": "2024-12-18T16:50:04.703531",
+  "assets": {
+    "characters": [
+      "tiny_sprite.svg",
+      "fallen_firefly.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "tiny_sprite_fluttering_wings.svg",
+      "tiny_sprite_whispering_lullabies.svg",
+      "tiny_sprite_gentle_hovering.svg",
+      "fallen_firefly_flickering_light.svg",
+      "fallen_firefly_rekindling_glow.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

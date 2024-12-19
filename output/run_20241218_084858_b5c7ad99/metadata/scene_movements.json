@@ -1,0 +1,42 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 2.168,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_084858_b5c7ad99/backgrounds/scene_0_background.png",
+        "narration_text": "Hello friend, it's Pippin the unicorn.",
+        "movements": [
+            {
+                "character_name": "Pippin",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.5,
+                "animation_name": null
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 1.0,
+                "end_time": 2.168,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    562,
+                    257
+                ],
+                "start_scale": 1.5,
+                "end_scale": 1.5,
+                "animation_name": "wave"
+            }
+        ]
+    }
+]

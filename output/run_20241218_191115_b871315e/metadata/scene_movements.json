@@ -1,0 +1,306 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 6.348,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_191115_b871315e/backgrounds/scene_0_background.png",
+        "narration_text": "Once upon a time, there was a cute and curious star named Ursula who lived among the cosmos.",
+        "movements": [
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    612,
+                    207
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "twinkle"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 3,
+                "end_time": 5,
+                "start_position": [
+                    612,
+                    207
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "travel"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 5,
+                "end_time": 6.348,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.2,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 6.452,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_191115_b871315e/backgrounds/scene_1_background.png",
+        "narration_text": "Feeling adventurous, Ursula decided to travel through the world, eager to see the wonders it held.",
+        "movements": [
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.0,
+                "animation_name": null
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 1.0,
+                "end_time": 3.5,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    612,
+                    207
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "travel"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 3.5,
+                "end_time": 4.5,
+                "start_position": [
+                    612,
+                    207
+                ],
+                "end_position": [
+                    612,
+                    207
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 4.5,
+                "end_time": 6.452,
+                "start_position": [
+                    612,
+                    207
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.0,
+                "animation_name": "twinkle"
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 9.378,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_191115_b871315e/backgrounds/scene_2_background.png",
+        "narration_text": "As Ursula moved closer to the earth, she found a village filled with friends she had yet to meet, each as interesting and diverse as the stars in her own sky.",
+        "movements": [
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.5,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 1.5,
+                "end_time": 3.5,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    612,
+                    616
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.7,
+                "animation_name": "fly"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 4.0,
+                "end_time": 5.5,
+                "start_position": [
+                    612,
+                    616
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.6,
+                "animation_name": "twinkle"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 6.0,
+                "end_time": 8.0,
+                "start_position": [
+                    512,
+                    716
+                ],
+                "end_position": [
+                    512,
+                    616
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.8,
+                "animation_name": "travel"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 8.5,
+                "end_time": 9.378,
+                "start_position": [
+                    512,
+                    616
+                ],
+                "end_position": [
+                    512,
+                    716
+                ],
+                "start_scale": 0.8,
+                "end_scale": 0.5,
+                "animation_name": null
+            }
+        ]
+    },
+    {
+        "scene_id": 3,
+        "duration": 5.93,
+        "background_path": "/home/runner/pippin-studio/output/run_20241218_191115_b871315e/backgrounds/scene_3_background.png",
+        "narration_text": "Ursula shared her light with the creatures of the forest, enjoying their company and learning of their stories.",
+        "movements": [
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 1.2,
+                "animation_name": null
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    512,
+                    307
+                ],
+                "end_position": [
+                    612,
+                    307
+                ],
+                "start_scale": 1.2,
+                "end_scale": 1.2,
+                "animation_name": "travel"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 3,
+                "end_time": 4.5,
+                "start_position": [
+                    612,
+                    307
+                ],
+                "end_position": [
+                    612,
+                    307
+                ],
+                "start_scale": 1.2,
+                "end_scale": 1.2,
+                "animation_name": "glow"
+            },
+            {
+                "character_name": "Ursula the Star",
+                "start_time": 4.5,
+                "end_time": 5.93,
+                "start_position": [
+                    612,
+                    307
+                ],
+                "end_position": [
+                    512,
+                    207
+                ],
+                "start_scale": 1.2,
+                "end_scale": 1.2,
+                "animation_name": "twinkle"
+            }
+        ]
+    }
+]

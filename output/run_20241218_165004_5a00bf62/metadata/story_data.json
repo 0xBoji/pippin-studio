@@ -1,0 +1,92 @@
+{
+  "characters": [
+    {
+      "name": "Tiny Sprite",
+      "type": "character",
+      "description": "A diminutive, ethereal being resembling a small fairy with translucent wings that shimmer in the light. The sprite has a delicate, humanoid form with a radiant glow surrounding her, and her dress is made of petals that change color with the breeze.",
+      "required_animations": [
+        "fluttering wings",
+        "whispering lullabies",
+        "gentle hovering"
+      ]
+    },
+    {
+      "name": "Fallen Firefly",
+      "type": "character",
+      "description": "A small, round-bodied insect with a light-emitting abdomen. Initially, its light is dim and flickering, indicative of its fallen state. When restored, it shines brightly with a soft, warm glow, illuminating the surroundings.",
+      "required_animations": [
+        "flickering light",
+        "rekindling glow"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene valley filled with dancing daisies. The scene is infused with the soft glow of twilight, where the daisies seem to sing gently in the breeze. The valley's grass is lush and dotted with tiny dewdrops that catch the fading light, creating a sparkling effect. The ambiance is tranquil, enhanced by distant hills silhouetted against a deepening sky.",
+      "characters": [
+        "Tiny Sprite"
+      ],
+      "narration_text": "Once, in a valley of singing daisies, a tiny sprite found a fallen firefly.",
+      "test_criteria": {
+        "visual_elements": [
+          "valley",
+          "singing daisies",
+          "twilight sky",
+          "sparkling dewdrops"
+        ],
+        "character_presence": [
+          "Tiny Sprite"
+        ],
+        "mood": "serene and tranquil",
+        "lighting": "soft twilight glow"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "The same valley under a night sky, now illuminated by a gentle, silvery moonlight. The tiny sprite is seen sitting near the fallen firefly, surrounded by the daisies that shimmer under the moon. The scene is tender and intimate, capturing the sprite whispering soothing lullabies to the firefly, whose dim light flickers faintly with promise.",
+      "characters": [
+        "Tiny Sprite",
+        "Fallen Firefly"
+      ],
+      "narration_text": "Instead of fluttering away, she stayed all night, whispering lullabies until its light rekindled.",
+      "test_criteria": {
+        "visual_elements": [
+          "valley",
+          "moonlight",
+          "daisies",
+          "whispering sprite"
+        ],
+        "character_presence": [
+          "Tiny Sprite",
+          "Fallen Firefly"
+        ],
+        "mood": "tender and intimate",
+        "lighting": "silvery moonlight"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "Dawn breaks in the valley, with the first light of morning illuminating the entire forest with warmth. The daisies are open and vibrant, and the newly revitalized firefly hovers near the tiny sprite, creating an aura of glowing friendship. The forest is alive with gentle light spreading from their bond, with rays of sun cutting through the early morning mist.",
+      "characters": [
+        "Tiny Sprite",
+        "Fallen Firefly"
+      ],
+      "narration_text": "By dawn, the entire forest glowed with the gentle warmth of their new, unbreakable friendship.",
+      "test_criteria": {
+        "visual_elements": [
+          "dawn",
+          "forest",
+          "glowing friendship",
+          "open daisies"
+        ],
+        "character_presence": [
+          "Tiny Sprite",
+          "Fallen Firefly"
+        ],
+        "mood": "warm and uplifting",
+        "lighting": "morning light with rays through mist"
+      }
+    }
+  ]
+}

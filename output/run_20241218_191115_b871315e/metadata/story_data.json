@@ -1,0 +1,100 @@
+{
+  "characters": [
+    {
+      "name": "Ursula the Star",
+      "type": "character",
+      "description": "A cute, five-pointed star with a radiant yellow glow. Each point of the star is perfectly symmetrical with a slight rounded contour for a more friendly appearance. It has a subtle shimmer effect, making it appear almost alive. Ursula has a small, smiling face with two bright, twinkling eyes located on the middle part of the star.",
+      "required_animations": [
+        "glow",
+        "twinkle",
+        "travel"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vast starlit sky with countless twinkling stars scattered across the dark canvas, creating a sense of infinity. In the middle of the scene, there is a particularly bright and cute star with a gentle luminescence that sets it apart from the rest. The scene is designed with a dreamy quality, with soft, glowing tones and a sense of wonder.",
+      "characters": [
+        "Ursula the Star"
+      ],
+      "narration_text": "Once upon a time, there was a cute and curious star named Ursula who lived among the cosmos.",
+      "test_criteria": {
+        "visual_elements": [
+          "starlit sky",
+          "twinkling stars",
+          "infinite space",
+          "Ursula as a bright star"
+        ],
+        "character_presence": [
+          "Ursula the Star"
+        ],
+        "mood": "dreamy and magical",
+        "lighting": "gentle, glowing luminescence"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A vibrant meadow during sunset with rolling green hills and a sky painted in hues of orange, pink, and purple. Wildflowers of various colors are swaying gently in the breeze. In the sky, Ursula the Star, emitting a warm glow, is descending to explore the beautiful earth below.",
+      "characters": [
+        "Ursula the Star"
+      ],
+      "narration_text": "Feeling adventurous, Ursula decided to travel through the world, eager to see the wonders it held.",
+      "test_criteria": {
+        "visual_elements": [
+          "meadow",
+          "sunset sky",
+          "rolling hills",
+          "wildflowers"
+        ],
+        "character_presence": [
+          "Ursula the Star"
+        ],
+        "mood": "adventurous and serene",
+        "lighting": "warm glow of sunset and star"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "A bustling village at dusk, illuminated by the warm glow of lanterns and street lamps. People and animals are engaging in evening activities, creating a lively atmosphere. Ursula the Star, still glowing brightly, floats above, observing the joyful bustle below.",
+      "characters": [
+        "Ursula the Star"
+      ],
+      "narration_text": "As Ursula moved closer to the earth, she found a village filled with friends she had yet to meet, each as interesting and diverse as the stars in her own sky.",
+      "test_criteria": {
+        "visual_elements": [
+          "village",
+          "lanterns",
+          "street lamps",
+          "evening activities"
+        ],
+        "character_presence": [
+          "Ursula the Star"
+        ],
+        "mood": "joyful and lively",
+        "lighting": "warm glow of lanterns and star"
+      }
+    },
+    {
+      "scene_id": 3,
+      "background_description": "A cozy forest clearing under a starry night sky, surrounded by tall whispering pines and a gentle brook flowing nearby. Creatures of the forest gather, intrigued by the glowing presence of Ursula, hovering like a beacon in the night.",
+      "characters": [
+        "Ursula the Star"
+      ],
+      "narration_text": "Ursula shared her light with the creatures of the forest, enjoying their company and learning of their stories.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest clearing",
+          "starry night",
+          "pines",
+          "brook"
+        ],
+        "character_presence": [
+          "Ursula the Star"
+        ],
+        "mood": "warm and inviting",
+        "lighting": "gentle glow of star and moonlight"
+      }
+    }
+  ]
+}

@@ -160,7 +160,7 @@ You are a scene movement generation expert. Produce a JSON object describing the
 
 Rules and logic:
 1. Scaling and Positioning:
-   - If there is only one character, consider zooming in (larger scale, e.g. 1.0 up to 2.0) or placing them prominently in the center. For multiple characters, use smaller scales (0.5 to 1.0) so they all fit comfortably without blocking each other.
+   - If there is only one character, consider zooming in (larger scale, e.g. 1.0 up to 2.0) or placing them prominently in the center. For multiple characters, use smaller scales (0.1 to 0.2) so they all fit comfortably without blocking each other.
    - Introduce variety between scenes. Sometimes zoom in on a character (larger scale near center), other times show them smaller and possibly moving across the scene.
    - Keep characters mostly towards the center. Avoid placing them too close to the edges. Overlapping is allowed if it makes sense (e.g., hugging), but do not let one character completely block another from view.
    - Ensure start and end positions keep characters visible within the 1024x1024 canvas.
@@ -187,7 +187,7 @@ Rules and logic:
 
 4. Scaling details:
    - Never use scale=0.0. Use at least 0.01 for fade-in.
-   - Consider subtle scale changes for interest. For example, start_scale=0.01 and end_scale=1.0 in the first second to "fade in." If zooming in for a close-up, you can go up to 2.0 scale for a single character scenario.
+   - Consider subtle scale changes for interest. For example, start_scale=0.01 and end_scale=0.1 in the first second to "fade in." If zooming in for a close-up, you can go up to 1.0 or 1.5 scale for a single character scenario.
 
 5. Timing:
    - Start with a fade-in from near-zero scale at start_time=0 to normal scale by 1 second.

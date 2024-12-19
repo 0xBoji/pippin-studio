@@ -1,0 +1,17 @@
+{
+  "run_id": "run_20241218_191115_b871315e",
+  "created_at": "2024-12-18T19:11:15.540646",
+  "assets": {
+    "characters": [
+      "ursula_the_star.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "ursula_the_star_glow.svg",
+      "ursula_the_star_twinkle.svg",
+      "ursula_the_star_travel.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}
