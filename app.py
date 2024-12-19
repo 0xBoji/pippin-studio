@@ -18,6 +18,7 @@ from narration_generator import NarrationGenerator  # Assuming implemented
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+logging.getLogger("PIL").setLevel(logging.WARNING)
 
 app = Flask(__name__)
 

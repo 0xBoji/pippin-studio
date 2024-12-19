@@ -1,0 +1,106 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 7.419,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_043230_a7c1cbdf/backgrounds/scene_0_background.png",
+        "narration_text": "A turtle and hare decide to race. The hare is ahead, but he falls asleep. The turtle gets ahead and wins.",
+        "movements": [
+            {
+                "character_name": "Turtle",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    341,
+                    307
+                ],
+                "end_position": [
+                    341,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Hare",
+                "start_time": 0.0,
+                "end_time": 1.0,
+                "start_position": [
+                    682,
+                    307
+                ],
+                "end_position": [
+                    682,
+                    307
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.1,
+                "animation_name": null
+            },
+            {
+                "character_name": "Hare",
+                "start_time": 1.0,
+                "end_time": 3.0,
+                "start_position": [
+                    682,
+                    307
+                ],
+                "end_position": [
+                    682,
+                    307
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "fast_running"
+            },
+            {
+                "character_name": "Hare",
+                "start_time": 3.0,
+                "end_time": 4.5,
+                "start_position": [
+                    682,
+                    307
+                ],
+                "end_position": [
+                    682,
+                    307
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "falling_asleep"
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 1.0,
+                "end_time": 6.0,
+                "start_position": [
+                    341,
+                    307
+                ],
+                "end_position": [
+                    500,
+                    307
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "slow_walking"
+            },
+            {
+                "character_name": "Turtle",
+                "start_time": 6.0,
+                "end_time": 7.419,
+                "start_position": [
+                    500,
+                    307
+                ],
+                "end_position": [
+                    550,
+                    307
+                ],
+                "start_scale": 0.1,
+                "end_scale": 0.1,
+                "animation_name": "approaching_finish_line"
+            }
+        ]
+    }
+]

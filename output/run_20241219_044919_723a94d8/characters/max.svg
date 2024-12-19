@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Max_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="120" rx="50" ry="30" fill="goldenrod" stroke="black" stroke-width="2" />
+      <!-- Head -->
+      <circle cx="100" cy="80" r="30" fill="goldenrod" stroke="black" stroke-width="2" />
+      <!-- Eyes -->
+      <circle cx="90" cy="75" r="5" fill="white" />
+      <circle cx="90" cy="75" r="2" fill="black" />
+      <circle cx="110" cy="75" r="5" fill="white" />
+      <circle cx="110" cy="75" r="2" fill="black" />
+      <!-- Sparkle in eyes -->
+      <circle cx="92" cy="73" r="1" fill="white" />
+      <circle cx="112" cy="73" r="1" fill="white" />
+      <!-- Ears -->
+      <path d="M80,65 Q75,60 80,55" fill="goldenrod" stroke="black" stroke-width="1" />
+      <path d="M120,65 Q125,60 120,55" fill="goldenrod" stroke="black" stroke-width="1" />
+      <!-- Tail -->
+      <path d="M150,120 Q160,110 150,100" stroke="black" stroke-width="2" fill="none" />
+      <!-- Mouth -->
+      <path d="M90,85 Q100,95 110,85" stroke="black" stroke-width="2" fill="none" />
+      <!-- Legs -->
+      <line x1="80" y1="150" x2="80" y2="170" stroke="black" stroke-width="4" />
+      <line x1="120" y1="150" x2="120" y2="170" stroke="black" stroke-width="4" />
+    </g>
+  </defs>
+  <use xlink:href="#Max_base_character">
+    <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0 0; 0 10; 0 0" dur="1s" repeatCount="indefinite" />
+  </use>
+</svg>

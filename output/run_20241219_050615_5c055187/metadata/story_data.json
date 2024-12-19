@@ -1,0 +1,50 @@
+{
+  "characters": [
+    {
+      "name": "cat",
+      "type": "character",
+      "description": "A small, sleek feline with soft fur, pointy ears, a long tail, and sharp eyes. Its fur is striped with shades of gray and white.",
+      "required_animations": [
+        "run_right",
+        "jump_with_joy",
+        "run_away"
+      ]
+    },
+    {
+      "name": "dog",
+      "type": "character",
+      "description": "A medium-sized, fluffy canine with floppy ears, a bushy tail, and expressive eyes. It has a mix of brown and black fur with white patches.",
+      "required_animations": [
+        "run_right",
+        "cry"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vibrant park scene in the late afternoon with lush green grass and a clear blue sky. The area is surrounded by tall, leafy trees that provide scattered shade. A well-worn path runs through the park, dotted with daisies and clovers. A gentle breeze causes the leaves to rustle, and a few clouds are visible in the sky.",
+      "characters": [
+        "cat",
+        "dog"
+      ],
+      "narration_text": "There is a cat. A dog shows up. The cat chases the dog to the right. The cat catches the dog. The dog cries. The cat jumps with joy and runs away.",
+      "test_criteria": {
+        "visual_elements": [
+          "lush green grass",
+          "tall leafy trees",
+          "well-worn path",
+          "daisies",
+          "clovers",
+          "clear blue sky"
+        ],
+        "character_presence": [
+          "cat",
+          "dog"
+        ],
+        "mood": "playful and dynamic",
+        "lighting": "late afternoon with some shadowing"
+      }
+    }
+  ]
+}

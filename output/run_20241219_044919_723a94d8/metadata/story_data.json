@@ -1,0 +1,50 @@
+{
+  "characters": [
+    {
+      "name": "Whiskers",
+      "type": "character",
+      "description": "Sleek silver tabby cat with emerald-like eyes and a tail that flicks rhythmically. Whiskers exudes grace and elegance.",
+      "required_animations": [
+        "tail flick",
+        "pouncing",
+        "running"
+      ]
+    },
+    {
+      "name": "Max",
+      "type": "character",
+      "description": "Golden-furred dog with sparkling eyes full of mischief. Max is energetic and emits an aura of joy and playfulness.",
+      "required_animations": [
+        "tail wagging",
+        "bounding",
+        "playful bounding"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A small sunlit forest clearing surrounded by tall, dense trees. The sunlight filters through the leaves, creating a mosaic of light and shadows on the ground. The atmosphere is tranquil and alive, with the distant song of meadowlarks filling the air. The clearing is carpeted with soft grass and the air carries the gentle scent of blossoming honeysuckle. This scene is illustrated in a vibrant, realistic art style capturing the vivacity of a summer afternoon.",
+      "characters": [
+        "Whiskers",
+        "Max"
+      ],
+      "narration_text": "In the sleepy town of Willow Creek, nestled between rolling hills and lush meadows, there lived a cat named Whiskers. Whiskers was a sleek, silver tabby with eyes like emeralds and a tail that flicked to the rhythm of his thoughts. He spent his days lounging on the sun-drenched windowsill of his human\u2019s cozy cottage, watching the world go by with mild curiosity. His life was one of routine and comfort, punctuated by the occasional prowl through the garden or chase of a fluttering butterfly.\n\nOne particularly warm afternoon, Whiskers decided to venture beyond the garden gate, drawn by the scent of blooming honeysuckle and the song of the meadowlark. He padded silently through the tall grass, his paws barely making a sound on the soft earth. The world beyond the garden was vast and teeming with life, a playground of possibilities that stretched before him like an uncharted map.\n\nAs he wandered, Whiskers came upon a small clearing where the sunlight danced through the leaves, casting playful shadows on the ground. In the center of the clearing stood a creature unlike any he had ever seen\u2014a dog, with fur as golden as the morning sun and eyes that sparkled with mischief. The dog was bounding around, chasing its own tail with abandon, a whirlwind of energy and joy.\n\nWhiskers paused, unsure of what to make of this rambunctious newcomer. He had heard tales of dogs from the other cats in the neighborhood\u2014stories of their loud barks and boundless enthusiasm. But this dog seemed different, more playful than fearsome.\n\nThe dog stopped suddenly, catching sight of Whiskers with a tilt of its head. For a moment, they simply regarded each other, two strangers from different worlds meeting in a sunlit glade. Whiskers stood tall, his tail flicking with a mix of caution and curiosity, while the dog wagged its tail so furiously it seemed as though it might take flight.\n\n\u201cHello!\u201d barked the dog, its voice bright and friendly. \u201cI\u2019m Max. What\u2019s your name?\u201d\n\nWhiskers hesitated. He was used to being the observer, not the observed. But something about Max\u2019s open demeanor and wagging tail made him feel at ease. \u201cWhiskers,\u201d he replied, his voice a soft purr.\n\nMax bounded over, his paws leaving little prints in the grass. \u201cNice to meet you, Whiskers! Do you want to play?\u201d\n\nWhiskers blinked in surprise. Play was something he associated with solitary endeavors\u2014a solitary pounce on a leaf or a solitary chase of a sunbeam. But as he looked into Max\u2019s eager eyes, he felt a strange tug of curiosity.\n\n\u201cWhat do you have in mind?\u201d Whiskers asked, stepping cautiously forward.\n\nMax dropped into a playful bow, his tail a blur of motion. \u201cWe can chase each other, or find sticks, or just run! It\u2019s so much fun!\u201d\n\nWhiskers considered this. Running for the sake of running was a foreign concept, something he had never entertained. But the idea of exploring this new world with a companion was intriguing. Tentatively, he took a step closer, then another, until he was standing beside Max.\n\n\u201cAll right,\u201d Whiskers said, a hint of a challenge in his voice. \u201cLet\u2019s see if you can catch me.\u201d\n\nWith that, Whiskers darted off through the clearing, his sleek body cutting through the air with graceful ease. Max barked with delight and gave chase, his paws thundering against the earth as he followed the silver blur of Whiskers\u2019 tail.\n\nAnd so they raced, through the meadow and around the trees, two unlikely friends finding joy in each other\u2019s company. Whiskers discovered the thrill of the chase, the wind ruffling his fur and the exhilaration of being pursued. Max learned the art of the gentle pursuit, matching Whiskers\u2019 agility with his own boundless energy.\n\nAs the sun began to dip below the horizon, casting a golden glow across the land, Whiskers and Max collapsed side by side in the grass, panting and happy. The world had shifted for both of them in that afternoon of play\u2014a new friendship had been forged, bridging the gap between cat and dog.\n\nIn the quiet of the evening, as the first stars began to twinkle above, Whiskers realized the beauty of stepping outside his comfort zone. And Max, with his tail still wagging lazily, knew he had found a friend who could match his spirit in unexpected ways.\n\nTogether, they watched the night unfold, content in the knowledge that this was just the beginning of many adventures yet to come.",
+      "test_criteria": {
+        "visual_elements": [
+          "sunlit forest clearing",
+          "tall dense trees",
+          "sunlight filtering through leaves",
+          "grass carpeted ground",
+          "blooming honeysuckle"
+        ],
+        "character_presence": [
+          "Whiskers",
+          "Max"
+        ],
+        "mood": "joyful and adventurous",
+        "lighting": "vibrant, realistic summer afternoon sunlight"
+      }
+    }
+  ]
+}

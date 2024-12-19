@@ -1,0 +1,1 @@
+file '/home/runner/pippin-studio/output/run_20241219_045225_abba2b6e/scenes/video_with_sound/scene_0.mp4'

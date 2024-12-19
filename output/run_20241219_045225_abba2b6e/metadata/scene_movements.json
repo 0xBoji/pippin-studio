@@ -1,0 +1,106 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 12.304,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_045225_abba2b6e/backgrounds/scene_0_background.png",
+        "narration_text": "A sleepy kitten stretched beside a robin who hopped with quiet enthusiasm. The robin tilted its head, the kitten purred softly, and their gentle sounds settled into a calm duet.",
+        "movements": [
+            {
+                "character_name": "Sleepy Kitten",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.3,
+                "animation_name": null
+            },
+            {
+                "character_name": "Sleepy Kitten",
+                "start_time": 1,
+                "end_time": 3,
+                "start_position": [
+                    341,
+                    819
+                ],
+                "end_position": [
+                    341,
+                    819
+                ],
+                "start_scale": 0.3,
+                "end_scale": 0.35,
+                "animation_name": "stretch"
+            },
+            {
+                "character_name": "Enthusiastic Robin",
+                "start_time": 0,
+                "end_time": 1,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.01,
+                "end_scale": 0.3,
+                "animation_name": null
+            },
+            {
+                "character_name": "Enthusiastic Robin",
+                "start_time": 2,
+                "end_time": 4,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    719
+                ],
+                "start_scale": 0.3,
+                "end_scale": 0.3,
+                "animation_name": "hop"
+            },
+            {
+                "character_name": "Enthusiastic Robin",
+                "start_time": 5,
+                "end_time": 6,
+                "start_position": [
+                    682,
+                    719
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.3,
+                "end_scale": 0.3,
+                "animation_name": null
+            },
+            {
+                "character_name": "Enthusiastic Robin",
+                "start_time": 6.5,
+                "end_time": 7.5,
+                "start_position": [
+                    682,
+                    819
+                ],
+                "end_position": [
+                    682,
+                    819
+                ],
+                "start_scale": 0.3,
+                "end_scale": 0.3,
+                "animation_name": "head tilt"
+            }
+        ]
+    }
+]

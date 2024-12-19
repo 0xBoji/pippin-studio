@@ -1,0 +1,47 @@
+{
+  "characters": [
+    {
+      "name": "Sleepy Kitten",
+      "type": "character",
+      "description": "A small, fluffy kitten with soft fur and a mixture of light and dark shades of gray; its eyes are half-closed, giving it a sleepy appearance, and its body is elongated in a stretching position.",
+      "required_animations": [
+        "stretch"
+      ]
+    },
+    {
+      "name": "Enthusiastic Robin",
+      "type": "character",
+      "description": "A small bird with a round body, a bright red breast, and brown wings and back. It has sharp, beady eyes and a small yellow beak, with its head tilted to one side.",
+      "required_animations": [
+        "hop",
+        "head tilt"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A peaceful garden setting in the early morning with dew-kissed grass and a scattering of small, colorful blossoms. A gently babbling brook runs nearby, and a few delicate branches of a cherry blossom tree arch gracefully overhead, casting soft shadows on the ground. The overall scene is serene and inviting, capturing the freshness of a new day.",
+      "characters": [
+        "Sleepy Kitten",
+        "Enthusiastic Robin"
+      ],
+      "narration_text": "A sleepy kitten stretched beside a robin who hopped with quiet enthusiasm. The robin tilted its head, the kitten purred softly, and their gentle sounds settled into a calm duet.",
+      "test_criteria": {
+        "visual_elements": [
+          "garden setting",
+          "dew-kissed grass",
+          "colorful blossoms",
+          "babbling brook",
+          "cherry blossom tree"
+        ],
+        "character_presence": [
+          "Sleepy Kitten",
+          "Enthusiastic Robin"
+        ],
+        "mood": "serene and calm",
+        "lighting": "early morning with soft shadows"
+      }
+    }
+  ]
+}

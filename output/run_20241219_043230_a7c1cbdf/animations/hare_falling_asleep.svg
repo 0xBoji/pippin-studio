@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Hare_base_character">
+      <!-- Body -->
+      <ellipse cx="100" cy="120" rx="40" ry="60" fill="#808080" />
+      <!-- Head -->
+      <circle cx="100" cy="70" r="30" fill="#808080" />
+      <!-- Ears -->
+      <ellipse cx="80" cy="40" rx="8" ry="25" fill="#808080" />
+      <ellipse cx="120" cy="40" rx="8" ry="25" fill="#808080" />
+      <!-- Eyes -->
+      <circle cx="90" cy="65" r="5" fill="#000000">
+        <animate attributeName="r" values="5;0;5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="110" cy="65" r="5" fill="#000000">
+        <animate attributeName="r" values="5;0;5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <!-- Fluffy Tail -->
+      <circle cx="60" cy="140" r="10" fill="#A9A9A9" />
+      <!-- Animation Group -->
+      <g>
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          values="0 0; 0 5; 0 0"
+          dur="1s"
+          repeatCount="indefinite" />
+      </g>
+    </g>
+  </defs>
+  <use xlink:href="#Hare_base_character" />
+</svg>

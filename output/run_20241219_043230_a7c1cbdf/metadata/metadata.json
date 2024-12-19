@@ -1,0 +1,19 @@
+{
+  "run_id": "run_20241219_043230_a7c1cbdf",
+  "created_at": "2024-12-19T04:32:30.509961",
+  "assets": {
+    "characters": [
+      "turtle.svg",
+      "hare.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "turtle_slow_walking.svg",
+      "turtle_approaching_finish_line.svg",
+      "hare_fast_running.svg",
+      "hare_falling_asleep.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

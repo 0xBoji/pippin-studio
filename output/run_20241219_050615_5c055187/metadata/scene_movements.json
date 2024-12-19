@@ -1,0 +1,122 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 12.382,
+        "background_path": "/home/runner/pippin-studio/output/run_20241219_050615_5c055187/backgrounds/scene_0_background.png",
+        "narration_text": "There is a cat. A dog shows up. The cat chases the dog to the right. The cat catches the dog. The dog cries. The cat jumps with joy and runs away.",
+        "movements": [
+            {
+                "character_name": "cat",
+                "start_time": 1.0,
+                "end_time": 4.0,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    600.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "run_right"
+            },
+            {
+                "character_name": "dog",
+                "start_time": 1.0,
+                "end_time": 4.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    700.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "run_right"
+            },
+            {
+                "character_name": "cat",
+                "start_time": 4.0,
+                "end_time": 5.0,
+                "start_position": [
+                    600.0,
+                    307.0
+                ],
+                "end_position": [
+                    700.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "run_right"
+            },
+            {
+                "character_name": "dog",
+                "start_time": 4.0,
+                "end_time": 5.0,
+                "start_position": [
+                    700.0,
+                    307.0
+                ],
+                "end_position": [
+                    700.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": null
+            },
+            {
+                "character_name": "dog",
+                "start_time": 5.0,
+                "end_time": 6.0,
+                "start_position": [
+                    700.0,
+                    307.0
+                ],
+                "end_position": [
+                    700.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "cry"
+            },
+            {
+                "character_name": "cat",
+                "start_time": 6.0,
+                "end_time": 7.0,
+                "start_position": [
+                    700.0,
+                    307.0
+                ],
+                "end_position": [
+                    700.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "jump_with_joy"
+            },
+            {
+                "character_name": "cat",
+                "start_time": 7.0,
+                "end_time": 9.0,
+                "start_position": [
+                    700.0,
+                    307.0
+                ],
+                "end_position": [
+                    800.0,
+                    307.0
+                ],
+                "start_scale": 0.7,
+                "end_scale": 0.7,
+                "animation_name": "run_away"
+            }
+        ]
+    }
+]
