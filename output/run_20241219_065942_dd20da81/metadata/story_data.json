@@ -1,0 +1,48 @@
+{
+  "characters": [
+    {
+      "name": "Cat",
+      "type": "character",
+      "description": "A small feline with a sleek, agile body. Its fur is a mix of white and grey, with striking green eyes and a long, curved tail.",
+      "required_animations": [
+        "running"
+      ]
+    },
+    {
+      "name": "Dog",
+      "type": "character",
+      "description": "A medium-sized dog with short, brown fur and floppy ears. It has a white patch on its chest and expressive, round eyes.",
+      "required_animations": [
+        "running"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vibrant city park in the afternoon with lush green grass and tall leafy trees. The park is dotted with colorful flowers and has a clear blue sky overhead. A winding path leads through the park, lined with small benches and a few scattered toys. The atmosphere is lively yet serene, depicted in a vivid illustrative style.",
+      "characters": [
+        "Cat",
+        "Dog"
+      ],
+      "narration_text": "Cat chases Dog through the bustling city park, weaving between trees and dodging park benches.",
+      "test_criteria": {
+        "visual_elements": [
+          "city park",
+          "lush grass",
+          "leafy trees",
+          "path",
+          "benches",
+          "flowers",
+          "clear blue sky"
+        ],
+        "character_presence": [
+          "Cat",
+          "Dog"
+        ],
+        "mood": "energetic and lively",
+        "lighting": "bright afternoon"
+      }
+    }
+  ]
+}

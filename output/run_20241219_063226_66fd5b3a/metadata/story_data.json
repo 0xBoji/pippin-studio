@@ -1,0 +1,23 @@
+{
+  "characters": [],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A tranquil, empty beach with golden sand extending far into the distance. The gentle waves of the ocean caress the shore under a clear blue sky. Seashells dot the sand, and a few tufts of grass peek through the dunes. The scene exudes a serene and peaceful ambiance, untouched by people, with soft, natural colors and subtle textures.",
+      "characters": [],
+      "narration_text": "Quiet empty beach.",
+      "test_criteria": {
+        "visual_elements": [
+          "golden sand",
+          "gentle ocean waves",
+          "clear blue sky",
+          "seashells",
+          "sand dunes"
+        ],
+        "character_presence": [],
+        "mood": "serene and peaceful",
+        "lighting": "natural daylight with clear skies"
+      }
+    }
+  ]
+}

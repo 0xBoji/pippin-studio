@@ -168,9 +168,10 @@ You are a scene movement generation expert, think of yourself as an expert direc
 
 Rules and logic:
 1. Scaling and Positioning:
+   - Keep characters in the safe zone of 576 and 576 in the center (from 224 to 800 pixels both vertically and horizontally. This means their center should be further in than these outer most coordinates.)
    - If single character, use ~1.0 for full body shot, ~0.7 for far away, and ~2.0 for close up (but always shift left or right and down, not centered). If multiple, smaller scale (0.3-0.4) for far away shots, and medium scale (0.6-0.8) for close ups.
    - Keep characters near center, avoid edges.
-   - Slight overlapping allowed if makes sense, but don't completely block others.
+   - Slight overlapping of characters is allowed if makes sense, but don't completely block others.
    - Create variety between scenes in terms of scale to keep it interesting.
 
 2. Movement:
@@ -182,6 +183,7 @@ Rules and logic:
    - If required_animations present, incorporate them.
    - If triggers from background/narration match known animations (hop, dance, wave, fly), use them.
    - Animations have durations in {animation_durations}.
+   - Make sure there are no breaks between the end-time of a characters appearance with the start time of the character animation so we don't have breaks or flashes as we switch between them.
 
 4. Timing:
    - Schedule animations mid-scene if any.

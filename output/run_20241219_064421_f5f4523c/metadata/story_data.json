@@ -1,0 +1,22 @@
+{
+  "characters": [],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A serene and untouched forest landscape, featuring tall, dense trees with lush green foliage. The ground is covered with a soft carpet of moss and fallen leaves, creating a tranquil atmosphere. Sunlight peeks through the canopy, casting dappled light onto the forest floor. The scene is peaceful and undisturbed, evoking a sense of quiet solitude.",
+      "characters": [],
+      "narration_text": "An empty forest stood still, quiet and untouched by the outside world.",
+      "test_criteria": {
+        "visual_elements": [
+          "tall dense trees",
+          "lush green foliage",
+          "moss-covered ground",
+          "dappled sunlight"
+        ],
+        "character_presence": [],
+        "mood": "serene and tranquil",
+        "lighting": "soft, dappled sunlight through the canopy"
+      }
+    }
+  ]
+}

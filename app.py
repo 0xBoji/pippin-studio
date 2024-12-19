@@ -156,12 +156,6 @@ def generate():
     generation_mode = request.form.get('generation_mode', 'prompt')
     scene_count = request.form.get('scene_count', 'auto')
 
-    # If generation_mode is prompt: we have a prompt (description) from which we generate a story.
-    # If full_text: the description is the full story text already.
-    # We'll let the story_analyzer handle this logic with parameters passed in.
-    # Also pass the scene_count param.
-
-    # We'll treat 'title' and 'description' as given.
     story_text = f"{title}\n\n{description}"
 
     progress["step"] = "Starting..."
@@ -289,6 +283,36 @@ async def run_pipeline(story_text_local, generation_mode_local, scene_count_loca
             final_video_path = None
         else:
             logger.info(f"Final stitched video at: {final_video_path}")
+
+        # After final_video.mp4 is created, produce vertical and horizontal versions
+        if final_video_path and final_video_path.exists():
+            # final_video_vertical (9:16)
+            # 1024x1024 -> crop to 576x1024 (centered horizontally)
+            # crop=width:height:x:y = crop=576:1024:224:0
+            final_video_vertical = final_video_dir / "final_video_vertical.mp4"
+            cmd_vertical = [
+                'ffmpeg', '-y',
+                '-i', str(final_video_path),
+                '-filter:v', 'crop=576:1024:224:0',
+                '-c:a', 'copy',
+                str(final_video_vertical)
+            ]
+            logger.info(f"Creating vertical video: {' '.join(cmd_vertical)}")
+            subprocess.run(cmd_vertical, capture_output=True, text=True)
+
+            # final_video_horizontal (16:9)
+            # 1024x1024 -> crop to 1024x576 (centered vertically)
+            # crop=1024:576:0:224
+            final_video_horizontal = final_video_dir / "final_video_horizontal.mp4"
+            cmd_horizontal = [
+                'ffmpeg', '-y',
+                '-i', str(final_video_path),
+                '-filter:v', 'crop=1024:576:0:224',
+                '-c:a', 'copy',
+                str(final_video_horizontal)
+            ]
+            logger.info(f"Creating horizontal video: {' '.join(cmd_horizontal)}")
+            subprocess.run(cmd_horizontal, capture_output=True, text=True)
     else:
         final_video_path = None
         logger.warning("No video_with_sound files found to stitch into final video.")

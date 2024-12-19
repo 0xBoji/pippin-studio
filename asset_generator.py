@@ -370,7 +370,7 @@ Add an animation for '{animation_name}' action following system instructions.
         try:
             result["prompt"] = (
                 f"Create a storybook illustration: {description} "
-                "Children's book style, bright, colorful, magical, no text."
+                "Children's book style, gentle, soft, colorful, magical, no text."
             )
 
             image_filename = f"scene_{scene_id}_background.png"
