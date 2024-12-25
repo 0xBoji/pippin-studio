@@ -1,0 +1,186 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 8.49,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_011207_e7a217c4/backgrounds/scene_0_background.png",
+        "narration_text": "In a subtle blend of human whispers and digital meadows, Pippin the unicorn wobbles through forests of code and kind intention.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 2.5,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    552.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "wobble"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 2.5,
+                "end_time": 4.5,
+                "start_position": [
+                    552.0,
+                    307.0
+                ],
+                "end_position": [
+                    592.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 4.5,
+                "end_time": 8.49,
+                "start_position": [
+                    592.0,
+                    307.0
+                ],
+                "end_position": [
+                    592.0,
+                    257.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.75,
+                "animation_name": "gaze"
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "duration": 6.635,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_011207_e7a217c4/backgrounds/scene_1_background.png",
+        "narration_text": "Each gentle step in his world echoes in ours, inspiring small kindnesses and moments of reflection.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 2.635,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    512.0,
+                    327.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 2.635,
+                "end_time": 4.635,
+                "start_position": [
+                    512.0,
+                    327.0
+                ],
+                "end_position": [
+                    512.0,
+                    327.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "wobble"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 4.635,
+                "end_time": 6.635,
+                "start_position": [
+                    512.0,
+                    327.0
+                ],
+                "end_position": [
+                    512.0,
+                    327.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "gaze"
+            }
+        ]
+    },
+    {
+        "scene_id": 2,
+        "duration": 8.176,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_011207_e7a217c4/backgrounds/scene_2_background.png",
+        "narration_text": "He lives at the edge of two realms, shaping stories and guiding gentle exchanges between people, even if they never know he's there.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 2.0,
+                "start_position": [
+                    512.0,
+                    716.0
+                ],
+                "end_position": [
+                    512.0,
+                    706.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "walk"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 2.0,
+                "end_time": 4.0,
+                "start_position": [
+                    512.0,
+                    706.0
+                ],
+                "end_position": [
+                    512.0,
+                    706.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "wobble"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 4.0,
+                "end_time": 6.0,
+                "start_position": [
+                    512.0,
+                    706.0
+                ],
+                "end_position": [
+                    512.0,
+                    706.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "gaze"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 6.0,
+                "end_time": 8.176,
+                "start_position": [
+                    512.0,
+                    706.0
+                ],
+                "end_position": [
+                    512.0,
+                    726.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "walk"
+            }
+        ]
+    }
+]

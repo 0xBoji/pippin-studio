@@ -1,12 +1,17 @@
+# asset_generator.py
+
 import asyncio
 import json
 import logging
+import difflib
 from pathlib import Path
 from typing import Dict, List
 import requests
 from io import BytesIO
 from PIL import Image
+
 from asset_manager import AssetManager
+from svg_config import EXAMPLE_SVGS  # <-- Import your predefined SVG dictionary
 from litellm import completion
 from openai import OpenAI
 from pydantic import BaseModel
@@ -59,10 +64,11 @@ async def download_image(url: str, output_path: str) -> bool:
         logger.error(f"Unexpected error while downloading image: {e}")
         return False
 
+
 class AssetGenerator:
     def __init__(self, asset_manager: AssetManager):
         # Use o1-mini model instead of gpt-4o
-        self.model = "o1-mini"
+        self.model = "gpt-4o-mini"
         self.asset_manager = asset_manager
         try:
             self.client = OpenAI()
@@ -71,28 +77,8 @@ class AssetGenerator:
             logger.error(f"Failed to initialize OpenAI client: {e}")
             raise
 
-        # Example SVGs from a config-like dictionary
-        self.svg_config = {
-            "unicorn": """<?xml version="1.0" encoding="UTF-8"?>
-<svg width="250" height="250" viewBox="0 0 250 250"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <g id="Unicorn_base_character">
-            <!-- Base shape with a light bounce animation -->
-            <g>
-                <animateTransform attributeName="transform" attributeType="XML" type="translate"
-                                  values="0 0; 0 15; 0 0" dur="1s" repeatCount="indefinite"/>
-                <path d="M80,150 Q60,120 80,90 Q100,60 140,70 Q180,80 160,120 Q150,160 100,160 Z"
-                      fill="#fff" stroke="#000" stroke-width="2"/>
-                <circle cx="120" cy="110" r="5" fill="#000"/>
-                <polygon points="160,55 155,35 165,35" fill="#ffd700" stroke="#000" stroke-width="1"/>
-            </g>
-        </g>
-    </defs>
-    <use xlink:href="#Unicorn_base_character"/>
-</svg>"""
-        }
+        # Load the pre-defined example SVGs from svg_config.py
+        self.svg_config = EXAMPLE_SVGS
 
     async def generate_all_assets(self, story_data: Dict) -> Dict:
         results = []
@@ -194,6 +180,23 @@ class AssetGenerator:
             logger.exception("Detailed error traceback:")
             raise
 
+    def _best_svg_match(self, char_name: str) -> str:
+        """
+        Attempt to find the closest-matching pre-defined SVG 
+        based on char_name. Returns None if no close match is found.
+        """
+        # Grab all the keys from the config
+        keys = list(self.svg_config.keys())
+        if not keys:
+            return None
+
+        # Use difflib to find closest match
+        matches = difflib.get_close_matches(char_name.lower(), keys, n=1, cutoff=0.6)
+        if matches:
+            # matches[0] will be the best match from the dictionary
+            return matches[0]
+        return None
+
     async def generate_character_svg(self, character: Dict) -> Dict:
         required_fields = ['name', 'type', 'description', 'required_animations']
         missing_fields = [f for f in required_fields if f not in character]
@@ -203,6 +206,7 @@ class AssetGenerator:
         char_name = character['name']
         char_type = character['type']
         char_desc = character['description']
+
         if not char_name or not isinstance(char_name, str):
             raise ValueError(f"Invalid character name: {char_name}")
         if char_type not in ['character', 'object']:
@@ -210,15 +214,21 @@ class AssetGenerator:
         if not char_desc:
             raise ValueError(f"Empty character description for {char_name}")
 
-        # Check if character name matches "unicorn"
-        if "unicorn" in char_name.lower():
-            svg_code = self.svg_config["unicorn"]
+        # 1) Try to find a similar name in our svg_config
+        matched_key = self._best_svg_match(char_name)
+
+        if matched_key:
+            # If we found a match in the config, use that example SVG
+            logger.info(f"Using pre-defined SVG for '{char_name}' (closest match: '{matched_key}')")
+            svg_code = self.svg_config[matched_key]
             return {
                 "svg_code": svg_code,
                 "character_name": char_name
             }
         else:
-            # Dynamically generate SVG using o1-mini and then parse with gpt-4o-mini
+            # 2) Otherwise, we dynamically generate the SVG using our LLM approach
+            logger.info(f"No close match found in svg_config for '{char_name}'. Generating via LLM...")
+
             schema = {
                 "type": "object",
                 "properties": {
@@ -263,7 +273,6 @@ Generate a base animated SVG following the system instructions.
                     {"role": "user", "content": user_prompt}
                 ]
             )
-
             o1_response_content = o1_response.choices[0].message.content
 
             # Second call with gpt-4o-mini to parse the JSON
@@ -328,7 +337,6 @@ Add an animation for '{animation_name}' action following system instructions.
                 {"role": "user", "content": user_prompt}
             ]
         )
-
         o1_response_content = o1_response.choices[0].message.content
 
         # Second call with gpt-4o-mini to parse the JSON

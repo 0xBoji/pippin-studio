@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class StoryAnalyzer:
     def __init__(self, generation_mode="prompt", scene_count="auto"):
         # the newest OpenAI model is "gpt-4o"
-        self.model = "gpt-4o"
+        self.model = "gpt-4o-mini"
         self.generation_mode = generation_mode
         self.scene_count = scene_count
 
@@ -39,6 +39,7 @@ class StoryAnalyzer:
 
         Requirements:
         - The story should be self-contained and complete.
+        - Keep each scene approximately 30 seconds long max based on narration length.
         - If scene_count is a number (not "auto"), structure the story so it can be naturally divided into that many scenes.
         - If scene_count is "auto", you can choose the natural number of scenes.
         - Make sure the story is detailed and suitable for visual scene extraction.

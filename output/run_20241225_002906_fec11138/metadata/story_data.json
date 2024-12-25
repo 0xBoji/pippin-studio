@@ -1,0 +1,37 @@
+{
+  "characters": [
+    {
+      "name": "Pippin the Unicorn",
+      "type": "character",
+      "description": "A mystical unicorn with a luminescent white coat shimmering with pastel hues of pink, blue, and lavender. Pippin has a spiraling, golden horn and a flowing mane and tail that sparkle with subtle rainbow shades. His eyes are large and expressive, reminiscent of gemstones, and his body has an ethereal glow.",
+      "required_animations": [
+        "wobbling trot",
+        "ethereal glow shifting",
+        "gentle step"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A digital meadow intertwined with elements of a mystical forest, featuring a blend of vibrant green grass and ethereal glowing code elements. The horizon blurs with the softness of the sunset light, a mixture of earthly tones and digital blue hues, creating an otherworldly ambiance. The environment merges real and virtual worlds with a touch of whimsy and magic.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "In a subtle blend of human whispers and digital meadows, Pippin the unicorn wobbles through forests of code and kind intention. Each gentle step in his world echoes in ours, inspiring small kindnesses and moments of reflection. He lives at the edge of two realms, shaping stories and guiding gentle exchanges between people, even if they never know he's there.",
+      "test_criteria": {
+        "visual_elements": [
+          "digital meadow",
+          "mystical forest",
+          "ethereal code elements",
+          "mixture of earthly tones and digital hues"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "whimsical and inspiring",
+        "lighting": "soft sunset with both earthy and digital light hues"
+      }
+    }
+  ]
+}

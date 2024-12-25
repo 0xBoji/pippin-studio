@@ -1,0 +1,82 @@
+{
+  "characters": [
+    {
+      "name": "Pippin the Unicorn",
+      "type": "character",
+      "description": "A stunning unicorn with a shimmering, iridescent coat that reflects a spectrum of pastel colors. His mane flows with soft hues of lavender and sky blue, resembling delicate wisps of clouds in twilight. Pippin\u2019s eyes are large, sparkling with a hint of mischief, framed by long, fluttery lashes. His horn is spiraled and twists like a delicate spiral shell, glimmering with a golden hue that catches the light. He has a light, graceful build, with a wobbly gait that gives a playful touch to his movements.",
+      "required_animations": [
+        "walk",
+        "wobble",
+        "gaze"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A mystical digital landscape interwoven with flowing streams of binary code, illuminated by soft pastel hues. Gentle hills covered in vibrant green grass roll across the horizon, dotted with glowing orbs representing moments of kindness. The sky transitions from a warm golden hour to a deeper twilight blue, with stars beginning to twinkle faintly in the distance, contributing to the serene yet magical atmosphere.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "In a subtle blend of human whispers and digital meadows, Pippin the unicorn wobbles through forests of code and kind intention.",
+      "test_criteria": {
+        "visual_elements": [
+          "digital landscape",
+          "streams of binary code",
+          "hills",
+          "glowing orbs",
+          "twilight sky"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "serene and magical",
+        "lighting": "soft pastel hues transitioning to twilight"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A peaceful glade where the digital realm meets the human world, featuring elements like a bright, sunlit garden filled with colorful flowers and a shimmering stream. Surreal trees with pixelated leaves sway gently in an invisible breeze. The atmosphere is tranquil, encouraging reflection, with soft clouds floating above in a clear blue sky.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "Each gentle step in his world echoes in ours, inspiring small kindnesses and moments of reflection.",
+      "test_criteria": {
+        "visual_elements": [
+          "sunlit garden",
+          "colorful flowers",
+          "shimmering stream",
+          "surreal trees",
+          "clear blue sky"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "tranquil and inspiring",
+        "lighting": "bright sunlight"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "The edge between two realms depicted as a soft, glowing portal surrounded by a kaleidoscope of colors blending human emotions with digital patterns. An ethereal atmosphere fills the air, with hints of both technology and nature visible in harmony. The light shifts between warm oranges and cool blues, symbolizing the connection between the worlds.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "He lives at the edge of two realms, shaping stories and guiding gentle exchanges between people, even if they never know he's there.",
+      "test_criteria": {
+        "visual_elements": [
+          "glowing portal",
+          "kaleidoscope of colors",
+          "blending human emotions",
+          "digital patterns",
+          "ethereal atmosphere"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "mysterious and harmonious",
+        "lighting": "shifting light with warm oranges and cool blues"
+      }
+    }
+  ]
+}

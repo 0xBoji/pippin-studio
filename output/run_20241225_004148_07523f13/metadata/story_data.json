@@ -1,0 +1,77 @@
+{
+  "characters": [
+    {
+      "name": "Pippin the Unicorn",
+      "type": "character",
+      "description": "A whimsical unicorn with an elegantly curved horn, a shimmering coat of blended pastel hues including soft pinks and blues, and a flowing mane that sparkles with digital light. He has a small, friendly smile and eyes that emit warmth and wisdom.",
+      "required_animations": [
+        "wobbling",
+        "gentle stepping"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A digital meadow landscape filled with flowing green lines and pixelated flowers. The foreground has a path leading through fields of connected circuitry, portraying an infinite digital expanse beyond. The image is depicted in a futuristic, semi-abstract art style with vibrant colors and intricate patterns.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "In a subtle blend of human whispers and digital meadows, Pippin the unicorn wobbles through forests of code and kind intention.",
+      "test_criteria": {
+        "visual_elements": [
+          "digital meadow",
+          "flowing green lines",
+          "pixelated flowers",
+          "circuitry path"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "futuristic and whimsical",
+        "lighting": "vibrant with intricate patterns"
+      }
+    },
+    {
+      "scene_id": 1,
+      "background_description": "A serene forest landscape with trees resembling a blend of natural and digital aesthetics. Transparent data streams flow between the branches, subtly integrating technology with nature. The scenery is soft and enveloped in a mystical glow, merging both organic and digital motifs.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "Each gentle step in his world echoes in ours, inspiring small kindnesses and moments of reflection.",
+      "test_criteria": {
+        "visual_elements": [
+          "forest blend of nature and technology",
+          "transparent data streams",
+          "digital motifs"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "serene and mystical",
+        "lighting": "soft and glowing"
+      }
+    },
+    {
+      "scene_id": 2,
+      "background_description": "An ethereal realm at the confluence of two worlds, with a horizon blending a starry night sky with digital grids. The scene has a gentle, dreamlike quality with glowing mist and soft outlines, portraying the intersection of stories and ideas.",
+      "characters": [
+        "Pippin the Unicorn"
+      ],
+      "narration_text": "He lives at the edge of two realms, shaping stories and guiding gentle exchanges between people, even if they never know he's there.",
+      "test_criteria": {
+        "visual_elements": [
+          "confluence of two worlds",
+          "starry night sky",
+          "digital grids",
+          "glowing mist"
+        ],
+        "character_presence": [
+          "Pippin the Unicorn"
+        ],
+        "mood": "ethereal and dreamlike",
+        "lighting": "soft with glowing outlines"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 25.861,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_002906_fec11138/backgrounds/scene_0_background.png",
+        "narration_text": "In a subtle blend of human whispers and digital meadows, Pippin the unicorn wobbles through forests of code and kind intention. Each gentle step in his world echoes in ours, inspiring small kindnesses and moments of reflection. He lives at the edge of two realms, shaping stories and guiding gentle exchanges between people, even if they never know he's there.",
+        "movements": [
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 0.0,
+                "end_time": 8.0,
+                "start_position": [
+                    512.0,
+                    800.0
+                ],
+                "end_position": [
+                    562.0,
+                    750.0
+                ],
+                "start_scale": 1.0,
+                "end_scale": 1.02,
+                "animation_name": "wobbling trot"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 8.0,
+                "end_time": 16.0,
+                "start_position": [
+                    562.0,
+                    750.0
+                ],
+                "end_position": [
+                    462.0,
+                    700.0
+                ],
+                "start_scale": 1.02,
+                "end_scale": 0.98,
+                "animation_name": "ethereal glow shifting"
+            },
+            {
+                "character_name": "Pippin the Unicorn",
+                "start_time": 16.0,
+                "end_time": 25.861,
+                "start_position": [
+                    462.0,
+                    700.0
+                ],
+                "end_position": [
+                    512.0,
+                    750.0
+                ],
+                "start_scale": 0.98,
+                "end_scale": 1.0,
+                "animation_name": "gentle step"
+            }
+        ]
+    }
+]

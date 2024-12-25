@@ -1,0 +1,22 @@
+{
+  "run_id": "run_20241225_004148_07523f13",
+  "created_at": "2024-12-25T00:41:48.332041",
+  "assets": {
+    "characters": [
+      "pippin_the_unicorn.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "pippin_the_unicorn_wobbling.svg",
+      "pippin_the_unicorn_gentle_stepping.svg",
+      "pippin_the_unicorn_wobbling_temp.svg",
+      "pippin_the_unicorn_gentle_stepping_temp.svg",
+      "pippin_the_unicorn_wobbling_temp.svg",
+      "pippin_the_unicorn_gentle_stepping_temp.svg",
+      "pippin_the_unicorn_wobbling_temp.svg",
+      "pippin_the_unicorn_gentle_stepping_temp.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}
