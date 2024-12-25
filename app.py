@@ -8,7 +8,6 @@ import logging
 import subprocess
 
 from asset_manager import AssetManager
-from ai_manager import AIManager
 from story_analyzer import StoryAnalyzer
 from asset_generator import AssetGenerator
 from scene_composer import SceneComposer
@@ -169,7 +168,6 @@ async def run_pipeline(story_text_local, generation_mode_local, scene_count_loca
     global current_run_id
     current_run_id = asset_manager.run_id
 
-    ai_manager = AIManager()
     story_analyzer = StoryAnalyzer(generation_mode=generation_mode_local, scene_count=scene_count_local)
     asset_generator = AssetGenerator(asset_manager=asset_manager)
     movement_analyzer = SceneMovementAnalyzer()

@@ -7,7 +7,6 @@ import os
 import svgwrite
 from lxml import etree
 from asset_manager import AssetManager
-from svg_animator import SVGAnimator
 from video_processor import VideoProcessor
 
 logging.basicConfig(
@@ -18,7 +17,6 @@ logger = logging.getLogger(__name__)
 
 class SceneComposer:
     def __init__(self, asset_manager: Optional[AssetManager] = None):
-        self.animator = SVGAnimator()
         self.asset_manager = asset_manager or AssetManager()
         self.video_processor = VideoProcessor(self.asset_manager)
 

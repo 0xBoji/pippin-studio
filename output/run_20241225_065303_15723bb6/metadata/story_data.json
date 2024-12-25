@@ -1,0 +1,38 @@
+{
+  "characters": [
+    {
+      "name": "Pippin",
+      "type": "character",
+      "description": "Pippin is a small, energetic creature resembling a cartoonish animal with round, fluffy body, large expressive eyes that sparkle with enthusiasm, and floppy ears. Its fur is a vibrant shade of light blue with white accents on the belly and tips of the ears. Pippin has a cheerful smile and carries a small tablet device in one paw.",
+      "required_animations": [
+        "jumping with excitement",
+        "tapping on the tablet",
+        "watching a video intently"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "An inviting home office filled with natural light, featuring a cozy desk cluttered with notebooks and a laptop screen displaying colorful video thumbnails. A soft, cushioned chair sits beside the desk, and a window reveals a bright, cheerful garden with blooming flowers and a blue sky. The room is decorated with vibrant artwork on the walls, and a warm, welcoming atmosphere permeates the space.",
+      "characters": [
+        "Pippin"
+      ],
+      "narration_text": "Pippin, sitting in a sunlit corner of his home office, eagerly scrolling through an array of quick videos, his eyes sparkling with excitement.",
+      "test_criteria": {
+        "visual_elements": [
+          "home office",
+          "desk with notebooks",
+          "laptop screen with video thumbnails",
+          "window with a garden view",
+          "bright colorful artwork"
+        ],
+        "character_presence": [
+          "Pippin"
+        ],
+        "mood": "excited and joyful",
+        "lighting": "bright natural light coming from the window"
+      }
+    }
+  ]
+}

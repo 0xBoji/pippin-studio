@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Pippin_base_character">
+      <circle cx="100" cy="100" r="40" fill="lightblue" />
+      <ellipse cx="100" cy="140" rx="50" ry="20" fill="lightblue" />
+      <circle cx="85" cy="85" r="5" fill="black" />
+      <circle cx="115" cy="85" r="5" fill="black" />
+      <path d="M80,110 Q100,130 120,110" stroke="black" stroke-width="2" fill="none" />
+      <ellipse cx="80" cy="70" rx="15" ry="30" fill="white" />
+      <ellipse cx="120" cy="70" rx="15" ry="30" fill="white" />
+      <path d="M100,50 Q70,100 100,120" fill="lightblue" />
+      <path d="M100,50 Q130,100 100,120" fill="lightblue" />
+      <rect x="80" y="105" width="40" height="20" fill="white" stroke="grey" stroke-width="2" />
+    </g>
+  </defs>
+  <use xlink:href="#Pippin_base_character" />
+  <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0; 0 10; 0 0" dur="1s" repeatCount="indefinite" />
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" values="0; 2; 0" dur="0.5s" begin="0s; animate_blink.end" repeatCount="indefinite" />
+  <animate attributeName="opacity" from="1" to="0.5" dur="0.5s" id="animate_blink" begin="0s; animate_blink.end" repeatCount="indefinite" />
+</svg>

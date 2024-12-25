@@ -1,0 +1,20 @@
+{
+  "run_id": "run_20241225_065303_15723bb6",
+  "created_at": "2024-12-25T06:53:03.079143",
+  "assets": {
+    "characters": [
+      "pippin.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "pippin_jumping_with_excitement.svg",
+      "pippin_tapping_on_the_tablet.svg",
+      "pippin_watching_a_video_intently.svg",
+      "pippin_jumping_with_excitement_temp.svg",
+      "pippin_tapping_on_the_tablet_temp.svg",
+      "pippin_watching_a_video_intently_temp.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

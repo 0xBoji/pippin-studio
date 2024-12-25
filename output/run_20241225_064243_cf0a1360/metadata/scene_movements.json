@@ -1,0 +1,170 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 48.509,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_064243_cf0a1360/backgrounds/scene_0_background.png",
+        "narration_text": "One sunny morning, as Ollie hooted softly from his perch, he noticed Tilly struggling to climb a small hill. Concerned, he swooped down to her side. 'What troubles you, dear friend?' he asked. Tilly looked up, her big, brown eyes shimmering with determination. 'I\u2019ve heard tales of a beautiful pond at the top of this hill, Ollie. I want to see it, but it seems so far away.' Ollie thought for a moment, his feathers ruffling in the gentle breeze. 'Why don\u2019t we embark on an adventure together?' he suggested. Tilly's eyes sparkled with excitement. 'Oh, yes! That would be wonderful!' With that, Ollie flew just ahead, guiding Tilly up the winding path.",
+        "movements": [
+            {
+                "character_name": "Ollie the Owl",
+                "start_time": 0.0,
+                "end_time": 5.0,
+                "start_position": [
+                    341.0,
+                    307.0
+                ],
+                "end_position": [
+                    450.0,
+                    200.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "perch"
+            },
+            {
+                "character_name": "Tilly the Turtle",
+                "start_time": 5.0,
+                "end_time": 10.0,
+                "start_position": [
+                    682.0,
+                    307.0
+                ],
+                "end_position": [
+                    682.0,
+                    357.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "slow walk"
+            },
+            {
+                "character_name": "Ollie the Owl",
+                "start_time": 10.0,
+                "end_time": 15.0,
+                "start_position": [
+                    450.0,
+                    200.0
+                ],
+                "end_position": [
+                    450.0,
+                    250.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "swoop down"
+            },
+            {
+                "character_name": "Tilly the Turtle",
+                "start_time": 15.0,
+                "end_time": 23.0,
+                "start_position": [
+                    682.0,
+                    357.0
+                ],
+                "end_position": [
+                    682.0,
+                    357.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "look up"
+            },
+            {
+                "character_name": "Tilly the Turtle",
+                "start_time": 23.0,
+                "end_time": 25.0,
+                "start_position": [
+                    682.0,
+                    357.0
+                ],
+                "end_position": [
+                    682.0,
+                    357.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "sparkle eyes"
+            },
+            {
+                "character_name": "Ollie the Owl",
+                "start_time": 25.0,
+                "end_time": 27.0,
+                "start_position": [
+                    450.0,
+                    250.0
+                ],
+                "end_position": [
+                    450.0,
+                    250.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "nod"
+            },
+            {
+                "character_name": "Ollie the Owl",
+                "start_time": 27.0,
+                "end_time": 29.0,
+                "start_position": [
+                    450.0,
+                    250.0
+                ],
+                "end_position": [
+                    450.0,
+                    250.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "smile"
+            },
+            {
+                "character_name": "Tilly the Turtle",
+                "start_time": 29.0,
+                "end_time": 31.5,
+                "start_position": [
+                    682.0,
+                    357.0
+                ],
+                "end_position": [
+                    682.0,
+                    357.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "smile"
+            },
+            {
+                "character_name": "Ollie the Owl",
+                "start_time": 31.5,
+                "end_time": 34.0,
+                "start_position": [
+                    450.0,
+                    250.0
+                ],
+                "end_position": [
+                    341.0,
+                    200.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "fly"
+            },
+            {
+                "character_name": "Tilly the Turtle",
+                "start_time": 34.0,
+                "end_time": 48.509,
+                "start_position": [
+                    682.0,
+                    357.0
+                ],
+                "end_position": [
+                    682.0,
+                    407.0
+                ],
+                "start_scale": 0.6,
+                "end_scale": 0.6,
+                "animation_name": "slow walk"
+            }
+        ]
+    }
+]

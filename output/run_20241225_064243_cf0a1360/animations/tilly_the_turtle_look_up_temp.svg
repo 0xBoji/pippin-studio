@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <g id="Tilly_the_Turtle_base_character">
+      <ellipse cx="100" cy="140" rx="40" ry="20" fill="#A8D5BA" stroke="#C1B0AB" stroke-width="2"/>
+      <ellipse cx="100" cy="100" rx="50" ry="30" fill="#7FB35D" stroke="#D4AF37" stroke-width="3"/>
+      <circle cx="100" cy="90" r="25" fill="#7FB35D" stroke="#D4AF37" stroke-width="2"/>
+      <circle cx="85" cy="86" r="5" fill="brown"/>
+      <circle cx="115" cy="86" r="5" fill="brown"/>
+      <path d="M88,100 Q100,110 112,100" fill="none" stroke="black" stroke-width="2"/>
+      <ellipse cx="80" cy="130" rx="5" ry="3" fill="#7FB35D"/>
+      <ellipse cx="120" cy="130" rx="5" ry="3" fill="#7FB35D"/>
+    </g>
+  </defs>
+  <use xlink:href="#Tilly_the_Turtle_base_character"/>
+  <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0; 0 10; 0 0" dur="1s" repeatCount="indefinite"/>
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 100 100" to="-15 100 100" dur="0.5s" begin="0s; animateTranslate.end" fill="freeze" />
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-15 100 100" to="0 100 100" dur="0.5s" begin="animateTranslate.end+0.5s" fill="freeze" />
+</svg>

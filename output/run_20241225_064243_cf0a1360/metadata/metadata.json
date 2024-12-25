@@ -1,0 +1,35 @@
+{
+  "run_id": "run_20241225_064243_cf0a1360",
+  "created_at": "2024-12-25T06:42:43.465924",
+  "assets": {
+    "characters": [
+      "ollie_the_owl.svg",
+      "tilly_the_turtle.svg"
+    ],
+    "backgrounds": [],
+    "animations": [
+      "ollie_the_owl_perch.svg",
+      "ollie_the_owl_fly.svg",
+      "ollie_the_owl_swoop_down.svg",
+      "ollie_the_owl_nod.svg",
+      "ollie_the_owl_smile.svg",
+      "tilly_the_turtle_slow_walk.svg",
+      "tilly_the_turtle_look_up.svg",
+      "tilly_the_turtle_sparkle_eyes.svg",
+      "tilly_the_turtle_sit.svg",
+      "tilly_the_turtle_smile.svg",
+      "ollie_the_owl_perch_temp.svg",
+      "ollie_the_owl_fly_temp.svg",
+      "ollie_the_owl_swoop_down_temp.svg",
+      "ollie_the_owl_nod_temp.svg",
+      "ollie_the_owl_smile_temp.svg",
+      "tilly_the_turtle_slow_walk_temp.svg",
+      "tilly_the_turtle_look_up_temp.svg",
+      "tilly_the_turtle_sparkle_eyes_temp.svg",
+      "tilly_the_turtle_sit_temp.svg",
+      "tilly_the_turtle_smile_temp.svg"
+    ],
+    "test_composition": [],
+    "scenes": []
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "characters": [
+    {
+      "name": "Ollie the Owl",
+      "type": "character",
+      "description": "A large, wise owl with soft, brown and white feathers. His big, round eyes are a striking golden color, radiating wisdom and kindness. He has a distinctive tuft of feathers on his head that resembles ears. His wings are wide and graceful, extending out elegantly as he flies.",
+      "required_animations": [
+        "perch",
+        "fly",
+        "swoop down",
+        "nod",
+        "smile"
+      ]
+    },
+    {
+      "name": "Tilly the Turtle",
+      "type": "character",
+      "description": "A gentle turtle with a smooth, green shell that has intricate golden patterns. Her feet and head are a lighter shade of green, and her big, brown eyes shimmer with curiosity and determination. She has a small, smiling mouth, and her legs are short and sturdy for her slow movement.",
+      "required_animations": [
+        "slow walk",
+        "look up",
+        "sparkle eyes",
+        "sit",
+        "smile"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 0,
+      "background_description": "A vibrant forest landscape during a sunny day, with a lush green hill leading to a sparkling pond at the top. The foreground is filled with colorful wildflowers and softly swaying grass, while a clear, bubbling brook winds through the rocky terrain nearby. In the background, tall trees provide a sheltering canopy, their leaves rustling gently in the breeze. The sky overhead is a bright blue dotted with fluffy white clouds, creating a cheerful and inviting atmosphere.",
+      "characters": [
+        "Ollie the Owl",
+        "Tilly the Turtle"
+      ],
+      "narration_text": "One sunny morning, as Ollie hooted softly from his perch, he noticed Tilly struggling to climb a small hill. Concerned, he swooped down to her side. 'What troubles you, dear friend?' he asked. Tilly looked up, her big, brown eyes shimmering with determination. 'I\u2019ve heard tales of a beautiful pond at the top of this hill, Ollie. I want to see it, but it seems so far away.' Ollie thought for a moment, his feathers ruffling in the gentle breeze. 'Why don\u2019t we embark on an adventure together?' he suggested. Tilly's eyes sparkled with excitement. 'Oh, yes! That would be wonderful!' With that, Ollie flew just ahead, guiding Tilly up the winding path.",
+      "test_criteria": {
+        "visual_elements": [
+          "lush green hill",
+          "sparkling pond",
+          "colorful wildflowers",
+          "bubbling brook",
+          "tall trees",
+          "bright blue sky with fluffy white clouds"
+        ],
+        "character_presence": [
+          "Ollie the Owl",
+          "Tilly the Turtle"
+        ],
+        "mood": "cheerful and adventurous",
+        "lighting": "sunny day with bright natural light"
+      }
+    }
+  ]
+}

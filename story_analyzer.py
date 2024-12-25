@@ -72,7 +72,7 @@ class StoryAnalyzer:
             1. name: A clear, descriptive name
             2. type: Either "character" or "object"
             3. description: A detailed physical description focused on visual elements that can be rendered in SVG (shape, colors, distinctive features)
-            4. required_animations: List of required animations based on their actions in the story
+            4. required_animations: List of required animations based on their actions in the story. Max 2 animations per character.
 
             Return a JSON object with this exact structure:
             {

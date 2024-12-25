@@ -1,0 +1,74 @@
+[
+    {
+        "scene_id": 0,
+        "duration": 9.091,
+        "background_path": "/home/runner/pippin-studio-1/output/run_20241225_065303_15723bb6/backgrounds/scene_0_background.png",
+        "narration_text": "Pippin, sitting in a sunlit corner of his home office, eagerly scrolling through an array of quick videos, his eyes sparkling with excitement.",
+        "movements": [
+            {
+                "character_name": "Pippin",
+                "start_time": 0.0,
+                "end_time": 3.0,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    512.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": null
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 3.0,
+                "end_time": 5.0,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    512.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "tapping on the tablet"
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 5.0,
+                "end_time": 8.0,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    512.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "jumping with excitement"
+            },
+            {
+                "character_name": "Pippin",
+                "start_time": 8.0,
+                "end_time": 9.091,
+                "start_position": [
+                    512.0,
+                    307.0
+                ],
+                "end_position": [
+                    512.0,
+                    307.0
+                ],
+                "start_scale": 0.5,
+                "end_scale": 0.5,
+                "animation_name": "watching a video intently"
+            }
+        ]
+    }
+]
