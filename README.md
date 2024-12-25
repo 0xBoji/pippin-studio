@@ -1,8 +1,6 @@
 # Pippin Studio
 
-GitHub: [github.com/yoheinakajima/pippin-studio](https://github.com/yoheinakajima/pippin-studio)
-
-Created by @yoheinakajima for the @pippinlovesyou project, an experiment in AI-generated kids content, inspired by the early success of the Bedtime Stories with Pippin podcast.
+Created by (https://x.com/yoheinakajima)[@yoheinakajima] for the (https://x.com/pippinlovesyou)[@pippinlovesyou] project, a continued exploration in AI-generated kids content, inspired by the early success of the Bedtime Stories with Pippin podcast.
 
 ---
 
