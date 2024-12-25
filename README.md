@@ -1,6 +1,6 @@
 # Pippin Studio
 
-Created by [@yoheinakajima](https://x.com/yoheinakajima) for the [@pippinlovesyou](https://x.com/pippinlovesyou) project, a continued exploration in AI-generated kids content, inspired by the early success of the Bedtime Stories with Pippin podcast. [Learn more]().
+Created by [@yoheinakajima](https://x.com/yoheinakajima) for the [@pippinlovesyou](https://x.com/pippinlovesyou) project, a continued exploration in AI-generated kids content, inspired by the early success of the Bedtime Stories with Pippin podcast. [Learn more](https://x.com/yoheinakajima/status/1871848832004145233).
 
 ---
 
